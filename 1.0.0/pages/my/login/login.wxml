@@ -1,0 +1,32 @@
+<!--login.wxml-->
+<view class="login">
+	<view class="flex">
+	    <view class="logo flex-ver">
+	      	<image mode="aspectFit" src="http://icon.cnmo-img.com.cn/articlepc/cnmo_icon.png"></image>
+	    </view>
+	    <view class="logo-box fz16">
+		    <form bindsubmit="formSubmit">
+			    <view class="section flex-ver">
+			        <view class="section-icon">
+			        	<image src="../../../image/bbs.png"/>
+			        </view>
+			        <input bindinput="bindKeyInput" name="user" id="user" focus="true" placeholder="邮箱/手机号/用户名" />
+			    </view>
+			    <view class="section flex-ver">
+			         <view class="section-icon">
+			        	<image src="../../../image/bbs.png"/>
+			        </view>
+			        <input bindinput="bindKeyInput" name="password" id="password" password="true" placeholder="密码" />
+			    </view>
+			    <view class="btn-area">
+			        <button formType="submit" disabled="{{loginBtn}}" class="{{(userHave&&passwordHave)?'btnClick':''}}">登录</button>
+			    </view>
+			    <view class="btn-text flex-between">
+			        <text>忘记密码？</text>
+			        <text>立即注册></text>
+			    </view>
+			</form>
+		</view>
+	</view>
+</view>
+

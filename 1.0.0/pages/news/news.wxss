@@ -1,0 +1,49 @@
+.news-page{
+	padding: 0 30rpx;
+}
+.news-tit{
+	font-size: 26px;
+	font-weight: bold;
+	line-height: 1.2;
+	padding: 20rpx 0;
+}
+.news-info{
+	color: #666;
+	padding:20rpx 0;
+	font-size: 14px;
+}
+.news-content text{
+	text-indent: 28px;
+	display: block;
+}
+/*底部*/
+.news-footer{
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	height: 80rpx;
+	background: #f4f4f4;
+	width: 100%;
+}
+.news-btn{
+	margin: 15rpx 20rpx;
+}
+.news-btn image{
+	width: 45rpx;
+	height: 45rpx;
+}
+.icon_more image{
+	transform:rotate(90deg);
+	width: 32rpx;
+	height: 16rpx;
+}
+.news-input{
+	border-radius: 20rpx;
+	background: #fff;
+	height: 50rpx;
+	line-height: 50rpx;
+	font-size: 14px;
+	text-align: left;
+	text-indent: 20rpx;
+	display: block;
+}

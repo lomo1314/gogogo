@@ -1,0 +1,72 @@
+.banner image {
+    width: 100%;
+    height: 228rpx;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.ban-tip image {
+    width: 100%;
+    height: 124rpx;
+    position: fixed;
+    top: 228rpx;
+    left: 0;
+    z-index: -1;
+}
+
+.fixed-box {
+    height: 228rpx;
+}
+
+.skill-cont {
+    width: 710rpx;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 25rpx;
+}
+
+.skill-txt,
+.skill-video {
+    border-radius: 25rpx;
+    background: #eeeff6;
+    margin-bottom: 12rpx;
+}
+
+.skill-txt image,
+.skill-video video,
+.skill-video image {
+    width: 100%;
+    height: 362rpx;
+    border-top-left-radius: 25rpx;
+    border-top-right-radius: 25rpx;
+}
+
+.skill-p {
+    font-size: 22rpx;
+    color: #121212;
+    padding-left: 26rpx;
+    padding-bottom: 10rpx;
+}
+.video{
+	position: relative;
+}
+.model-btn{
+	position:absolute;
+    left:0;
+    top:0;
+    bottom:0;
+    right:0;
+    margin:auto;
+    width:100rpx;
+    height:100rpx;
+    border-radius:50%;
+    background-color: rgba(0,0,0,.3);
+}
+.play-icon {
+    margin: 28rpx 42rpx;
+    border-top: 26rpx solid transparent;
+    border-left: 36rpx solid #fff;
+    border-bottom: 22rpx solid transparent;
+}

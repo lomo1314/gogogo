@@ -1,0 +1,93 @@
+<import src="/wxParse/wxParse.wxml"/>
+<!-- 头图 -->
+<view class="matter-head">
+
+  <!-- 首页按钮 -->
+  <view class="home-btn" bindtap="goHome">
+    <image src="/image/home-btn.png"></image>
+  </view>
+  <!-- 回到首页按钮 -->
+  <!-- 右侧按钮 -->
+  <view class="fr-right">
+    <!-- 分享给朋友 -->
+    <view class="fx-box">
+      <image src="/image/fenxiang.png"></image>
+    </view>
+    <!-- 制作二维码图 -->
+    <view class="zt-box">
+      <image src="/image/zhitu.png"></image>
+    </view>
+  </view>
+  <!-- 右侧按钮end -->
+</view>
+<!-- 头图 end -->
+<!-- 内容项 -->
+<view>
+  <view class="head-img">
+    <image src="{{commodityLis.pic_url}}"></image>
+  </view>
+  <!-- 标题 -->
+  <view class="matter-til">
+    <text class="mTxet fz22">{{commodityLis.title}}</text>
+    <view class="mat-ul">
+      <view class="mat-cond fl">
+        <image src="/image/matter-gou.png"></image>
+        <text class="fz16">7天无理由</text>
+      </view>
+      <view class="mat-cond fl">
+        <image src="/image/matter-gou.png"></image>
+        <text class="fz16">运费险</text>
+      </view>
+      <view class="mat-cond fl">
+        <image src="/image/matter-gou.png"></image>
+        <text class="fz16">24小时内发货</text>
+      </view>
+      <view class="mat-cond fl">
+        <image src="/image/matter-gou.png"></image>
+        <text class="fz16">集分宝</text>
+      </view>
+      <view class="mat-cond fl">
+        <image src="/image/matter-gou.png"></image>
+        <text class="fz16">支付宝支付</text>
+      </view>
+    </view>
+    <!-- 右侧 收藏 -->
+    <view class="mCollect">
+      <image src="/image/collect.png"></image>
+      <view class="mc-text">{{ensType}}</view>
+    </view>
+    <!-- 箭头 价格 -->
+    <view class="jude-cost fz22">
+      <text class="w138"> ¥{{commodityLis.coupon_price}}</text>
+      <text class="w170">在售价：{{commodityLis.price}}</text>
+      <text class="w165">销量: {{commodityLis.volume}}</text>
+    </view>
+    <!-- 箭头 价格 -->
+
+  </view>
+  <!-- 领劵  -->
+  <block wx:if="{{commodityLis.is_quan==1}}">
+      <view class="reel">
+          <view class="reel-num">{{commodityLis.quan}}</view>
+          <text class="reel-text fz22">优惠券</text>
+        </view>
+  </block>
+  
+  <!-- 图文详情 -->
+  <view class="picImg" wx:if="{{commodityLis.desc!=''}}">
+    <view class="picTile fz22">图文详情</view>
+    <view class="picPrint">
+      <!-- <image src="{{commodityLis.desc}}"></image> -->
+      <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+    </view>
+  </view>
+  <!-- 底部 btn-->
+  <view class="matter-btn">
+    <view class="mar-mon fl">¥{{commodityLis.coupon_price}}</view>
+    <view class="mar-btton fr">
+      <view class="fl fz22 mr-Abtn mr-bg01">{{ensType}}</view>
+      <view class="fl fz22 mr-Abtn mr-bg02">口令购买</view>
+    </view>
+  </view>
+</view>
+<!-- 内容end -->

@@ -1,0 +1,95 @@
+.fl{
+  float: left;
+}
+.fr{
+  float: right;
+}
+.banner image {
+  width: 100%;
+  height: 243rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.ban-tip image{
+width: 100%;
+  height: 91rpx;
+  position: fixed;
+  top: 243rpx;
+  left: 0;
+  z-index: 1;
+}
+.hot-fixed-box {
+  height: 334rpx;
+}
+/* 热门，销量 */
+.list-nav{
+  width: 710rpx;
+  margin: 0 auto;
+  overflow: hidden;
+  position: fixed;
+  top: 243rpx;
+  left: 20rpx;
+  z-index: 22;
+}
+.list-nav .mr2{
+  margin-right: 2rpx;
+}
+.nav-text{
+  float: left;
+  width: 273rpx;
+  height: 42rpx;
+  border-top-left-radius: 35rpx;
+  border-top-right-radius: 35rpx;
+  background: #fff;
+  padding: 30rpx 40rpx 20rpx;
+}
+.nav-img{
+  float: left;
+  display: block;
+  margin-right: 20rpx;
+}
+.nav-hot{
+  width: 60rpx;
+  height: 43rpx;
+  background-image: url(http://go.cnmo.com/static/newpi/images/api/hot-top.png
+  );
+  background-size: 60rpx 43rpx;
+  margin-top: 5rpx;
+}
+.nav-sales{
+  width: 55rpx;
+  height: 42rpx;
+  background-image: url(http://go.cnmo.com/static/newpi/images/api/hot-xiao.png
+  );
+  background-size: 55rpx 42rpx;
+  margin-top: 5rpx;
+}
+.list-til{
+  font-size: 22rpx;
+  color: #eb2f2e;
+}
+.list-text{
+  font-size: 18rpx;
+  color: #bcbcbc;
+}
+.nav-text-box{
+  float: left;
+}
+.nav-text-box text{
+  display: block;
+}
+
+/* tab，具体项 */
+.swiper-box{
+  display: block; 
+  width: 710rpx;
+  margin: 0 auto;
+	overflow: hidden;
+	box-sizing: border-box;
+}
+.hot-box{
+	display: block;
+	height: 100%;
+}

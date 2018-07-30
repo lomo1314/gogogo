@@ -1,0 +1,135 @@
+<!-- 头部 -->
+<view>
+  <view class="banner">
+    <image src="/image/list-top01.jpg"></image>
+  </view>
+  <view class="ban-tip">
+    <image src="/image/list-top02.jpg"></image>
+  </view>
+  <view class="hot-fixed-box"></view>
+</view>
+<!-- 人气 销量  -->
+<!-- 需要补齐 切换js -->
+<view class="list-nav">
+  <view class="nav-text mr2 {{currentTab==0 ? 'active' : ''}}" data-current="0" bindtap="swichNav">
+    <view class="nav-img nav-hot"></view>
+    <view class="nav-text-box">
+      <text class="list-til">人气TOP100</text>
+      <text class="list-text">今天买的最多的商品</text>
+    </view>
+  </view>
+  <view class="nav-text {{currentTab==1 ? 'active' : ''}}" data-current="1" bindtap="swichNav">
+    <view class="nav-img nav-sales"></view>
+    <view class="nav-text-box">
+      <text class="list-til">销量TOP100</text>
+      <text class="list-text">今天什么商品卖的最好</text>
+    </view>
+  </view>
+</view>
+<!-- 人气，销量 end -->
+
+<!-- tab-内容 -->
+<swiper current="{{currentTab}}"  class="swiper-box" duration="300" style="height:{{winHeight}}px" bindchange="bindChange">
+  <!--热门100top-->
+  <swiper-item>
+    <scroll-view class="hot-box" scroll-y="true" upper-threshold="50" lower-threshold="100" bindscrolltolower="scrolltolower">
+      <view class="product">
+        <view class="list product-list rank-list" wx:for="{{hotList}}" wx:key="hotList.index">
+          <navigator url="/pages/matter/matter?id={{item.id}}&num_iid={{item.num_iid}}" hover-class="hoverClass">
+            <view class="product-list-img fl">
+              <image class="product-list-img1" mode="aspectFill" src="{{item.pic_url}}"></image>
+            </view>
+            <view class="flex-column rank-list-main fl">
+              <view class="product-list-name">{{item.title}}</view>
+              <view class="product-list-price">
+                <text class="mr20">原价: {{item.price}}</text>
+                <text>销量：{{item.volume}}</text>
+              </view>
+              <view class="product-list-des">
+                <text class="roll-disc">券后: ¥{{item.coupon_price}}</text>
+                <text class="tianmao"></text>
+                <block wx:if="{{item.is_quan==1}}">
+                  <view class="roll fr">
+                    <text>领{{item.quan}}元卷</text>
+                  </view>
+                </block>
+                <block wx:else>
+                  <view class="tao-btns fr ">
+                    <image src="/image/taobao.png"></image>
+                  </view>
+                </block>
+              </view>
+            </view>
+          </navigator>
+        </view>
+      </view>
+      <!-- 没有更多的时候 -->
+      <view class="loading-list">
+        <block wx:if="{{wifihidden}}">
+          <text class="wifihidden">网络不给力,请检查您的网络</text>
+        </block>
+        <block wx:else>
+          <block wx:if="{{hothidden}}">
+            <image class="loading-gif" src="../../image/loading.gif"></image>
+            <text class="fz14">加载中...</text>
+          </block>
+          <block wx:else>
+            <text>没有更多了</text>
+          </block>
+        </block>
+      </view>
+    </scroll-view>
+  </swiper-item>
+  <!--销量100 top-->
+  <swiper-item>
+    <scroll-view class="hot-box" scroll-y="true"  upper-threshold="50" lower-threshold="100" bindscrolltolower="scrolltolower">
+        <view class="product">
+            <view class="list product-list rank-list" wx:for="{{saleList}}" wx:key="saleList.index">
+                <navigator url="/pages/matter/matter?id={{item.id}}&num_iid={{item.num_iid}}" hover-class="hoverClass">
+                  <view class="product-list-img fl">
+                    <image class="product-list-img1" mode="aspectFill" src="{{item.pic_url}}"></image>
+                  </view>
+                  <view class="flex-column rank-list-main fl">
+                    <view class="product-list-name">{{item.title}}</view>
+                    <view class="product-list-price">
+                      <text class="mr20">原价: {{item.price}}</text>
+                      <text>销量：{{item.volume}}</text>
+                    </view>
+                    <view class="product-list-des">
+                      <text class="roll-disc">券后: ¥{{item.coupon_price}}</text>
+                      <text class="tianmao"></text>
+                      <block wx:if="{{item.is_quan==1}}">
+                        <view class="roll fr">
+                          <text>领{{item.quan}}元卷</text>
+                        </view>
+                      </block>
+                      <block wx:else>
+                        <view class="tao-btns fr ">
+                          <image src="/image/taobao.png"></image>
+                        </view>
+                      </block>
+                    </view>
+                  </view>
+                </navigator>
+            </view>
+          </view>
+      <!-- 没有更多的时候 -->
+      <view class="loading-list">
+        <block wx:if="{{wifihidden}}">
+          <text class="wifihidden">网络不给力,请检查您的网络</text>
+        </block>
+        <block wx:else>
+          <block wx:if="{{salehidden}}">
+            <image class="loading-gif" src="../../image/loading.gif"></image>
+            <text class="fz14">加载中...</text>
+          </block>
+          <block wx:else>
+            <text>没有更多了</text>
+          </block>
+        </block>
+      </view>
+    </scroll-view>
+  </swiper-item>
+
+</swiper>
+<!-- tab-内容 -end-->

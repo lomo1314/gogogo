@@ -1,0 +1,66 @@
+<!--news.wxml-->
+<!-- loading -->
+<loading hidden="{{hidden}}">
+    加载中...
+</loading>
+<view>
+	<image src="/image/go-back.png" bindtap="navigateBack"></image>
+</view>
+<view class="container">
+	<view class="news-page">
+	<!--<view wx:for="{{newsText}}">-->
+	    <!--<view class="news-tit">
+	        <text class="question-title">{{item.title}}</text>
+	    </view>
+	    <view class="news-info">
+	        <text class="">{{item.name}}</text>
+	    </view>
+	    <view class="news-content">
+	    	{{item.text}}
+	    </view>-->
+	    <view class="news-tit">
+	        <text>小米VR一体机正式推出 1499元相当酷炫</text>
+	    </view>
+	    <view class="news-info">
+	        <text class="">2018-05-31 22:09</text>
+	        <text class="">孔六六</text>
+	    </view>
+	    <view class="news-content">
+			<text>和Oculus联合打造的VR产品。而如今在小米年度旗舰发布会上，这款产品在针对本地优化后终于亮相国内。小米VR一体机采用骁龙821处理器，定制VR专用Fast-Switch 2K超清屏，Oculus调制衍射光学系统，以及千余Oculus游戏大作和全景巨幕视频。存储方面有32GB与64GB两种可选，售价分别为1499元与1799元，购买即送价值169元的精品游戏。小米VR一体机将于6月1日零点在小米商城、小米有品、天猫、京东开售，当日还会有22家小米之家同步开售</text>
+			<text>和Oculus联合打造的VR产品。而如今在小米年度旗舰发布会上，这款产品在针对本地优化后终于亮相国内。小米VR一体机采用骁龙821处理器，定制VR专用Fast-Switch 2K超清屏，Oculus调制衍射光学系统，以及千余Oculus游戏大作和全景巨幕视频。存储方面有32GB与64GB两种可选，售价分别为1499元与1799元，购买即送价值169元的精品游戏。小米VR一体机将于6月1日零点在小米商城、小米有品、天猫、京东开售，当日还会有22家小米之家同步开售</text>
+			<text>和Oculus联合打造的VR产品。而如今在小米年度旗舰发布会上，这款产品在针对本地优化后终于亮相国内。小米VR一体机采用骁龙821处理器，定制VR专用Fast-Switch 2K超清屏，Oculus调制衍射光学系统，以及千余Oculus游戏大作和全景巨幕视频。存储方面有32GB与64GB两种可选，售价分别为1499元与1799元，购买即送价值169元的精品游戏。小米VR一体机将于6月1日零点在小米商城、小米有品、天猫、京东开售，当日还会有22家小米之家同步开售</text>
+			<text>和Oculus联合打造的VR产品。而如今在小米年度旗舰发布会上，这款产品在针对本地优化后终于亮相国内。小米VR一体机采用骁龙821处理器，定制VR专用Fast-Switch 2K超清屏，Oculus调制衍射光学系统，以及千余Oculus游戏大作和全景巨幕视频。存储方面有32GB与64GB两种可选，售价分别为1499元与1799元，购买即送价值169元的精品游戏。小米VR一体机将于6月1日零点在小米商城、小米有品、天猫、京东开售，当日还会有22家小米之家同步开售</text>
+			<text>和Oculus联合打造的VR产品。而如今在小米年度旗舰发布会上，这款产品在针对本地优化后终于亮相国内。小米VR一体机采用骁龙821处理器，定制VR专用Fast-Switch 2K超清屏，Oculus调制衍射光学系统，以及千余Oculus游戏大作和全景巨幕视频。存储方面有32GB与64GB两种可选，售价分别为1499元与1799元，购买即送价值169元的精品游戏。小米VR一体机将于6月1日零点在小米商城、小米有品、天猫、京东开售，当日还会有22家小米之家同步开售</text>
+			<text>和Oculus联合打造的VR产品。而如今在小米年度旗舰发布会上，这款产品在针对本地优化后终于亮相国内。小米VR一体机采用骁龙821处理器，定制VR专用Fast-Switch 2K超清屏，Oculus调制衍射光学系统，以及千余Oculus游戏大作和全景巨幕视频。存储方面有32GB与64GB两种可选，售价分别为1499元与1799元，购买即送价值169元的精品游戏。小米VR一体机将于6月1日零点在小米商城、小米有品、天猫、京东开售，当日还会有22家小米之家同步开售</text>
+	    	
+	    </view>
+	</view>
+    <view class="news-footer">
+    	<view class="flex-between" hidden="commentsOpen">
+	    	<view class="news-btn icon_more">
+	            <image src="../../image/icon_more.png"></image>
+	        </view>
+	        <view class="news-btn flex-item news-input">
+	        	<text bindtap="commentsInput">说两句</text>
+	        </view>
+	        <view class="news-btn">
+	            <image src="../../image/star2.png"></image>
+	            <text>302</text>
+	        </view>
+	        <view class="news-btn">
+	            <image src="../../image/star2.png"></image>
+	            <!--<text>收藏</text>-->
+	        </view>
+	        <view class="news-btn">
+	            <image src="../../image/star2.png"></image>
+	        </view>
+        </view>
+        <view class="" hidden="!commentsOpen">
+        	<form>	
+        		<input type="text" name="" id="" placeholder="说点什么吧" />
+        		<input type="text" name="" value="name"/>
+        			
+        	</form>
+        </view>
+    </view>
+</view>

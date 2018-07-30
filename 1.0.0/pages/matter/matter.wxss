@@ -1,0 +1,192 @@
+.matter-head {
+    position: relative;
+}
+
+.head-img image {
+    width: 100%;
+    height: 560rpx;
+}
+
+.home-btn {
+    position: fixed;
+    top: 70rpx;
+    left: 20rpx;
+    z-index: 111;
+}
+
+.home-btn image {
+    width: 87rpx;
+    height: 87rpx;
+}
+
+/* 分享 */
+
+.fr-right {
+    position: fixed;
+    top: 75rpx;
+    right: 20rpx;
+}
+
+.fx-box image {
+    width: 56rpx;
+    height: 56rpx;
+}
+
+.zt-box image {
+    width: 56rpx;
+    height: 56rpx;
+}
+
+.matter-til {
+    position: relative;
+    padding: 20rpx 20rpx;
+}
+
+.mTxet {
+    display: block;
+    color: #121212;
+    width: 568rpx;
+}
+
+.mat-cond {
+    margin-right: 18rpx;
+}
+
+.mat-cond image {
+    width: 26rpx;
+    height: 23rpx;
+    vertical-align: middle;
+}
+
+.mat-cond text {
+    color: #bcbcbc;
+}
+
+.mat-ul {
+    overflow: hidden;
+}
+
+.mCollect {
+    position: absolute;
+    top: 20rpx;
+    right: 20rpx;
+    text-align: center;
+    width: 99rpx;
+    height: 99rpx;
+    border-radius: 25rpx;
+    background: #edeef6;
+}
+
+.mCollect image {
+    width: 48rpx;
+    height: 47rpx;
+    margin: 12rpx auto 0;
+}
+
+.mc-text {
+    font-size: 18rpx;
+    color: #000;
+}
+
+.jude-cost {
+    margin-top: 12rpx;
+    width: 472rpx;
+    height: 46rpx;
+    line-height: 46rpx;
+    background-image: url(http://go.cnmo.com/static/newpi/images/api/mater-bg.png);
+    background-size: 472rpx 46rpx;
+}
+
+.jude-cost text {
+    display: inline-block;
+    color: #fff;
+    padding-left: 20rpx;
+}
+
+.jude-cost .w138 {
+    width: 118rpx;
+}
+
+.jude-cost .w170 {
+    width: 150rpx;
+}
+
+.jude-cost .w165 {
+    width: 145rpx;
+}
+
+.reel {
+    width: 750rpx;
+    height: 217rpx;
+    background-image: url(http://go.cnmo.com/static/newpi/images/api/juan-bg.png);
+    background-size: 750rpx 217rpx;
+    position: relative;
+}
+
+.reel-num {
+    font-size: 86rpx;
+    color: #fff;
+    line-height: 217rpx;
+    padding-left: 126rpx;
+}
+
+.reel-text {
+    color: #ffc30c;
+    position: absolute;
+    top: 114rpx;
+    left: 244rpx;
+}
+
+.picImg {
+  width: 100%;
+}
+.picTile{
+  width: 100%;
+  height: 84rpx;
+  line-height: 84rpx;
+  text-align: center;
+  color: #fff;
+  background: #eb2e2e;
+  border-top-left-radius: 25rpx;
+  border-top-right-radius: 25rpx;
+}
+.picPrint image{
+  width: 100%;
+}
+.picPrint{
+    padding-bottom: 90rpx;
+}
+.matter-btn{
+  width: 750rpx;
+  height: 89rpx;
+  background: #fff;
+  box-shadow:0px -2px 10px #fff;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+.mar-mon{
+  line-height: 89rpx;
+  font-size: 30rpx;
+  color: #eb2e2e;
+  padding-left: 20rpx;
+}
+.mar-btton{
+  color: #fff;
+  margin-top: 10rpx;
+}
+.mr-Abtn{
+  width: 208rpx;
+  height: 67rpx;
+  text-align: center;
+  line-height: 67rpx;
+}
+.mr-bg01{
+  background-image: url(http://go.cnmo.com/static/newpi/images/api/bg-abtn.png);
+  background-size: 208rpx 67rpx;
+}
+.mr-bg02{
+  border-top-right-radius: 35rpx;
+  border-bottom-right-radius: 35rpx;
+  background: #eb2e2e;
+}

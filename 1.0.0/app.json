@@ -1,0 +1,68 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/news/news",
+    "pages/search/search",
+    "pages/detail/detail",
+    "pages/skills/skills",
+    "pages/my/my",
+    "pages/my/login/login",
+    "pages/my/enshrine/enshrine",
+    "pages/list/list",
+    "pages/sheng/sheng",
+    "pages/super/super",
+    "pages/ifyDetail/ifyDetail",
+    "pages/matter/matter"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#eb2e2e",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle":"white",
+    "navigationStyle":"custom"
+  },
+  "tabBar": {
+    "color": "#626567",
+    "selectedColor": "#eb2e2e",
+    "backgroundColor": "#FBFBFB",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "image/home_bg.png",
+        "selectedIconPath": "image/home_focus.png"
+      },
+      {
+        "pagePath": "pages/list/list",
+        "text": "排行榜",
+        "iconPath": "image/list_bg.png",
+        "selectedIconPath": "image/list_focus.png"
+      },
+      {
+        "pagePath": "pages/super/super",
+        "iconPath": "image/super.png",
+        "selectedIconPath": "image/super.png"
+      },
+      {
+        "pagePath": "pages/sheng/sheng",
+        "text": "省技巧",
+        "iconPath": "image/sheng_bg.png",
+        "selectedIconPath": "image/sheng_focus.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我",
+        "iconPath": "image/my_bg.png",
+        "selectedIconPath": "image/my_focus.png"
+      }
+    ]
+  },
+ "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
+}

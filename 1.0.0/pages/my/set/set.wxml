@@ -1,0 +1,42 @@
+<!--set.wxml-->
+<view class="set">
+	<view class="flex-between set-item" bindtap="clearStorage">
+        <view class="item-name">
+            <text>清理缓存数据</text>
+        </view>
+        <view class="item-right">
+            <text>{{storageSize}}KB</text>
+        </view>
+    </view>
+    <view class="flex-between set-item">
+        <view class="item-name">
+            <text>显示首页右下角刷新按钮</text>
+        </view>
+        <view class="item-right">
+           <switch bindchange="changeIndex" name="changeIndex" checked="{{checkedIndex}}"/>
+        </view>
+    </view>
+    <view class="flex-between set-item">
+        <view class="item-name">
+            <text>主题模式</text>
+        </view>
+        <view class="item-right">
+		    <picker bindchange="bindPickerModel" value="{{index}}" range="{{array}}">
+		   	    <view class="picker">{{array[index]}}</view>
+		    </picker>
+        </view>
+    </view>
+    <view class="flex-between set-item">
+        <view class="item-name">
+            <text>自动夜间模式</text>
+        </view>
+        <view class="item-right">
+        	<view class="item-right">
+	           <switch bindchange="changeDay" name="changeDay" checked="{{checkedDay}}"/>
+	        </view>
+        </view>
+        <picker bindchange="bindPickerDay" value="{{index}}" range="{{array}}">
+	   	    <view class="picker">{{array[index]}}</view>
+	    </picker>
+    </view>
+</view>

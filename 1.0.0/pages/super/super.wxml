@@ -1,0 +1,48 @@
+<!-- 头部 背景图 -->
+<view>
+  <view class="banner">
+    <image src="/image/red-bg.png"></image>
+  </view>
+  <form bindreset="formReset">
+    <view class="search">
+      <view class="search-box">
+        <icon class="search-btn" type="search" size="14" color="#b2b2b2" />
+        <input class="search-txt" placeholder-class="search-pla" placeholder="搜索宝贝或复制宝贝标题" focus="{{true}}" type="text" bindinput="bindKeyInput"
+          bindconfirm="bindconfirm" />
+      </view>
+      <!-- <view class="fz16 search-no" bindtap="navigateBack">取消</view>		 -->
+    </view>
+  </form>
+  <view class="hot-fixed-box"></view>
+</view>
+<!-- 头部 end-->
+<!-- 排行榜 -->
+<view class="hot-sale">
+  <image src="/image/hto-sale.png"></image>
+  <text class="strong">热卖排行</text>
+</view>
+<!-- 排行榜 end -->
+<!-- 热门图 -->
+<view class="hotslide-box" wx:if="{{pradaTopic}}">
+  <scroll-view class="hotImg" scroll-x="true" style="white-space: nowrap; display:flex ">
+      <block wx:for="{{newsImgUrls}}" wx:key="newsImgUrls.index"> 
+            <navigator url="../news/news?id={{item.id}}" class="hotBoxs" hover-class="none">
+              <image mode="scaleToFill" src="{{item.img}}" />
+              <view class="hotImg-juan fz16">券 ¥13.0</view>
+              <view class="til-h2">谜范儿ins超火的裤子直裤女阔腿说是</view>
+              <view class="til-text">¥ 129.00</view>
+            </navigator>
+        </block>
+  </scroll-view>
+</view>
+<!-- 热门图 end -->
+<!-- 分类 -->
+<view class="classify">
+    <block wx:for="{{classifyList}}" wx:key="classifyList.index"> 
+        <navigator url="../news/news?id={{item.id}}" class="ifyboxs" hover-class="none">
+          <view class="ify-icon '{{item.cateimg}}'"></view>
+          <view class="ify-name">{{item.name}}</view>
+        </navigator>
+    </block>
+</view>
+<!-- 分类 end -->

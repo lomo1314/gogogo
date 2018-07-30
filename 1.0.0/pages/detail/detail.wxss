@@ -1,0 +1,45 @@
+.banner image {
+    width: 100%;
+    height: 165rpx;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 11;
+}
+.top-ban image{
+	width: 100%;
+    height: 33rpx;
+    position: fixed;
+    top: 165rpx;
+    left: 0;
+    z-index: -1;
+}
+.det-til {
+    position: fixed;
+    top: 70rpx;
+	left: 68rpx;
+	z-index: 222;
+}
+.det-til text{
+	display: block;
+	color: #fff;
+}
+.det-cont{
+	width: 710rpx;
+	margin: 0 auto;
+	position: absolute;
+	top: 165rpx;
+	left: 20rpx;
+	background: #fff;
+	border-top-left-radius: 25rpx;
+	border-top-right-radius: 25rpx;
+	color: #121212;
+	z-index: 1;
+}
+.det-cont image{
+	width: 100%;
+}
+.cont-news text{
+	display: block;
+	padding: 10rpx 25rpx 26rpx;
+}

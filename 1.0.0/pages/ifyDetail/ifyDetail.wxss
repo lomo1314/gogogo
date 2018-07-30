@@ -1,0 +1,159 @@
+.banner image {
+    width: 100%;
+    height: 326rpx;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+
+
+.page-til {
+    font-size: 29rpx;
+    color: #fefefe;
+    position: fixed;
+    top: 80rpx;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 111;
+}
+
+.ify-listPage {
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 150rpx;
+    z-index: 121;
+}
+
+.ify-scroll {
+    width: 100%;
+}
+
+.ify-liat {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.ifyboxs {
+    display: inline-block;
+    width: 150rpx;
+    text-align: center;
+}
+
+.ify-name {
+    font-size: 22rpx;
+    color: #fff;
+    margin-top: 22rpx;
+}
+
+    
+
+.swiper-box{ 
+	display: block; 
+	height: 100%; 
+	width: 100%; 
+	overflow: hidden;
+	padding-top:361rpx;
+	box-sizing: border-box;
+}
+/* 分类样式 */
+
+.ify-icon {
+    background-image: url(http://go.cnmo.com/static/newpi/images/api/icon-list.png);
+    background-size: 590rpx 118rpx;
+    background-repeat: no-repeat;
+    background-origin: center;
+    margin: 0 auto;
+}
+
+.nvzhuang {
+    width: 47rpx;
+    height: 52rpx;
+    background-position: 0 0;
+}
+
+.nanzhuang {
+    width: 46rpx;
+    height: 49rpx;
+    background-position: -60rpx 0;
+}
+
+.shuma {
+    width: 60rpx;
+    height: 49rpx;
+    background-position: -370rpx 0;
+}
+
+.dianqi {
+    width: 50rpx;
+    height: 50rpx;
+    background-position: -140rpx -60rpx;
+}
+
+.xiezi {
+    width: 62rpx;
+    height: 49rpx;
+    background-position: -120rpx 0;
+}
+
+.muying {
+    width: 38rpx;
+    height: 49rpx;
+    background-position: -200rpx 0;
+}
+
+.jujia {
+    width: 66rpx;
+    height: 49rpx;
+    background-position: -250rpx 0;
+}
+
+.meizhuang {
+    width: 31rpx;
+    height: 57rpx;
+    background-position: -330rpx 0;
+}
+
+.meishi {
+    width: 60rpx;
+    height: 50rpx;
+    background-position: -450rpx 0;
+}
+
+.wenti {
+    width: 50rpx;
+    height: 50rpx;
+    background-position: -520rpx 0;
+}
+
+.shouji {
+    width: 39rpx;
+    height: 52rpx;
+    background-position: -330rpx -60rpx;
+}
+
+.neiyi {
+    width: 64rpx;
+    height: 50rpx;
+    background-position: 0 -60rpx;
+}
+
+.xiangbao {
+    width: 50rpx;
+    height: 50rpx;
+    background-position: -80rpx -60rpx;
+}
+
+.jiafang {
+    width: 55rpx;
+    height: 50rpx;
+    background-position: -200rpx -60rpx;
+}
+
+.lingshi {
+    width: 50rpx;
+    height: 55rpx;
+    background-position: -260rpx -60rpx;
+}

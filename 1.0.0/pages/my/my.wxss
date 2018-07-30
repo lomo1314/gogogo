@@ -1,0 +1,136 @@
+/*.flex-item{
+  flex-grow: 1;
+  text-align: center;
+}*/
+
+page {
+    background: #f1f2f8;
+}
+
+.my-page {
+    box-sizing: border-box;
+    width: 750rpx;
+    padding: 0 30rpx;
+}
+
+/*用户头像*/
+
+.avatar-box {
+    width: 150rpx;
+    height: 150rpx;
+}
+.top-name {
+    padding-left: 30rpx;
+    overflow: hidden;
+    position: relative;
+}
+
+.avatar {
+    width: 150rpx;
+    height: 150rpx;
+    border-radius: 50%;
+    overflow: hidden;
+    padding-left: 0;
+}
+
+.userinfo-avatar {
+    width: 150rpx;
+    height: 150rpx;
+}
+
+.user-info {
+    padding-left: 30rpx;
+    padding-top: 30rpx;
+    font-size: 24rpx;
+    color: #fff;
+}
+.user-qian{
+    position: absolute;
+    top: 46rpx;
+    right: 0;
+}
+.user-q-num{
+    position: absolute;
+    top: 50rpx;
+    left: 22rpx;
+    font-size: 18rpx;
+    color: #72768f;
+}
+.user-q-dao{
+    width: 125rpx;
+    height: 112rpx;
+}
+
+.grade {
+    margin-top: 18rpx;
+    width: 34rpx;
+    height: 29rpx;
+    background-image: url(http://go.cnmo.com/static/newpi/images/api/icon-grade.png);
+    background-size: 73rpx 29rpx;
+    padding-left: 39rpx;
+}
+
+/*列表*/
+
+.my-box {
+    width: 680rpx;
+    margin: 28rpx auto 0;
+}
+
+.my-item {
+    width: 100%;
+    height: 99rpx;
+    font-size: 14px;
+    background: #fff;
+    border-radius: 35rpx;
+    margin-top: 12rpx;
+}
+
+.my-item .myitem-icon {
+    /*flex: 1;*/
+    padding-left: 30rpx;
+}
+
+.my-item .myitem-icon image {
+    width: 45rpx;
+    height: 45rpx;
+    padding-right: 30rpx;
+}
+
+.my-item .myitem-name {
+    flex: 1;
+    text-align: left;
+    line-height: 88rpx;
+}
+
+.myitem-share {
+    position: relative;
+}
+
+.myitem-share button {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.myitem-v {
+    /*flex: 1;*/
+    color: #7d7d7d;
+    padding-right: 10rpx;
+}
+
+/* 2018-07-11 */
+
+.banner image {
+    width: 100%;
+    height: 352rpx;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.hot-fixed-box {
+    height: 114rpx;
+}

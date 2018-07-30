@@ -1,0 +1,67 @@
+<!--my.wxml-->
+<!-- 头部 背景图 -->
+<view>
+	<view class="banner">
+		<image src="/image/my_top.jpg"></image>
+	</view>
+	<view class="hot-fixed-box"></view>
+</view>
+<!-- 头部 end-->
+<view class="my-page">
+	<view class="top-name">
+		<view class="flex-ver avatar-box fl">
+			<button class="avatar" wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindgetuserinfo">
+				<block wx:if="{{userImg}}">
+						<image class="userinfo-avatar" mode="aspectFill" src="/image/login-bg.png"></image>
+				</block>
+				<block wx:else>
+						<image class="userinfo-avatar" mode="aspectFill" src="{{avatar}}"></image>
+				</block>
+				
+			</button>
+			<!-- <view class="avatar">
+				<image class="userinfo-avatar" mode="aspectFill" src="/image/login-bg.png"></image>
+			</view> -->
+		</view>
+		<!-- 用户姓名 -->
+		<view class="user-info editeditedit fl" hidden="{{userShow}}">
+			<text class="fz24 edit">{{nickName}}</text>
+			<view class="grade">1</view>
+		</view>
+		<!-- 签到 -->
+		<view class="user-qian" bindtap="signIn">
+				<block wx:if="{{signNum}}">
+						<image class="user-q-dao" src="/image/icon-qian-bg.png">
+						</image>
+				</block>
+				<block wx:else>
+						<image class="user-q-dao" src="/image/icon-qian.png">
+							<text class="user-q-num" >{{sign_count}}</text>
+						</image>
+				</block>
+			
+
+		</view>
+	</view>
+	<view class="my-box">
+		<navigator hover-class="none" url="../my/enshrine/enshrine">
+			<view class="my-item flex-ver">
+				<view class="myitem-icon">
+					<image src="/image/icon-jion.png"></image>
+				</view>
+				<view class="myitem-name">
+					<text>收藏的商品</text>
+				</view>
+			</view>
+		</navigator>
+		<view class="my-item flex-ver myitem-share">
+			<button plain='true' open-type="share"></button>
+			<view class="myitem-icon">
+				<image src="/image/icon-sha.png"></image>
+			</view>
+			<view class="myitem-name">
+				<text>分享给好友</text>
+			</view>
+		</view>
+	</view>
+</view>

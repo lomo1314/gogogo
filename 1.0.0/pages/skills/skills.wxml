@@ -1,0 +1,36 @@
+<!--省钱技巧-->
+<view>
+	<!--视频-->
+	<video id="myVideo" src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400" binderror="videoErrorCallback" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls></video>
+	<video  src="http://www.w3school.com.cn/i/movie.ogg" binderror="videoErrorCallback" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls></video>
+	<!--<video  src="http://player.youku.com/c9c046f3-af90-44eb-97b3-e0baaa50c21c" binderror="videoErrorCallback" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls></video>-->
+
+</view>
+
+<!--生成二维码-->
+<!--方法二-->
+<!--<view class='more' bindtap='saveImageToPhotosAlbum'>生成图片</view>--> 
+  <button class='more' bindtap='saveImageToPhotosAlbum' type="primary">生成二维码</button>  
+  <button class='more' bindtap='saveImageToPhotos' type="primary">保存二维码</button>  
+<!--//保存图片按钮-->
+<canvas canvas-id='share' hidden='{{canvasHidden}}' class="erweima"></canvas> 
+
+
+<!--方法一
+<view class="container">  
+  <!-- 生成二维码 -->  
+  <!--<view class="input-row">  
+      <label>内容</label>  
+      <input value='{{qrcStr}}' class="qrcInput" bindblur="onQrcStrBlur" type="text" maxlength="255"   
+                placeholder="{{qrcPhld}}"/>  
+  </view>  
+  <button class="genQrcBtn" type="primary" bindtap="onGenQrc">生成二维码</button>  
+  
+  <view class="img-box">  
+      <canvas bindtap="onPreviewQrc" hidden="{{canvasHidden}}"   
+                style="width: 686rpx;height: 686rpx;background:#f1f1f1;" canvas-id="qrcCanvas"/>  
+  </view>  
+</view>   
+<view hidden="{{maskHidden}}" class="mask"></view>  
+<view class="canvas-box"></view>  -->
+

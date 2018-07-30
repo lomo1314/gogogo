@@ -1,0 +1,182 @@
+.banner {
+    width: 100%;
+    height: 290rpx;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.banner image {
+    width: 100%;
+    height: 350rpx;
+}
+
+.hot-fixed-box {
+    height: 337rpx;
+}
+
+.search {
+    height: 102.96rpx;
+    width: 100%;
+    padding: 0 32rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    box-sizing: border-box;
+    position: fixed;
+    z-index: 2;
+    top: 130rpx;
+    left: 0;
+}
+
+.search-box {
+    /*width: 100%;*/
+    height: 66rpx;
+    font-size: 13px;
+    line-height: 66rpx;
+    box-sizing: border-box;
+    border-radius: 35rpx;
+    border: 1px solid #e6e6ea;
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    box-shadow: 4px 4px 15px #860909;
+}
+
+.search-txt {
+    flex: 1;
+    height: 100%;
+    line-height: 100%;
+}
+
+.search-pla {
+    color: #b2b2b2;
+    line-height: 100%;
+}
+
+.search-btn {
+    width: 63.18rpx;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-btn1 {
+    width: 63.18rpx;
+    height: 100%;
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.search-btn1::after {
+    content: '';
+    border: none;
+}
+
+.search-no {
+    font-size: 16px;
+    color: #1472e0;
+    margin-left: 23.4rpx;
+}
+
+/*产品列表*/
+
+.product-list {
+    width: 710rpx;
+    margin: 0 auto;
+    box-sizing: border-box;
+    margin-top: 12rpx;
+}
+
+/*搜索内容*/
+
+.swiper-box {
+    display: block;
+    width: 710rpx;
+    margin: 0 auto;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+.hot-box{
+    display: block;
+    height: 100%;
+}
+.search-res-box {
+    background-color: rgba(0, 0, 0, .5);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+}
+
+.search-res {
+    height: auto;
+    width: 100%;
+    background-color: #fff;
+}
+
+.search-res::before {
+    content: '0';
+    height: 102.96rpx;
+    line-height: 102.96rpx;
+    opacity: 0;
+}
+
+.search-list {
+    height: 102.96rpx;
+    line-height: 102.96rpx;
+    text-indent: 52.65rpx;
+    border-bottom: 1px solid #eee;
+    color: #666;
+}
+
+.search-res navigator {
+    width: auto;
+    font-size: 14px;
+    background-color: #fff;
+    padding-left: 35.1rpx;
+    overflow: hidden;
+}
+
+.search-res view::hover {
+    background-color: #e7e5eb;
+}
+
+/*未搜索到产品*/
+
+.no-product {
+    text-align: center;
+    margin-top: 222.4rpx;
+    font-size: 15px;
+    line-height: 22px;
+    color: #888;
+}
+
+.search-pro {
+    color: #353535;
+}
+
+/*//按下效果*/
+
+.search-res .hoverClass {
+    background-color: #e7e5eb;
+}
+
+.failhidden {
+    margin: 80px 0;
+    text-align: center;
+    width: 750rpx;
+}
+
+.searchNav {
+    top: 238rpx;
+}
