@@ -134,6 +134,22 @@ module.exports = {
                 fn(res)
             }
           })
-       }
+       },
+       //收藏商品 状态
+       collectAjax:function (ajaxDeta,fn) {
+        var token = wx.getStorageSync('token') || [];
+        wx.request({
+            url: 'https://go.cnmo.com/index.php?g=api&m=user&a=add_collection',
+            data: ajaxDeta,
+            method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+            header: {
+                'content-type': 'application/x-www-form-urlencoded' ,// 公共写着个头，否则数据调用不出来
+                'API-Authorization': token
+            },
+            complete: function (res) {
+                fn(res)
+            }
+        })
+         }
 
 }

@@ -52,8 +52,9 @@
       </view>
     </view>
     <!-- 右侧 收藏 -->
-    <view class="mCollect">
-      <image src="/image/collect.png"></image>
+    <view class="mCollect" bindtap="collBind">
+      <image wx:if="{{ensColl}}" src="/image/collect.png"></image>
+      <image wx:else src="/image/collect01.png"></image>
       <view class="mc-text">{{ensType}}</view>
     </view>
     <!-- 箭头 价格 -->
@@ -85,7 +86,7 @@
   <view class="matter-btn">
     <view class="mar-mon fl">¥{{commodityLis.coupon_price}}</view>
     <view class="mar-btton fr">
-      <view class="fl fz22 mr-Abtn mr-bg01">{{ensType}}</view>
+      <view class="fl fz22 mr-Abtn mr-bg01" bindtap="collBind">{{ensType}}</view>
       <view class="fl fz22 mr-Abtn mr-bg02">口令购买</view>
     </view>
   </view>

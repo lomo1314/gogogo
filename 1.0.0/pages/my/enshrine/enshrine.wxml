@@ -13,7 +13,10 @@
 
 <!-- 内容项 -->
 <!-- 全部分类、状态 -->
-<view></view>
+<view class="en-list">
+	<view></view>
+	<view></view>
+</view>
 <!-- 收藏内容 -->
 <view class="en-cont">
 		<view class="list product-list rank-list" wx:for="{{dataNews}}" wx:key="dataNews.index">
@@ -25,21 +28,9 @@
 						<view class="product-list-name">防晒衣女士中长款防晒服2018新款防紫外紫外线</view>
 						<view class="product-list-price">
 							<text class="mr20">原价: 16元</text>
-							<text>销量：12412</text>
 						</view>
 						<view class="product-list-des">
 							<text class="roll-disc">券后: ¥13.0</text>
-							<text class="tianmao"></text>
-							<block wx:if="{{item.show_pic==0}}">
-								<view class="roll fr">
-									<text>领20元卷</text>
-								</view>
-							</block>
-							<block wx:else>
-								<view class="tao-btns fr ">
-									<image src="/image/taobao.png"></image>
-								</view>
-							</block>
 						</view>
 					</view>
 				</navigator>
