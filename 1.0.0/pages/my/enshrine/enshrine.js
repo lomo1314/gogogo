@@ -119,12 +119,17 @@ Page({
 		var dataCols = this.data.dataCols;
 		//移除列表中下标为index的项
 		dataCols.splice(index,1);
-		console.log(dataCols)
 		that.setData({
 			dataCols: that.data.dataCols
 		})
 	
 	},
-	//获取收藏列表
+	//分享时间
+	setShare:function (e) {
+		var that=this
+		var num_iid=e.target.dataset.numid;
+		var id=e.target.dataset.id
+		// console.log(id)
+	  }
 	
 })
