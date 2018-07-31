@@ -54,8 +54,8 @@
 				</navigator>
 			</view>
 			<view bindtap="delItem" class="posit">
-				<view class="editor" data-addressid="{{item.num_iid}}" catchtap="setDefaultAddress">分享</view>
-				<view class="del" data-addressid="{{item.num_iid}}" data-index="{{item.id}}" catchtap="delAddress">删除</view>
+				<view class="editor" data-numid="{{item.num_iid}}" catchtap="setDefaultAddress">分享</view>
+				<view class="del" data-numid="{{item.num_iid}}" data-index="{{index}}" catchtap="del">删除</view>
 			</view>
 		</view>
 	</view>

@@ -147,7 +147,7 @@ Page({
                 mask:true
             })
             var ajaxDeta02={
-                type:2, //添加状态
+                type:2, //删除状态
                 num_iid:that.data.commId //删除状态
             }
             util.collectAjax(ajaxDeta02,function (res) { 
