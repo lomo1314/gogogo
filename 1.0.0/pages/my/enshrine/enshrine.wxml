@@ -14,27 +14,51 @@
 <!-- 内容项 -->
 <!-- 全部分类、状态 -->
 <view class="en-list">
-	<view></view>
-	<view></view>
+	<view class="en-lis-class">全部类目
+		<view class="en-cla-box" hidden="{{classHidden}}">
+			<view class="en-sta">
+				<view class="class-icon"></view>女装</view>
+			<view class="en-sta">
+				<view class="class-icon"></view>女装</view>
+			<view class="en-sta">
+				<view class="class-icon"></view>女装</view>
+			<view class="en-sta">
+				<view class="class-icon"></view>女装</view>
+		</view>
+	</view>
+	<view class="en-lis-state">全部状态
+		<view class="en-cla-box" hidden="{{stateHidden}}">
+			<view class="en-sta">全部</view>
+			<view class="en-sta">降价中</view>
+		</view>
+	</view>
 </view>
 <!-- 收藏内容 -->
 <view class="en-cont">
-		<view class="list product-list rank-list" wx:for="{{dataNews}}" wx:key="dataNews.index">
-				<navigator url="/pages/news/news?id={{item.id}}" hover-class="hoverClass">
+	<view class="en-item">
+		<view class="list rank-list touch-item {{item.isTouchMove ? 'touch-move-active' : ''}} " wx:for="{{dataCols}}" wx:key="dataCols.index" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove">
+			<view class="listEns" >
+				<navigator hover-class="hoverClass" url="/pages/matter/matter?id={{item.id}}&num_iid={{item.num_iid}}">
 					<view class="product-list-img fl">
-						<image class="product-list-img1" mode="aspectFill" src="/image/img.png"></image>
+						<image class="product-list-img1" mode="aspectFill" src="{{item.pic_url}}"></image>
 					</view>
 					<view class="flex-column rank-list-main fl">
-						<view class="product-list-name">防晒衣女士中长款防晒服2018新款防紫外紫外线</view>
+						<view class="product-list-name">{{item.title}}</view>
 						<view class="product-list-price">
-							<text class="mr20">原价: 16元</text>
+							<text class="mr20">原价: {{item.coupon_price}}元</text>
 						</view>
 						<view class="product-list-des">
-							<text class="roll-disc">券后: ¥13.0</text>
+							<text class="roll-disc">券后: ¥{{item.coupon_price}}</text>
 						</view>
 					</view>
 				</navigator>
 			</view>
+			<view bindtap="delItem" class="posit">
+				<view class="editor" data-addressid="{{item.num_iid}}" catchtap="setDefaultAddress">分享</view>
+				<view class="del" data-addressid="{{item.num_iid}}" data-index="{{item.id}}" catchtap="delAddress">删除</view>
+			</view>
+		</view>
+	</view>
 </view>
 
 <!-- 内容项end -->

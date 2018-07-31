@@ -53,7 +53,7 @@ module.exports = {
         })
     },
     //最热接口+今日上新 +& 排行榜销量TOP100 & 排行榜人气TOP100 参数： sort=? p=？
-    hotAjax: function (dataList,fn) {
+    hotAjax: function (dataList, fn) {
         wx.request({
             url: 'https://go.cnmo.com/index.php?g=api&m=index&a=index',
             method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
@@ -84,7 +84,7 @@ module.exports = {
     },
     //商品详情
     //需要回传3个必填参数 ： 商品id  商品num_iid  当前页网址pageurl
-    commDetails:function (ajaxDeta,fn) { 
+    commDetails: function (ajaxDeta, fn) {
         //console.log(ajaxDeta)
         var token = wx.getStorageSync('token') || [];
         console.log(token)
@@ -93,16 +93,16 @@ module.exports = {
             data: ajaxDeta,
             method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
             header: {
-                'content-type': 'application/x-www-form-urlencoded' ,// 公共写着个头，否则数据调用不出来
+                'content-type': 'application/x-www-form-urlencoded', // 公共写着个头，否则数据调用不出来
                 'API-Authorization': token
             },
             complete: function (res) {
                 fn(res)
             }
         })
-     },
-     //搜索接口
-     seekAjax:function (ajaxDeta,fn) { 
+    },
+    //搜索接口
+    seekAjax: function (ajaxDeta, fn) {
         wx.request({
             url: 'https://go.cnmo.com/index.php?g=api&m=search&a=index',
             data: ajaxDeta,
@@ -114,42 +114,58 @@ module.exports = {
                 fn(res)
             }
         })
-      },
-      //签到状态
-      dayTim:function (fn) { 
-          wx.request({
-              url: 'https://go.cnmo.com/index.php?g=api&m=user&a=date_time',
+    },
+    //签到状态
+    dayTim: function (fn) {
+        wx.request({
+            url: 'https://go.cnmo.com/index.php?g=api&m=user&a=date_time',
             //   data: {},
-              method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-              header: {
+            method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+            header: {
                 'content-type': 'application/x-www-form-urlencoded' // 公共写着个头，否则数据调用不出来
-              },
-              success: function(res){
-                  // success
-              },
-              fail: function() {
-                  // fail
-              },
-              complete: function (res) {
+            },
+            success: function (res) {
+                // success
+            },
+            fail: function () {
+                // fail
+            },
+            complete: function (res) {
                 fn(res)
             }
-          })
-       },
-       //收藏商品 状态
-       collectAjax:function (ajaxDeta,fn) {
+        })
+    },
+    //收藏商品 状态
+    collectAjax: function (ajaxDeta, fn) {
         var token = wx.getStorageSync('token') || [];
         wx.request({
             url: 'https://go.cnmo.com/index.php?g=api&m=user&a=add_collection',
             data: ajaxDeta,
             method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
             header: {
-                'content-type': 'application/x-www-form-urlencoded' ,// 公共写着个头，否则数据调用不出来
+                'content-type': 'application/x-www-form-urlencoded', // 公共写着个头，否则数据调用不出来
                 'API-Authorization': token
             },
             complete: function (res) {
                 fn(res)
             }
         })
-         }
+    },
+    //收藏列表项
+    collList: function (ajaxDeta, fn) {
+        var token = wx.getStorageSync('token') || [];
+        wx.request({
+            url: 'https://go.cnmo.com/index.php?g=api&m=user&a=collection_list',
+            data: ajaxDeta,
+            method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+            header: {
+                'content-type': 'application/x-www-form-urlencoded', // 公共写着个头，否则数据调用不出来
+                'API-Authorization': token
+            },
+            complete: function (res) {
+                fn(res)
+            }
+        })
+    },
 
 }
