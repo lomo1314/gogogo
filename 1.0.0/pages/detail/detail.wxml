@@ -12,7 +12,7 @@
 		<image src="/image/sheng-top02.png"></image>
 	</view>
 	<!-- 返回按钮 -->
-	<view class="go-back" >
+	<view class="go-back" bindtap="navigateBack" >
 		<image src="/image/go-back.png"></image>
 	</view>
 </view>

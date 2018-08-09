@@ -67,8 +67,8 @@
 
   </view>
   <!-- 领劵  -->
-  <block wx:if="{{commodityLis.is_quan==1}}">
-      <view class="reel">
+  <block wx:if="{{commodityLis.is_quan==1}}" >
+      <view class="reel"  data-text="{{commodityLis.api_quanurl}}" bindtap="copyText">
           <view class="reel-num">{{commodityLis.quan}}</view>
           <text class="reel-text fz22">优惠券</text>
         </view>
@@ -87,8 +87,19 @@
     <view class="mar-mon fl">¥{{commodityLis.coupon_price}}</view>
     <view class="mar-btton fr">
       <view class="fl fz22 mr-Abtn mr-bg01" bindtap="collBind">{{ensType}}</view>
-      <view class="fl fz22 mr-Abtn mr-bg02">口令购买</view>
+      <view  bindtap="copyText" class="fl fz22 mr-Abtn mr-bg02" data-text="{{commodityLis.api_quanurl}}">口令购买</view>
     </view>
   </view>
 </view>
 <!-- 内容end -->
+<!-- 弹框提示 以及蒙层 -->
+<view class="mark" hidden="{{markHidden}}" bindtap="closeMark">
+  <view class="tops_box">
+    <view class="box_cont">
+      <view class="box_h2">温馨提示</view>
+      <text>复制成功！打开手机淘宝下单即可</text>
+      <view bindtap="closeMark" class="box_btn">我知道了</view>
+    </view>
+  </view>
+</view>
+

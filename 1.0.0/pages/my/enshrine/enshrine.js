@@ -6,9 +6,15 @@ Page({
 		winHeight: 0,
 		classHidden: true, //全部分类列表
 		stateHidden: true, //全部状态
-		dataCols: [],
+		dataCols: [], //收藏商品
+		cateMore:[],//收藏商品分类
 		startX: 0, //开始坐标
-		startY: 0
+		startY: 0,
+		enlisbg:"",
+		enlisbg01:"",
+		allIfy:"全部类目",
+		allstat:"全部状态",
+		hiddenTips:true, //如果没有数据展示判断
 	},
 
 	onLoad: function (options) {
@@ -33,9 +39,10 @@ Page({
 		util.collList(ajaxDeta, function (res) {
 			var arr = res.data
 			//arr.data.info
-			console.log(arr)
+			console.log(arr.data.cate)
 			that.setData({
-				dataCols: arr.data.info
+				dataCols: arr.data.info, //产品数据
+				cateMore:arr.data.cate  // 产品分类
 			})
 		})
 
@@ -130,6 +137,106 @@ Page({
 		var num_iid=e.target.dataset.numid;
 		var id=e.target.dataset.id
 		// console.log(id)
-	  }
+	  },
+
+	//   返回上一页
+	navigateBack: function () {
+        var self = this;
+		var pages = getCurrentPages();
+        wx.navigateBack({ changed: true });//返回上一页
+	},
+	//点击出下拉菜单
+	showTips:function () { 
+		var that=this
+		if(that.data.enlisbg==""){
+			that.setData({
+				classHidden:false,
+				enlisbg:"enlisbg"
+			})
+		}else{
+			that.setData({
+				classHidden:true,
+				enlisbg:""
+			})
+		}
+        
+	 },
+	 //点击下来菜单 全部分类
+	 showTips02:function () { 
+		var that=this
+		if(that.data.enlisbg01==""){
+			that.setData({
+				stateHidden:false,
+				enlisbg01:"enlisbg"
+			})
+		}else{
+			that.setData({
+				stateHidden:true,
+				enlisbg01:""
+			})
+		}
+        
+	  },
+
+	 //点击筛选收藏产品种类
+	 filtrate:function (e) { 
+		 var that=this
+		 //console.log(e.target);
+		 var cate_id=e.target.dataset.id
+		 that.setData({
+			allIfy:e.target.dataset.name //选中商品种类
+		 })
+		 var ajaxDeta = {
+			page: "", //页码数
+			cate_id: cate_id, //分类id
+			status: 1, // 1为在售 2失效
+		};
+		//获取收藏列表
+		util.collList(ajaxDeta, function (res) {
+			var arr = res.data
+			that.setData({
+				dataCols: arr.data.info, //产品数据
+				cateMore:arr.data.cate,  // 产品分类
+				enlisbg:"",
+				classHidden:true,
+			})
+		})
+	  },
+	  //点击筛选状态
+	  status:function (e) { 
+		var that=this
+		
+		var statIng=e.target.dataset.stat
+		var statuName=e.target.dataset.name
+
+		that.setData({
+			allstat:statuName //选中商品种类
+		})
+		var ajaxDeta = {
+			page: "", //页码数
+			status: statIng, // 1为在售 2失效
+		};
+		//获取收藏列表
+		util.collList(ajaxDeta, function (res) {
+			var arr = res.data
+			console.log(arr)
+			if(arr.code==400){
+				that.setData({
+					enlisbg01:"",
+					stateHidden:true,
+					hiddenTips:false
+				})
+			}else if(arr.code==200){
+				that.setData({
+					hiddenTips:true,
+					dataCols: arr.data.info, //产品数据
+					cateMore:arr.data.cate,  // 产品分类
+					enlisbg01:"",
+					stateHidden:true,
+				})
+			}
+			
+		})
+	   }
 	
 })

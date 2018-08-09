@@ -3,12 +3,12 @@
 		<image src="/image/red-bg.png"></image>
 	</view>
 	<!-- 返回按钮 -->
-	<view class="go-back">
+	<view class="go-back" bindtap="navigateBack">
 		<image src="/image/go-back.png"></image>
 	</view>
 
 	<!-- 返回按钮 -->
-	<view class="page-til strong">女装</view>
+	<view class="page-til strong">{{tagNames}}</view>
 </view>
 
 <!-- 分类 -->
@@ -27,310 +27,201 @@
 </view>
 <!-- 分类 end -->
 <!-- 综合四项 -->
-<view class="ify-listNav flex-ver">
-	<view class="nav-text {{currentTab==0 ? 'active' : ''}}" data-current="0" bindtap="swichNav">综合</view>
-	<view class="nav-text {{currentTab==1 ? 'active' : ''}}" data-current="1" bindtap="swichNav">销量</view>
+	<view class="ify-listNav searchNav flex-ver">
+		<view class="nav-text {{currentTab==0 ? 'active' : ''}}" data-current="0" bindtap="swichNav">综合</view>
+		<view class="nav-text {{currentTab==1 ? 'active' : ''}}" data-current="1" bindtap="swichNav">销量</view>
 
-	<view class="nav-text {{currentTab==2 ? 'active' : ''}}" data-current="2" bindtap="swichNav">价格
-		<!-- {{listorder}} -->
-		<image class="nav-updown1" src="../../image/monry0.png"></image>
+		<view class="nav-text {{currentTab==2 ? 'active' : ''}}" data-current="2" bindtap="swichNav">价格
+			<!-- {{listorder}} -->
+			<image class="nav-updown1" src="../../image/monry0.png"></image>
+		</view>
+		<view class="nav-text {{currentTab==3 ? 'active' : ''}}" data-current="3" bindtap="swichNav">优惠券</view>
+		<!--<view class="nav-bar" style="left:{{251.2*currentTab}}rpx;"></view>-->
 	</view>
-	<view class="nav-text {{currentTab==3 ? 'active' : ''}}" data-current="3" bindtap="swichNav">优惠券</view>
-	<!--<view class="nav-bar" style="left:{{251.2*currentTab}}rpx;"></view>-->
-</view>
-<!-- 综合四项 end -->
-<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight}}px" bindchange="bindChange">
-	<!--新闻-->
-	<swiper-item>
-		<scroll-view class="hot-box" scroll-y="true" upper-threshold="50" lower-threshold="100" bindscrolltolower="scrolltolower">
-			<view class="product">
-				<view class="list-cont">
-					<view class="list-pic fl">
-						<navigator hover-class="none" url="/pages/news/news" bindtap="changeColor">
-							<image class="list-img" src="/image/img.png"></image>
-							<view class="list-tit-name">2018夏季新文艺sukol裙小女...</view>
-							<view class="list-icon" style="background-color:{{pageBackgroundColor}}">
-								<image src="/image/icon-share.png"></image>
-							</view>
-							<text class="red-sign">券后: ¥13.0</text>
-							<view class="list-text">
-								<text>原价: 16元</text>
-								<text>原价: 16元</text>
-								<view class="list-yh">
-									<image src="/image/icon-yh.png"></image>优惠：¥23 </view>
-							</view>
-						</navigator>
-					</view>
-					<view class="list-pic fl">
-						<navigator hover-class="none" url="">
-							<image class="list-img" src="/image/img.png"></image>
-							<view class="list-tit-name">2018夏季新文艺sukol裙小女...</view>
-							<view class="list-icon">
-								<image src="/image/icon-share.png"></image>
-							</view>
-							<text class="red-sign">券后: ¥13.0</text>
-							<view class="list-text">
-								<text>原价: 16元</text>
-								<text>原价: 16元</text>
-								<view class="list-yh">
-									<image src="/image/icon-yh.png"></image>优惠：¥23 </view>
-							</view>
-						</navigator>
-					</view>
-					<view class="list-pic fl">
-						<navigator hover-class="none" url="">
-							<image class="list-img" src="/image/img.png"></image>
-							<view class="list-tit-name">2018夏季新文艺sukol裙小女...</view>
-							<view class="list-icon">
-								<image src="/image/icon-share.png"></image>
-							</view>
-							<text class="red-sign">券后: ¥13.0</text>
-							<view class="list-text">
-								<text>原价: 16元</text>
-								<text>原价: 16元</text>
-								<view class="list-yh">
-									<image src="/image/icon-yh.png"></image>优惠：¥23 </view>
-							</view>
-						</navigator>
-					</view>
-				</view>
-			</view>
-			<!-- 没有更多的时候 -->
-			<view class="loading-list">
-				<block wx:if="{{wifihidden}}">
-					<text class="wifihidden">网络不给力,请检查您的网络</text>
-				</block>
-				<block wx:else>
-					<block wx:if="{{hothidden}}">
-						<image class="loading-gif" src="../../image/loading.gif"></image>
-						<text class="fz14">加载中...</text>
-					</block>
-					<block wx:else>
-						<text>没有更多了</text>
-					</block>
-				</block>
-			</view>
-		</scroll-view>
-	</swiper-item>
-	<!--新品-->
-	<swiper-item>
-		<scroll-view class="hot-box" scroll-y="true" upper-threshold="50" lower-threshold="100" bindscrolltolower="scrolltolower">
-			<view class="product">
-				<view class="list-cont">
-					<view class="list-pic fl">
-						<navigator hover-class="none" url="/pages/news/news" bindtap="changeColor">
-							<image class="list-img" src="/image/img.png"></image>
-							<view class="list-tit-name">2018夏季新文艺sukol裙小女...</view>
-							<view class="list-icon" style="background-color:{{pageBackgroundColor}}">
-								<image src="/image/icon-share.png"></image>
-							</view>
-							<text class="red-sign">券后: ¥13.0</text>
-							<view class="list-text">
-								<text>原价: 16元</text>
-								<text>原价: 16元</text>
-								<view class="list-yh">
-									<image src="/image/icon-yh.png"></image>优惠：¥23 </view>
-							</view>
-						</navigator>
-					</view>
-					<view class="list-pic fl">
-						<navigator hover-class="none" url="">
-							<image class="list-img" src="/image/img.png"></image>
-							<view class="list-tit-name">2018夏季新文艺sukol裙小女...</view>
-							<view class="list-icon">
-								<image src="/image/icon-share.png"></image>
-							</view>
-							<text class="red-sign">券后: ¥13.0</text>
-							<view class="list-text">
-								<text>原价: 16元</text>
-								<text>原价: 16元</text>
-								<view class="list-yh">
-									<image src="/image/icon-yh.png"></image>优惠：¥23 </view>
-							</view>
-						</navigator>
-					</view>
-					<view class="list-pic fl">
-						<navigator hover-class="none" url="">
-							<image class="list-img" src="/image/img.png"></image>
-							<view class="list-tit-name">2018夏季新文艺sukol裙小女...</view>
-							<view class="list-icon">
-								<image src="/image/icon-share.png"></image>
-							</view>
-							<text class="red-sign">券后: ¥13.0</text>
-							<view class="list-text">
-								<text>原价: 16元</text>
-								<text>原价: 16元</text>
-								<view class="list-yh">
-									<image src="/image/icon-yh.png"></image>优惠：¥23 </view>
-							</view>
-						</navigator>
-					</view>
-				</view>
-			</view>
-			<!-- 没有更多的时候 -->
-			<view class="loading-list">
-				<block wx:if="{{wifihidden}}">
-					<text class="wifihidden">网络不给力,请检查您的网络</text>
-				</block>
-				<block wx:else>
-					<block wx:if="{{hothidden}}">
-						<image class="loading-gif" src="../../image/loading.gif"></image>
-						<text class="fz14">加载中...</text>
-					</block>
-					<block wx:else>
-						<text>没有更多了</text>
-					</block>
-				</block>
-			</view>
-		</scroll-view>
-	</swiper-item>
-	<!--价格-->
-	<swiper-item>
-		<scroll-view class="hot-box" scroll-y="true" upper-threshold="50" lower-threshold="100" bindscrolltolower="scrolltolower">
-			<view class=" product">
-				<view class="list-cont">
-					<view class="list-pic fl">
-						<navigator hover-class="none" url="/pages/news/news" bindtap="changeColor">
-							<image class="list-img" src="/image/img.png"></image>
-							<view class="list-tit-name">2018夏季新文艺sukol裙小女...</view>
-							<view class="list-icon" style="background-color:{{pageBackgroundColor}}">
-								<image src="/image/icon-share.png"></image>
-							</view>
-							<text class="red-sign">券后: ¥13.0</text>
-							<view class="list-text">
-								<text>原价: 16元</text>
-								<text>原价: 16元</text>
-								<view class="list-yh">
-									<image src="/image/icon-yh.png"></image>优惠：¥23 </view>
-							</view>
-						</navigator>
-					</view>
-					<view class="list-pic fl">
-						<navigator hover-class="none" url="">
-							<image class="list-img" src="/image/img.png"></image>
-							<view class="list-tit-name">2018夏季新文艺sukol裙小女...</view>
-							<view class="list-icon">
-								<image src="/image/icon-share.png"></image>
-							</view>
-							<text class="red-sign">券后: ¥13.0</text>
-							<view class="list-text">
-								<text>原价: 16元</text>
-								<text>原价: 16元</text>
-								<view class="list-yh">
-									<image src="/image/icon-yh.png"></image>优惠：¥23 </view>
-							</view>
-						</navigator>
-					</view>
-					<view class="list-pic fl">
-						<navigator hover-class="none" url="">
-							<image class="list-img" src="/image/img.png"></image>
-							<view class="list-tit-name">2018夏季新文艺sukol裙小女...</view>
-							<view class="list-icon">
-								<image src="/image/icon-share.png"></image>
-							</view>
-							<text class="red-sign">券后: ¥13.0</text>
-							<view class="list-text">
-								<text>原价: 16元</text>
-								<text>原价: 16元</text>
-								<view class="list-yh">
-									<image src="/image/icon-yh.png"></image>优惠：¥23 </view>
-							</view>
-						</navigator>
-					</view>
-				</view>
-			</view>
-			<!-- 没有更多的时候 -->
-			<view class="loading-list">
-				<block wx:if="{{wifihidden}}">
-					<text class="wifihidden">网络不给力,请检查您的网络</text>
-				</block>
-				<block wx:else>
-					<block wx:if="{{hothidden}}">
-						<image class="loading-gif" src="../../image/loading.gif"></image>
-						<text class="fz14">加载中...</text>
-					</block>
-					<block wx:else>
-						<text>没有更多了</text>
-					</block>
-				</block>
-			</view>
-		</scroll-view>
-	</swiper-item>
-	<!--新闻-->
-	<swiper-item>
-		<scroll-view class="hot-box" scroll-y="true" upper-threshold="50" lower-threshold="100" bindscrolltolower="scrolltolower">
 
-			<view class="product">
-				<view class="list-cont">
-					<view class="list-pic fl">
-						<navigator hover-class="none" url="/pages/news/news" bindtap="changeColor">
-							<image class="list-img" src="/image/img.png"></image>
-							<view class="list-tit-name">2018夏季新文艺sukol裙小女...</view>
-							<view class="list-icon" style="background-color:{{pageBackgroundColor}}">
-								<image src="/image/icon-share.png"></image>
-							</view>
-							<text class="red-sign">券后: ¥13.0</text>
-							<view class="list-text">
-								<text>原价: 16元</text>
-								<text>原价: 16元</text>
-								<view class="list-yh">
-									<image src="/image/icon-yh.png"></image>优惠：¥23 </view>
-							</view>
-						</navigator>
-					</view>
-					<view class="list-pic fl">
-						<navigator hover-class="none" url="">
-							<image class="list-img" src="/image/img.png"></image>
-							<view class="list-tit-name">2018夏季新文艺sukol裙小女...</view>
-							<view class="list-icon">
-								<image src="/image/icon-share.png"></image>
-							</view>
-							<text class="red-sign">券后: ¥13.0</text>
-							<view class="list-text">
-								<text>原价: 16元</text>
-								<text>原价: 16元</text>
-								<view class="list-yh">
-									<image src="/image/icon-yh.png"></image>优惠：¥23 </view>
-							</view>
-						</navigator>
-					</view>
-					<view class="list-pic fl">
-						<navigator hover-class="none" url="">
-							<image class="list-img" src="/image/img.png"></image>
-							<view class="list-tit-name">2018夏季新文艺sukol裙小女...</view>
-							<view class="list-icon">
-								<image src="/image/icon-share.png"></image>
-							</view>
-							<text class="red-sign">券后: ¥13.0</text>
-							<view class="list-text">
-								<text>原价: 16元</text>
-								<text>原价: 16元</text>
-								<view class="list-yh">
-									<image src="/image/icon-yh.png"></image>优惠：¥23 </view>
-							</view>
-						</navigator>
-					</view>
-				</view>
-			</view>
-			<!-- 没有更多的时候 -->
-			<view class="loading-list">
-				<block wx:if="{{wifihidden}}">
-					<text class="wifihidden">网络不给力,请检查您的网络</text>
-				</block>
-				<block wx:else>
-					<block wx:if="{{hothidden}}">
-						<image class="loading-gif" src="../../image/loading.gif"></image>
-						<text class="fz14">加载中...</text>
+	<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight}}px" bindchange="bindChange">
+		<!--综合-->
+		<swiper-item>
+			<scroll-view  class="hot-box" scroll-y="true" upper-threshold="50" lower-threshold="100" bindscrolltolower="scrollUpper">
+				<view hidden="{{failhidden}}" class="failhidden">网络不给力，请检查您的网络</view>
+				<view class="product" hidden="{{searhhidden}}">
+					<block wx:if="{{listhidden}}">
+						<view class="no-product">
+							<text>未搜索到</text>
+							<text class="search-pro">“{{inputValue}}”</text>
+							<view>建议更换关键词试试</view>
+						</view>
 					</block>
 					<block wx:else>
-						<text>没有更多了</text>
+						<view class="product">
+							<view class="list-pic fl" wx:for="{{dataSyn}}" wx:key="dataSyn.index">
+									<navigator hover-class="none" url="/pages/matter/matter?id={{item.id}}&num_iid={{item.num_iid}}">
+										<image class="list-img" src="{{item.pic_url}}"></image>
+										<view class="list-tit-name">{{item.title}}</view>
+										<view class="list-icon">
+											<image src="/image/icon-share.png"></image>
+										</view>
+										<text class="red-sign">券后:{{item.coupon_price}}</text>
+										<view class="list-text">
+											<text>原价:{{item.price}}</text>
+											<text>销量:{{item.volume}}</text>
+											<view class="list-yh">
+												<image src="/image/icon-yh.png"></image>优惠:{{item.quan}} </view>
+										</view>
+									</navigator>
+							</view>
+						</view>
 					</block>
-				</block>
-			</view>
-		</scroll-view>
-	</swiper-item>
-	<!--<view class="loading-list">
-			<image class="loading-gif" src="../../image/loading.gif"/>
-			<text>加载中...</text>
-		</view>-->
-</swiper>
+					<!-- 没有更多的时候 -->
+					<view class="loading-list">
+						<block wx:if="{{synhidden}}">
+							<image class="loading-gif" src="../../image/loading.gif" />
+							<text class="fz14">加载中...</text>
+						</block>
+						<block wx:else>
+							<text>没有更多了</text>
+						</block>
+					</view>
+				</view>
+			</scroll-view>
+		</swiper-item>
+		<!--销量-->
+		<swiper-item>
+			<scroll-view class="hot-box" scroll-y="true" upper-threshold="50" lower-threshold="100" bindscrolltolower="scrollUpper">
+				<view hidden="{{failhidden}}" class="failhidden">网络不给力，请检查您的网络</view>
+				<view class="product" hidden="{{searhhidden}}">
+					<block wx:if="{{listhidden}}">
+						<view class="no-product">
+							<text>未搜索到</text>
+							<text class="search-pro">“{{inputValue}}”</text>
+							<view>建议更换关键词试试</view>
+						</view>
+					</block>
+					<block wx:else>
+						<view class="product">
+							<view class="list-pic fl" wx:for="{{saleList}}" wx:key="saleList.index">
+									<navigator hover-class="none" url="/pages/matter/matter?id={{item.id}}&num_iid={{item.num_iid}}">
+										<image class="list-img" src="{{item.pic_url}}"></image>
+										<view class="list-tit-name">{{item.title}}</view>
+										<view class="list-icon">
+											<image src="/image/icon-share.png"></image>
+										</view>
+										<text class="red-sign">券后:{{item.coupon_price}}</text>
+										<view class="list-text">
+											<text>原价:{{item.price}}</text>
+											<text>销量:{{item.volume}}</text>
+											<view class="list-yh">
+												<image src="/image/icon-yh.png"></image>优惠:{{item.quan}} </view>
+										</view>
+									</navigator>
+							</view>
+						</view>
+					</block>
+					<!-- 没有更多的时候 -->
+					<view class="loading-list">
+						<block wx:if="{{salehidden}}">
+							<image class="loading-gif" src="../../image/loading.gif" />
+							<text class="fz14">加载中...</text>
+						</block>
+						<block wx:else>
+							<text>没有更多了</text>
+						</block>
+					</view>
+				</view>
+			</scroll-view>
+		</swiper-item>
+		<!--价格-->
+		<swiper-item>
+			<scroll-view class="hot-box" scroll-y="true" upper-threshold="50" lower-threshold="100" bindscrolltolower="scrollUpper">
+				<view hidden="{{failhidden}}" class="failhidden">网络不给力，请检查您的网络</view>
+				<view class="product" hidden="{{searhhidden}}">
+					<block wx:if="{{listhidden}}">
+						<view class="no-product">
+							<text>未搜索到</text>
+							<text class="search-pro">“{{inputValue}}”</text>
+							<view>建议更换关键词试试</view>
+						</view>
+					</block>
+					<block wx:else>
+						<view class="product">
+							<view class="list-pic fl" wx:for="{{dataMoney}}" wx:key="dataMoney.index">
+									<navigator hover-class="none" url="/pages/matter/matter?id={{item.id}}&num_iid={{item.num_iid}}">
+										<image class="list-img" src="{{item.pic_url}}"></image>
+										<view class="list-tit-name">{{item.title}}</view>
+										<view class="list-icon">
+											<image src="/image/icon-share.png"></image>
+										</view>
+										<text class="red-sign">券后:{{item.coupon_price}}</text>
+										<view class="list-text">
+											<text>原价:{{item.price}}</text>
+											<text>销量:{{item.volume}}</text>
+											<view class="list-yh">
+												<image src="/image/icon-yh.png"></image>优惠:{{item.quan}} </view>
+										</view>
+									</navigator>
+							</view>
+						</view>
+					</block>
+					<!-- 没有更多的时候 -->
+					<view class="loading-list">
+						<block wx:if="{{moneyhidden}}">
+							<image class="loading-gif" src="../../image/loading.gif" />
+							<text class="fz14">加载中...</text>
+						</block>
+						<block wx:else>
+							<text>没有更多了</text>
+						</block>
+					</view>
+				</view>
+			</scroll-view>
+		</swiper-item>
+		<!--优惠券-->
+		<swiper-item>
+			<scroll-view class="hot-box" scroll-y="true" upper-threshold="50" lower-threshold="100" bindscrolltolower="scrollUpper">
+				<view hidden="{{failhidden}}" class="failhidden">网络不给力，请检查您的网络</view>
+				<view class="product" hidden="{{searhhidden}}">
+					<block wx:if="{{listhidden}}">
+						<view class="no-product">
+							<text>未搜索到</text>
+							<text class="search-pro">“{{inputValue}}”</text>
+							<view>建议更换关键词试试</view>
+						</view>
+					</block>
+					<block wx:else>
+						<view class="product">
+							<view class="list-pic fl" wx:for="{{dataRoll}}" wx:key="dataRoll.index">
+									<navigator hover-class="none" url="/pages/matter/matter?id={{item.id}}&num_iid={{item.num_iid}}">
+										<image class="list-img" src="{{item.pic_url}}"></image>
+										<view class="list-tit-name">{{item.title}}</view>
+										<view class="list-icon">
+											<image src="/image/icon-share.png"></image>
+										</view>
+										<text class="red-sign">券后:{{item.coupon_price}}</text>
+										<view class="list-text">
+											<text>原价:{{item.price}}</text>
+											<text>销量:{{item.volume}}</text>
+											<view class="list-yh">
+												<image src="/image/icon-yh.png"></image>优惠:{{item.quan}} </view>
+										</view>
+									</navigator>
+							</view>
+						</view>
+					</block>
+					<!-- 没有更多的时候 -->
+					<view class="loading-list">
+						<block wx:if="{{rollhidden}}">
+							<image class="loading-gif" src="../../image/loading.gif" />
+							<text class="fz14">加载中...</text>
+						</block>
+						<block wx:else>
+							<text>没有更多了</text>
+						</block>
+					</view>
+				</view>
+			</scroll-view>
+		</swiper-item>
+		<!--<view class="loading-list">
+					<image class="loading-gif" src="../../image/loading.gif"/>
+					<text>加载中...</text>
+				</view>-->
+	</swiper>

@@ -24,7 +24,7 @@ module.exports = {
     },
     //分类数据接口
     classifyAjax: function (pagename, fn) {
-        console.log(pagename);
+        //console.log(pagename);
         wx.request({
             url: 'http://go.cnmo.com/index.php?g=api&m=index&a=cateTotal',
             data: {
@@ -87,7 +87,7 @@ module.exports = {
     commDetails: function (ajaxDeta, fn) {
         //console.log(ajaxDeta)
         var token = wx.getStorageSync('token') || [];
-        console.log(token)
+        //console.log(token)
         wx.request({
             url: 'https://go.cnmo.com/index.php?g=api&m=detail&a=index',
             data: ajaxDeta,
@@ -161,6 +161,22 @@ module.exports = {
             header: {
                 'content-type': 'application/x-www-form-urlencoded', // 公共写着个头，否则数据调用不出来
                 'API-Authorization': token
+            },
+            complete: function (res) {
+                fn(res)
+            }
+        })
+    },
+
+    // 分类下的列表
+    ifyList: function (ajaxDeta, fn) {
+        // https://go.cnmo.com/index.php?g=api&m=cate&a=index
+        wx.request({
+            url: 'https://go.cnmo.com/index.php?g=api&m=cate&a=index',
+            data: ajaxDeta,
+            method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+            header: {
+                'content-type': 'application/x-www-form-urlencoded', // 公共写着个头，否则数据调用不出来
             },
             complete: function (res) {
                 fn(res)

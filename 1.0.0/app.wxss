@@ -250,6 +250,7 @@ checkbox, radio{
   top: 66rpx;
   left: 20rpx;
   z-index: 22;
+  width: 50rpx;
 }
 
 .go-back image {

@@ -25,12 +25,12 @@
 <!-- 热门图 -->
 <view class="hotslide-box" wx:if="{{pradaTopic}}">
   <scroll-view class="hotImg" scroll-x="true" style="white-space: nowrap; display:flex ">
-      <block wx:for="{{newsImgUrls}}" wx:key="newsImgUrls.index"> 
-            <navigator url="../news/news?id={{item.id}}" class="hotBoxs" hover-class="none">
-              <image mode="scaleToFill" src="{{item.img}}" />
-              <view class="hotImg-juan fz16">券 ¥13.0</view>
-              <view class="til-h2">谜范儿ins超火的裤子直裤女阔腿说是</view>
-              <view class="til-text">¥ 129.00</view>
+      <block wx:for="{{topicHot}}" wx:key="topicHot.index"> 
+            <navigator url="../matter/matter?id={{item.id}}&num_iid={{item.num_iid}}" class="hotBoxs" hover-class="none">
+              <image mode="scaleToFill" src="{{item.pic_url}}" />
+              <view class="hotImg-juan fz16" wx:if="{{item.quan}}" >券 ¥{{item.quan}}</view>
+              <view class="til-h2">{{item.title}}</view>
+              <view class="til-text">¥ {{item.coupon_price}}</view>
             </navigator>
         </block>
   </scroll-view>
@@ -39,7 +39,7 @@
 <!-- 分类 -->
 <view class="classify">
     <block wx:for="{{classifyList}}" wx:key="classifyList.index"> 
-        <navigator url="../news/news?id={{item.id}}" class="ifyboxs" hover-class="none">
+        <navigator url="../ifyDetail/ifyDetail?id={{item.id}}" class="ifyboxs" hover-class="none">
           <view class="ify-icon '{{item.cateimg}}'"></view>
           <view class="ify-name">{{item.name}}</view>
         </navigator>

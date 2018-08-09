@@ -4,18 +4,18 @@ App({
   globalVar: {
     ver: '', //小程序版本
     //		refreshIndex:false//首页刷新按钮
-    barClolor: ['#ffffff', '#1472e0'],//顶部导航颜色
+    barClolor: ['#ffffff', '#1472e0'], //顶部导航颜色
   },
   onLaunch: function () {
     //调用API从本地缓存中获取数据
     var home = wx.getStorageSync('home') || []
-      //console.log(home+"home")
+    //console.log(home+"home")
     home.unshift(Date.now())
     wx.setStorageSync('home', home)
     //本地缓存中，调取是否登录状态值
-    var token=wx.getStorageSync('token') || [];
+    var token = wx.getStorageSync('token') || [];
     console.log(token);
-    
+
     //调用API从本地缓存中获取数据
     var refresh = wx.getStorageSync('refresh') || false;
     wx.setStorageSync('refresh', refresh)
@@ -38,7 +38,7 @@ App({
     var that = this
     if (this.globalData.userInfo) {
       typeof cb == "function" && cb(this.globalData.userInfo)
-      
+
     } else {
       //调用登录接口
       wx.login({
@@ -57,6 +57,14 @@ App({
   globalData: {
     userInfo: null
   },
-  
+
+  // navigateBack: function () {
+  //   var self = this;
+  //   var pages = getCurrentPages();
+  //   wx.navigateBack({
+  //     changed: true
+  //   }); //返回上一页
+  // }
+
 
 })

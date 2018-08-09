@@ -8,17 +8,18 @@ Page({
         winWidth: 0,
         winHeight: 0,
         //商品详情数据
-        commodityLis:[],
-        
-        conImg:"",//canvas 所需图片地址
-        
-        api_erwmpic:"",//canvas 二维码地址
-        
-        stateColl:0,//记录收藏状态码
+        commodityLis: [],
 
-        ensType:"收藏", //收藏状态
-        ensColl:true, // 收藏图标
-        commId:"", //商品id
+        conImg: "", //canvas 所需图片地址
+
+        api_erwmpic: "", //canvas 二维码地址
+
+        stateColl: 0, //记录收藏状态码
+
+        ensType: "收藏", //收藏状态
+        ensColl: true, // 收藏图标
+        commId: "", //商品id
+        markHidden: true, //蒙层开关
 
     },
 
@@ -26,11 +27,11 @@ Page({
     //方法二
     onLoad: function (options) {
         var that = this
-        var pageurl=getCurrentPageUrlWithArgs()
+        var pageurl = getCurrentPageUrlWithArgs()
         var id = options.id
         var num_iid = options.num_iid
         that.setData({
-            commId:options.num_iid
+            commId: options.num_iid
         })
         //获取用户设备信息，屏幕宽度
         wx.getSystemInfo({
@@ -61,40 +62,40 @@ Page({
             return urlWithArgs
         }
         //获取信息接口
-        var ajaxDeta={
-            id:id,
-            num_iid:num_iid,
-            pageurl:pageurl
+        var ajaxDeta = {
+            id: id,
+            num_iid: num_iid,
+            pageurl: pageurl
         }
         //console.log(ajaxDeta)
         // 商品类型数据信息
-        util.commDetails(ajaxDeta,function (res) { 
+        util.commDetails(ajaxDeta, function (res) {
             var arr = res.data
             //console.log(arr.data.desc);
-            var article=arr.data.desc
-            WxParse.wxParse('article', 'html', article, that,0); 
+            var article = arr.data.desc
+            WxParse.wxParse('article', 'html', article, that, 0);
             //console.log(arr.data.is_like);
-            var flas=arr.data.is_like;
-            if(flas==0){
+            var flas = arr.data.is_like;
+            if (flas == 0) {
                 that.setData({
-                    stateColl:0 ,//判断状态
-                    ensType:"收藏",
-                    ensColl:true, //收藏表示
+                    stateColl: 0, //判断状态
+                    ensType: "收藏",
+                    ensColl: true, //收藏表示
                 })
-                
-            }else{
+
+            } else {
                 that.setData({
-                    stateColl:1 ,//判断状态
-                    ensType:"已收藏",
-                    ensColl:false, //收藏表示
+                    stateColl: 1, //判断状态
+                    ensType: "已收藏",
+                    ensColl: false, //收藏表示
                 })
-               
+
             }
-			that.setData({
+            that.setData({
                 commodityLis: arr.data, //总数据
-                conImg:arr.data.pic_url,//图片地址
-			})
-         })
+                conImg: arr.data.pic_url, //图片地址
+            })
+        })
 
         //本页面转发隐藏
         wx.hideShareMenu()
@@ -108,52 +109,76 @@ Page({
         })
     },
     //点击收藏
-    collBind:function () { 
-        var that=this
-        var flag=that.data.stateColl
-        
-        if(flag==0){
+    collBind: function () {
+        var that = this
+        var flag = that.data.stateColl
+
+        if (flag == 0) {
             //console.log(1111)
             that.setData({
-                stateColl:1 ,//判断状态
-                ensType:"已收藏",
-                ensColl:false, //收藏表示
+                stateColl: 1, //判断状态
+                ensType: "已收藏",
+                ensColl: false, //收藏表示
             })
             //提示框，
-            wx.showToast({ 
+            wx.showToast({
                 title: '收藏成功',
                 image: '/image/c_correct.png',
                 duration: 1000,
-                mask:true
+                mask: true
             })
-            var ajaxDeta01={
-                type:1, //添加状态
-                num_iid:that.data.commId //删除状态
+            var ajaxDeta01 = {
+                type: 1, //添加状态
+                num_iid: that.data.commId //删除状态
             }
-            util.collectAjax(ajaxDeta01,function (res) { 
+            util.collectAjax(ajaxDeta01, function (res) {
                 //console.log(res)
-             })
-        }else{
+            })
+        } else {
             that.setData({
-                stateColl:0 ,//判断状态
-                ensType:"收藏",
-                ensColl:true, //收藏表示
+                stateColl: 0, //判断状态
+                ensType: "收藏",
+                ensColl: true, //收藏表示
             })
             //提示框，
             wx.showToast({
                 title: '取消收藏',
                 image: '/image/c_remove.png',
                 duration: 1000,
-                mask:true
+                mask: true
             })
-            var ajaxDeta02={
-                type:2, //删除状态
-                num_iid:that.data.commId //删除状态
+            var ajaxDeta02 = {
+                type: 2, //删除状态
+                num_iid: that.data.commId //删除状态
             }
-            util.collectAjax(ajaxDeta02,function (res) { 
+            util.collectAjax(ajaxDeta02, function (res) {
                 //console.log(res)
-             })
+            })
         }
         //if()
+    },
+
+    // 点击复制吱口令
+    copyText: function (e) {
+        var that = this
+        wx.setClipboardData({
+            data: e.currentTarget.dataset.text,
+            success: function (res) {
+                wx.getClipboardData({
+                    success: function (res) {
+                        that.setData({
+                            markHidden: false
+                        })
+                    }
+                })
+            }
+        })
+    },
+    //关闭蒙层
+    closeMark: function () {
+        var that = this
+        that.setData({
+            markHidden: true
+        })
     }
 })

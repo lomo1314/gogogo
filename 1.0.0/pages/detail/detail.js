@@ -77,6 +77,12 @@ Page({
             duration: e.detail.value
         })
     },
+    //   返回上一页
+	navigateBack: function () {
+        var self = this;
+		var pages = getCurrentPages();
+        wx.navigateBack({ changed: true });//返回上一页
+    },
     //产品关联点击更多按钮点击
     offerMore:function(){
     	this.setData({

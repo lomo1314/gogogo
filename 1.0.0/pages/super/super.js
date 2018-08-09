@@ -39,6 +39,7 @@ Page({
 					})
 				}else{
 					var arr=res.data.data
+					console.log(arr.info)
 					that.setData({
 						topicHot:arr.info
 					})

@@ -4,7 +4,7 @@
 		<image src="/image/red-bg.png"></image>
 	</view>
 	<!-- 返回按钮 -->
-	<view class="go-back">
+	<view class="go-back" bindtap="navigateBack">
 		<image src="/image/go-back.png"></image>
 	</view>
 	<!-- 站位 -->
@@ -14,30 +14,30 @@
 <!-- 内容项 -->
 <!-- 全部分类、状态 -->
 <view class="en-list">
-	<view class="en-lis-class">全部类目
-		<view class="en-cla-box" hidden="{{classHidden}}">
-			<view class="en-sta">
-				<view class="class-icon"></view>女装</view>
-			<view class="en-sta">
-				<view class="class-icon"></view>女装</view>
-			<view class="en-sta">
-				<view class="class-icon"></view>女装</view>
-			<view class="en-sta">
-				<view class="class-icon"></view>女装</view>
+	<view class="en-lis-class {{enlisbg}}" bindtap="showTips">
+		<view class="sun_ify"></view>{{allIfy}}
+		<view class="en-cla-box " hidden="{{classHidden}}" >
+			<view class="en-sta" wx:for="{{cateMore}}" wx:key="cateMore.index" data-id="{{item.cate_id}}" data-name="{{item.name}}" bindtap="filtrate">
+				<view class="ify-icon {{item.cateimg}}" ></view>{{item.name}}
+			</view>
 		</view>
 	</view>
-	<view class="en-lis-state">全部状态
+	<view class="en-lis-state {{enlisbg01}}"  bindtap="showTips02">
+		<view class="sun_state "></view>{{allstat}}
 		<view class="en-cla-box" hidden="{{stateHidden}}">
-			<view class="en-sta">全部</view>
-			<view class="en-sta">降价中</view>
+			<view class="en-sta" data-name="全部" data-stat="" bindtap="status">全部</view>
+			<view class="en-sta" data-name="在售" data-stat="1" bindtap="status">在售</view>
+			<view class="en-sta" data-name="失效" data-stat="2" bindtap="status">失效</view>
 		</view>
 	</view>
 </view>
 <!-- 收藏内容 -->
 <view class="en-cont">
+	<block wx:if="{{hiddenTips}}">
 	<view class="en-item">
-		<view class="list rank-list touch-item {{item.isTouchMove ? 'touch-move-active' : ''}} " wx:for="{{dataCols}}" wx:key="dataCols.index" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove">
-			<view class="listEns" >
+		<view class="list rank-list touch-item {{item.isTouchMove ? 'touch-move-active' : ''}} " wx:for="{{dataCols}}" wx:key="dataCols.index"
+		    data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove">
+			<view class="listEns">
 				<navigator hover-class="hoverClass" url="/pages/matter/matter?id={{item.id}}&num_iid={{item.num_iid}}">
 					<view class="product-list-img fl">
 						<image class="product-list-img1" mode="aspectFill" src="{{item.pic_url}}"></image>
@@ -59,6 +59,10 @@
 			</view>
 		</view>
 	</view>
+</block>
+<block wx:else>
+	<view>暂无数据</view>
+</block>
 </view>
 
 <!-- 内容项end -->
