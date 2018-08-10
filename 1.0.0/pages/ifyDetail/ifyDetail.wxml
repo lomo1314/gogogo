@@ -16,7 +16,7 @@
 	<view class="ify-scroll">
 		<scroll-view class="ify-liat" scroll-x="true" style="white-space: nowrap; display:flex ">
 			<block wx:for="{{classifyList}}" wx:key="classifyList.index">
-				<view class="ifyboxs">
+				<view class="ifyboxs" data-id="{{item.id}}" data-name="{{item.name}}" bindtap="changeTag">
 					<view class="ify-icon '{{item.cateimg}}'"></view>
 					<view class="ify-name">{{item.name}}</view>
 				</view>

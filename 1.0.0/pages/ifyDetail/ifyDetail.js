@@ -70,6 +70,7 @@ Page({
         }
         util.ifyList(ajaxData, function (res) {
             var arr=res.data
+            console.log(arr)
             that.setData({
                 dataSyn:arr.data.info
             })
@@ -91,7 +92,20 @@ Page({
             changed: true
         }); //返回上一页
     },
-
+    // 点击切换分类数据
+    changeTag:function (e) {
+        var that=this 
+        var ajaxData={
+            cid:e.currentTarget.dataset.id
+        }
+        util.ifyList(ajaxData, function (res) {
+            var arr=res.data 
+            that.setData({
+                dataSyn:arr.data.info,
+                tagNames:e.currentTarget.dataset.name
+            })
+        })
+     },
     /**
 	 * 事件处理
 	 * scrollUpper 自动加载更多
