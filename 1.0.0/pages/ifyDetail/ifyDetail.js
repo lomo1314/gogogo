@@ -100,10 +100,19 @@ Page({
         }
         util.ifyList(ajaxData, function (res) {
             var arr=res.data 
-            that.setData({
-                dataSyn:arr.data.info,
-                tagNames:e.currentTarget.dataset.name
-            })
+            if(arr.code==200){
+                that.setData({
+                    dataSyn:arr.data.info,
+                    tagNames:e.currentTarget.dataset.name
+                })
+            }else if(arr.code==400){
+                that.setData({
+                    
+                    tagNames:e.currentTarget.dataset.name
+                })
+            }
+
+            
         })
      },
     /**
