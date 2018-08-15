@@ -201,7 +201,7 @@ Page({
                 path1 = res.tempFilePath
             }
         })
-        //console.log(path1)
+        console.log(path1)
         var unit = that.data.screenWidth / 375;
         //console.log(that.data.screenWidth)
         //var avatarUrl = that.data.avatarUrl

@@ -23,7 +23,7 @@
 
 .fr-right {
     position: fixed;
-    top: 75rpx;
+    top: 325rpx;
     right: 20rpx;
 }
 
