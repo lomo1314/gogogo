@@ -240,3 +240,15 @@
     border-bottom-right-radius: 15rpx;
     color: #fff;
 }
+.erweima{
+	width: 578rpx;
+	height: 1000rpx;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+    transform: translate(-50%, -50%);
+	z-index: 200;
+    background: #fff;
+    border-radius: 15rpx;
+    overflow: hidden;
+}

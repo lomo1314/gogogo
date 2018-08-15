@@ -14,7 +14,7 @@
       <image src="/image/fenxiang.png"></image>
     </view>
     <!-- 制作二维码图 -->
-    <view class="zt-box">
+    <view class="zt-box" bindtap="saveImageToPhotosAlbum">
       <image src="/image/zhitu.png"></image>
     </view>
   </view>
@@ -102,4 +102,6 @@
     </view>
   </view>
 </view>
-
+<!--单独蒙层 -->
+<view class="mark" hidden="{{canvasMark}}"></view>
+<canvas canvas-id='share' hidden='{{canvasHidden}}'  class="erweima"></canvas> 

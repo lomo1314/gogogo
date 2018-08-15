@@ -5,7 +5,7 @@
 		<image src="/image/red-bg.png"></image>
 	</view>
 	<!-- 返回按钮 -->
-	<view class="go-back">
+	<view class="go-back" bindtap="navigateBack">
 		<image src="/image/go-back.png"></image>
 	</view>
 	<form bindreset="formReset">

@@ -110,6 +110,7 @@ Page({
 		})
 		wx.hideToast()
 	},
+	
 	/**
 	 * 事件处理
 	 * scrollUpper 自动加载更多

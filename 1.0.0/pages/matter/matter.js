@@ -9,20 +9,20 @@ Page({
         winHeight: 0,
         //商品详情数据
         commodityLis: [],
-
-        conImg: "", //canvas 所需图片地址
-
-        api_erwmpic: "", //canvas 二维码地址
-
         stateColl: 0, //记录收藏状态码
 
         ensType: "收藏", //收藏状态
         ensColl: true, // 收藏图标
+        screenWidth: '', //设备屏幕宽度
         commId: "", //商品id
         markHidden: true, //蒙层开关
+        
+        canvasHidden: true, //设置画板的显示与隐藏，画板不隐藏会影响页面正常显示
+        shareImgPath: '', //分享图片
+        canvasMark: true, // 制图阴影背景 
 
     },
-
+    canvasId: "qrcCanvas",
 
     //方法二
     onLoad: function (options) {
@@ -39,9 +39,11 @@ Page({
                 that.setData({
                     screenWidth: res.screenWidth
                 })
-                console.log(that.data.screenWidth)
+                //console.log(that.data.screenWidth)
             }
         })
+
+        
         //商品详情页面
 
         /*获取当前页带参数的url*/
@@ -67,6 +69,7 @@ Page({
             num_iid: num_iid,
             pageurl: pageurl
         }
+        //console.log(pageurl)
         //console.log(ajaxDeta)
         // 商品类型数据信息
         util.commDetails(ajaxDeta, function (res) {
@@ -93,12 +96,12 @@ Page({
             }
             that.setData({
                 commodityLis: arr.data, //总数据
-                conImg: arr.data.pic_url, //图片地址
             })
         })
 
         //本页面转发隐藏
         wx.hideShareMenu()
+
     },
 
     //返回首页
@@ -180,5 +183,167 @@ Page({
         that.setData({
             markHidden: true
         })
+    },
+    //定义的保存图片方法
+    saveImageToPhotosAlbum: function () {
+
+        var that = this;
+        //设置画板显示，才能开始绘图
+        that.setData({
+            canvasHidden: false, //canvas 制图展示
+            canvasMark: false, //蒙层展示
+        })
+        var path1 = that.data.commodityLis.pic_url //分享图片地址
+        wx.downloadFile({     //当图片为网络图片时，需要先下载到本地，再进行操作，
+            url: path1,  //否则canvas会加载不到图片，本地的无需这步骤
+            success: function (res) {
+                //console.log(res)
+                path1 = res.tempFilePath
+            }
+        })
+        //console.log(path1)
+        var unit = that.data.screenWidth / 375;
+        
+        //var avatarUrl = that.data.avatarUrl
+        var path2 = that.data.commodityLis.api_erwmpic // 分享图片二维码
+        var proTit = that.data.commodityLis.title; //分享图片 标题
+        var context = wx.createCanvasContext('share')
+        context.fillStyle = "#FFF";
+        context.fillRect(0, 0, unit * 289, unit * 500)
+        context.drawImage(path1, 0, 0, unit * 289, unit * 289)
+        /**标题**/
+        context.setFontSize(14)
+        context.setFillStyle("#000")
+        // context.fillText(proTit, 5, unit * 312)
+        //画图文字换行，内容、画布、初始x、初始y、行高、画布宽
+        this.changLine(true,proTit,context,15,312,16,265)
+        //价格图片背景
+        var prceBg="/image/erwm_jian.png" 
+        context.fillStyle = "#FFF";
+        context.drawImage(prceBg, 15, 340, unit * 256, unit * 25)
+        /**价格**/
+        //卷后价：
+        var juan=that.data.commodityLis.coupon_price
+        // 在售价：
+        var perMon=that.data.commodityLis.price
+        //销量
+        var sal=that.data.commodityLis.volume
+        context.setFontSize(11)
+        context.setFillStyle("#fff")
+        context.fillText('券后价:￥', 23, unit * 356)
+        context.fillText(juan, 69, unit * 356)
+        context.fillText('在售价:￥', 120, unit * 356)
+        context.fillText(perMon, 167, unit * 356)
+        context.fillText('销量:', 203, unit * 356)
+        context.fillText(sal, 230, unit * 356)
+        /**价格end**/
+       /**二维码**/
+       console.log(path2)
+       context.drawImage(path2, unit * 0, unit * 0, 90, 90)
+        /**长按识别图中二维码**/
+        context.fillStyle = "#FF0000";
+        context.fillRect(unit * 8, unit * 420, 122, 20)
+        context.setFontSize(12);
+        context.setFillStyle("#fff")
+        context.fillText("长按识别图中二维码", unit * 12, unit * 435)
+        
+
+        //把画板内容绘制成图片，并回调 画板图片路径
+        context.draw(false, function () {
+            wx.canvasToTempFilePath({
+                x: 0,
+                y: 0,
+                width: unit * 375,
+                height: unit * 640,
+                destWidth: unit * 375,
+                destHeight: unit * 640,
+                canvasId: 'share',
+                success: function (res) {
+                    that.setData({
+                        shareImgPath: res.tempFilePath
+                    })
+                    if (!res.tempFilePath) {
+                        wx.showModal({
+                            title: '提示',
+                            content: '图片绘制中，请稍后重试',
+                            showCancel: false
+                        })
+                    }
+                    console.log(that.data.shareImgPath)
+                    that.setData({
+                        FilePath: res.tempFilePath
+                    })
+                    
+                }
+            })
+        });
+    },
+    //保存图片
+    saveImageToPhotos: function () {
+        wx.showLoading({
+            title: '保存中...',
+        })
+        var that = this;
+        var FilePath1 = that.data.FilePath
+        wx.saveImageToPhotosAlbum({
+            filePath: FilePath1,
+            //保存成功失败之后，都要隐藏画板，否则影响界面显示。
+            success: (res) => {
+                console.log(res)
+                wx.hideLoading()
+                that.setData({
+                    canvasHidden: true
+                })
+            },
+            fail: (err) => {
+                console.log(err)
+                wx.hideLoading()
+                that.setData({
+                    canvasHidden: true
+                })
+            }
+        })
+    },
+ //画图文字换行，内容、画布、初始x、初始y、行高、画布宽
+ changLine: function (isTitle,str, ctx, initX, initY, lineHeight, canvasWidth){
+      
+    // 字符分隔为数组
+    var arrText = str.split('');
+    var line = '';
+    var lineCount=0;
+    var isThreeLine=false;
+    for (var n = 0; n < arrText.length; n++) {
+      var testLine = line + arrText[n];
+      var testWidth = ctx.measureText(testLine).width;
+      if (testWidth > canvasWidth) {
+        if (lineCount==2) {
+          isThreeLine=true
+          var length = line.length-2;
+          line = line.substring(0, length)+'...';
+          ctx.fillText(line, initX, initY);
+          return false;
+        }
+        lineCount++;
+      
+        ctx.fillText(line, initX, initY);
+        line = arrText[n];
+        initY += lineHeight;
+       
+      } else {
+        line = testLine;
+      }
+      
     }
+    if (!isThreeLine){
+      ctx.fillText(line, initX, initY);
+    }
+      //记录标题的高度
+    if (isTitle){
+      this.setData({
+        titleY: initY + lineHeight + 8
+      })
+      }
+  },
+
+
 })
