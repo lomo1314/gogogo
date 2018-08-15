@@ -203,7 +203,7 @@ Page({
         })
         //console.log(path1)
         var unit = that.data.screenWidth / 375;
-        
+        //console.log(that.data.screenWidth)
         //var avatarUrl = that.data.avatarUrl
         var path2 = that.data.commodityLis.api_erwmpic // 分享图片二维码
         var proTit = that.data.commodityLis.title; //分享图片 标题
@@ -216,11 +216,11 @@ Page({
         context.setFillStyle("#000")
         // context.fillText(proTit, 5, unit * 312)
         //画图文字换行，内容、画布、初始x、初始y、行高、画布宽
-        this.changLine(true,proTit,context,15,312,16,265)
+        this.changLine(true,proTit,context,unit*15,unit*312,16,265)
         //价格图片背景
         var prceBg="/image/erwm_jian.png" 
         context.fillStyle = "#FFF";
-        context.drawImage(prceBg, 15, 340, unit * 256, unit * 25)
+        context.drawImage(prceBg, unit*15, unit*340, unit * 256, unit * 25)
         /**价格**/
         //卷后价：
         var juan=that.data.commodityLis.coupon_price
@@ -237,16 +237,16 @@ Page({
         context.fillText('销量:', 203, unit * 356)
         context.fillText(sal, 230, unit * 356)
         /**价格end**/
-       /**二维码**/
-       console.log(path2)
-       context.drawImage(path2, unit * 0, unit * 0, 90, 90)
+      
         /**长按识别图中二维码**/
         context.fillStyle = "#FF0000";
         context.fillRect(unit * 8, unit * 420, 122, 20)
         context.setFontSize(12);
         context.setFillStyle("#fff")
         context.fillText("长按识别图中二维码", unit * 12, unit * 435)
-        
+         /**二维码**/
+       console.log(path2)
+       context.drawImage(path2, unit * 0, unit * 0, 90, 90)
 
         //把画板内容绘制成图片，并回调 画板图片路径
         context.draw(false, function () {
