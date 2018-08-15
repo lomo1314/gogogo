@@ -22,7 +22,7 @@ Page({
         canvasMark: true, // 制图阴影背景 
 
     },
-    canvasId: "qrcCanvas",
+    //canvasId: "qrcCanvas",
 
     //方法二
     onLoad: function (options) {
@@ -238,18 +238,21 @@ Page({
         context.fillText(sal, unit*230, unit * 356)
         /**价格end**/
       
-        /**长按识别图中二维码**/
+        /**长按上方图片即可发送图片或保存图片**/
         context.fillStyle = "#f9f9d3";
         context.fillRect(0, unit * 470, unit * 289, unit*32)
         context.setFontSize(11);
         context.setFillStyle("#1f1f1f")
         context.fillText("说明：", unit * 15, unit * 490)
         context.setFillStyle("#b9b985")
-        context.fillText("说明：长按上方图片即可发送图片或保存图片。", unit * 50, unit * 490)
+        context.fillText("长按上方图片即可发送图片或保存图片。", unit * 50, unit * 490)
          /**二维码**/
        console.log(path2)
-       context.drawImage(path2, unit * 0, unit * 0, 90, 90)
-
+       context.drawImage(path2, unit * 15, unit * 374, unit*90, unit*90);
+       /** 长按二维码识别查看商品 */
+        context.setFontSize(11);
+        context.setFillStyle("#bcbcbc")
+        context.fillText("长按二维码识别查看商品", unit * 147, unit * 455)
         //把画板内容绘制成图片，并回调 画板图片路径
         context.draw(false, function () {
             wx.canvasToTempFilePath({
