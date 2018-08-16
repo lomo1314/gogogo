@@ -104,4 +104,4 @@
 </view>
 <!--单独蒙层 -->
 <view class="mark" hidden="{{canvasMark}}"></view>
-<canvas canvas-id='share' hidden='{{canvasHidden}}'  class="erweima"></canvas> 
+<canvas canvas-id='share' hidden='{{canvasHidden}}' bindtap="saveImageToPhotos"  class="erweima"></canvas> 
