@@ -20,6 +20,10 @@ Page({
         canvasHidden: true, //设置画板的显示与隐藏，画板不隐藏会影响页面正常显示
         shareImgPath: '', //分享图片
         canvasMark: true, // 制图阴影背景 
+        // 暂存本地 二维码
+        thisErwm:"",
+        //暂存本地 图片地址
+        thisPic:"",
 
     },
     //canvasId: "qrcCanvas",
@@ -189,27 +193,37 @@ Page({
     saveImageToPhotosAlbum: function () {
 
         var that = this;
+        //手机端延迟
+        wx.showLoading({
+            title: '正在生成图片...',
+            mask: true,
+            duration: 1000,
+        });
         //设置画板显示，才能开始绘图
         that.setData({
             canvasHidden: false, //canvas 制图展示
             canvasMark: false, //蒙层展示
         })
+        var context = wx.createCanvasContext('share')
         var path1 = that.data.commodityLis.pic_url //分享图片地址
         var path2 = that.data.commodityLis.api_erwmpic // 分享图片二维码
+        var erwema=""
         wx.downloadFile({ //当图片为网络图片时，需要先下载到本地，再进行操作，
             url: path2, //否则canvas会加载不到图片，本地的无需这步骤
             success: function (res) {
                 //console.log(res)
                 path2 = res.tempFilePath
+                context.drawImage(path2, unit * 15, unit * 374, unit * 90, unit * 90);
+                context.draw(true, that.getTempFilePath);
             }
         })
-        //console.log(path2)
+        
         var unit = that.data.screenWidth / 375;
         //console.log(that.data.screenWidth)
         //var avatarUrl = that.data.avatarUrl
 
         var proTit = that.data.commodityLis.title; //分享图片 标题
-        var context = wx.createCanvasContext('share')
+        
         context.fillStyle = "#FFF";
         context.fillRect(0, 0, unit * 289, unit * 500)
         context.drawImage(path1, 0, 0, unit * 289, unit * 289)
@@ -249,8 +263,8 @@ Page({
         context.setFillStyle("#b9b985")
         context.fillText("长按上方图片即可发送图片或保存图片。", unit * 50, unit * 490)
         /**二维码**/
-        console.log(path2)
-        context.drawImage(path2, unit * 15, unit * 374, unit * 90, unit * 90);
+        //console.log(path2)
+        //context.drawImage(path2, unit * 15, unit * 374, unit * 90, unit * 90);
         /** 长按二维码识别查看商品 */
         context.setFontSize(11);
         context.setFillStyle("#bcbcbc")
@@ -281,7 +295,7 @@ Page({
                     that.setData({
                         FilePath: res.tempFilePath
                     })
-
+                    //console.log(that.data.FilePath)
                 }
             })
         });
@@ -293,6 +307,7 @@ Page({
         })
         var that = this;
         var FilePath1 = that.data.FilePath
+        console.log(that.data.FilePath+"222")
         wx.saveImageToPhotosAlbum({
             filePath: FilePath1,
             //保存成功失败之后，都要隐藏画板，否则影响界面显示。
@@ -303,28 +318,27 @@ Page({
                     canvasHidden: true,
                     canvasMark: true,
                 })
+                //提示框
+                wx.showToast({
+                    title: '保存成功',
+                    success: '',
+                    duration: 1000,
+                    mask: true
+                })
             },
             fail: (err) => {
                 console.log(err)
-                if (err.errMsg === "saveImageToPhotosAlbum:fail auth deny") {
-                    console.log("用户一开始拒绝了，我们想再次发起授权")
-                    console.log('打开设置窗口')
-                    wx.openSetting({
-                        success(settingdata) {
-                            console.log(settingdata)
-                            if (settingdata.authSetting['scope.writePhotosAlbum']) {
-                                console.log('获取权限成功，给出再次点击图片保存到相册的提示。')
-                            } else {
-                                console.log('获取权限失败，给出不给权限就无法正常使用的提示')
-                            }
-                        }
-                    })
-                }
                 wx.hideLoading()
                 that.setData({
                     canvasHidden: true,
                     canvasMark: true,
                 })
+                // wx.showToast({
+                //     title: '保存失败',
+                //     image:"/image/c_remove.png",
+                //     duration: 1000,
+                //     mask: true
+                // })
 
             }
         })
