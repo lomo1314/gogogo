@@ -26,6 +26,7 @@ Page({
         //暂存本地 图片地址
         thisPic:"",
 
+
     },
     //canvasId: "qrcCanvas",
 
@@ -133,6 +134,8 @@ Page({
     //点击收藏
     collBind: function () {
         var that = this
+        var token = wx.getStorageSync('token') || [];
+        if(token){
         var flag = that.data.stateColl
 
         if (flag == 0) {
@@ -177,6 +180,14 @@ Page({
                 //console.log(res)
             })
         }
+    }else{
+        wx.showToast({
+            title: '请先登录',
+            image: '/image/c_remove.png',
+            duration: 1000,
+            mask: true
+        })
+    }
         //if()
     },
 
