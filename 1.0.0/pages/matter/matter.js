@@ -15,6 +15,7 @@ Page({
         ensColl: true, // 收藏图标
         screenWidth: '', //设备屏幕宽度
         commId: "", //商品id
+        matterId:"",//路径id
         markHidden: true, //蒙层开关
         FilePath: '', //路径
         canvasHidden: true, //设置画板的显示与隐藏，画板不隐藏会影响页面正常显示
@@ -35,7 +36,8 @@ Page({
         var id = options.id
         var num_iid = options.num_iid
         that.setData({
-            commId: options.num_iid
+            commId: options.num_iid,
+            matterId:id
         })
         //获取用户设备信息，屏幕宽度
         wx.getSystemInfo({
@@ -105,10 +107,22 @@ Page({
 
         //本页面转发隐藏
         wx.hideShareMenu()
-        /*初始进入页面开始制图 **************** */
+        
 
     },
-
+    //转发分享按钮
+    onShareAppMessage: function (res) {
+        var that=this
+        if (res.from === 'button') {
+          // 来自页面内转发按钮
+          console.log(res.target)
+        }
+        return {
+          title: that.data.commodityLis.title,
+          path: '/pages/matter/matter?id='+that.data.matterId+'&&num_iid='+that.data.commId,
+          imageUrl:that.data.commodityLis.pic_url
+        }
+      },
     //返回首页
     goHome: function () {
         var that = this
@@ -343,16 +357,19 @@ Page({
                     canvasHidden: true,
                     canvasMark: true,
                 })
-                // wx.showToast({
-                //     title: '保存失败',
-                //     image:"/image/c_remove.png",
-                //     duration: 1000,
-                //     mask: true
-                // })
+                
 
             }
         })
     },
+    //关闭 canvas 
+    occlude:function () { 
+        var that=this
+        that.setData({
+            canvasHidden: true,
+            canvasMark: true,
+        })
+     },
     //画图文字换行，内容、画布、初始x、初始y、行高、画布宽
     changLine: function (isTitle, str, ctx, initX, initY, lineHeight, canvasWidth) {
 

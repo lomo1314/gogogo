@@ -25,8 +25,13 @@
     position: fixed;
     top: 325rpx;
     right: 20rpx;
+    z-index: 122;
 }
-
+.fx-box{
+    background: transparent;
+    padding: 0;
+    line-height: 1.5
+}
 .fx-box image {
     width: 56rpx;
     height: 56rpx;
@@ -251,4 +256,24 @@
     /* background: #fff; */
     border-radius: 15rpx;
     overflow: hidden;
+}
+/* 2018-08-17 新增按钮 */
+.can-btn{
+    width: 100%;
+    height: 77rpx;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 121;
+}
+.btn-box{
+    width: 50%;
+    height: 77rpx;
+    background-size: 375rpx 77rpx;
+}
+.Cclose{
+    background-image: url(http://go.cnmo.com/static/newpi/images/api/canvasCloose.png)
+}
+.Ckeep{
+    background-image: url(http://go.cnmo.com/static/newpi/images/api/canvasKeep.png)
 }
