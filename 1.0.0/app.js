@@ -57,14 +57,7 @@ App({
   globalData: {
     userInfo: null
   },
-
-  // navigateBack: function () {
-  //   var self = this;
-  //   var pages = getCurrentPages();
-  //   wx.navigateBack({
-  //     changed: true
-  //   }); //返回上一页
-  // }
+   
 
 
 })

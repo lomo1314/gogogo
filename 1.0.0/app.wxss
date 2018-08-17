@@ -381,3 +381,11 @@ checkbox, radio{
   margin-top: 15rpx;
 }
 /* 排行榜 具体项 */
+/* 返回顶部 */
+.go-top{
+  position: fixed;
+  right: 20rpx;
+  bottom: 100rpx;
+  width: 60rpx;
+  height: 60rpx;
+}

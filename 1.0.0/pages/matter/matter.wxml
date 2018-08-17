@@ -1,4 +1,4 @@
-<import src="/wxParse/wxParse.wxml"/>
+<import src="/wxParse/wxParse.wxml" />
 <!-- 头图 -->
 <view class="matter-head">
 
@@ -67,19 +67,19 @@
 
   </view>
   <!-- 领劵  -->
-  <block wx:if="{{commodityLis.is_quan==1}}" >
-      <view class="reel"  data-text="{{commodityLis.api_quanurl}}" bindtap="copyText">
-          <view class="reel-num">{{commodityLis.quan}}</view>
-          <text class="reel-text fz22">优惠券</text>
-        </view>
+  <block wx:if="{{commodityLis.is_quan==1}}">
+    <view class="reel" data-text="{{commodityLis.api_quanurl}}" bindtap="copyText">
+      <view class="reel-num">{{commodityLis.quan}}</view>
+      <text class="reel-text fz22">优惠券</text>
+    </view>
   </block>
-  
+
   <!-- 图文详情 -->
   <view class="picImg" wx:if="{{commodityLis.desc!=''}}">
     <view class="picTile fz22">图文详情</view>
     <view class="picPrint">
       <!-- <image src="{{commodityLis.desc}}"></image> -->
-      <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+      <template is="wxParse" data="{{wxParseData:article.nodes}}" />
     </view>
   </view>
   <!-- 底部 btn-->
@@ -87,7 +87,12 @@
     <view class="mar-mon fl">¥{{commodityLis.coupon_price}}</view>
     <view class="mar-btton fr">
       <view class="fl fz22 mr-Abtn mr-bg01" bindtap="collBind">{{ensType}}</view>
-      <view  bindtap="copyText" class="fl fz22 mr-Abtn mr-bg02" data-text="{{commodityLis.api_quanurl}}">口令购买</view>
+      <block wx:if="{{commodityLis.is_quan==1}}">
+        <view bindtap="copyText" class="fl fz22 mr-Abtn mr-bg02" data-text="{{commodityLis.api_quanurl}}">口令购买</view>
+      </block>
+      <block wx:else>
+        <view bindtap="copyText" class="fl fz22 mr-Abtn mr-bg02" data-text="{{commodityLis.api_quanurl}}">立即购买</view>
+      </block>
     </view>
   </view>
 </view>
@@ -109,6 +114,7 @@
     <view class="fl btn-box Ckeep" bindtap="saveImageToPhotos"></view>
   </view>
 </view>
-<canvas canvas-id='share' hidden='{{canvasHidden}}'  class="erweima"></canvas> 
-<!-- 复制图片变更为新的 -->
+<canvas canvas-id='share' hidden='{{canvasHidden}}' class="erweima"></canvas>
+<!-- 返回顶部-->
 
+<image class="go-top" src="/image/go-top.png" hidden='{{!floorstatus}}' bindtap="goTop"></image>

@@ -41,8 +41,9 @@
       },
       {
         "pagePath": "pages/super/super",
-        "iconPath": "image/super.png",
-        "selectedIconPath": "image/super.png"
+        "text": "超级搜",
+        "iconPath": "image/icon_super.png",
+        "selectedIconPath": "image/icon_super.png"
       },
       {
         "pagePath": "pages/sheng/sheng",
