@@ -26,7 +26,7 @@ module.exports = {
     classifyAjax: function (pagename, fn) {
         //console.log(pagename);
         wx.request({
-            url: 'http://go.cnmo.com/index.php?g=api&m=index&a=cateTotal',
+            url: 'https://go.cnmo.com/index.php?g=api&m=index&a=cateTotal',
             data: {
                 pagename: pagename
             },

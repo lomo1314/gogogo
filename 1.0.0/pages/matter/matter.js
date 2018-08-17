@@ -205,7 +205,7 @@ Page({
             canvasMark: false, //蒙层展示
         })
         var context = wx.createCanvasContext('share')
-        var path1 = that.data.commodityLis.pic_url //分享图片地址
+        var path1 = that.data.commodityLis.api_headimg //分享图片地址
         var path2 = that.data.commodityLis.api_erwmpic // 分享图片二维码
         var erwema=""
         wx.downloadFile({ //当图片为网络图片时，需要先下载到本地，再进行操作，
@@ -217,6 +217,16 @@ Page({
                 context.draw(true, that.getTempFilePath);
             }
         })
+        wx.downloadFile({ //当图片为网络图片时，需要先下载到本地，再进行操作，
+            url: path1, //否则canvas会加载不到图片，本地的无需这步骤
+            success: function (res) {
+                //console.log(res)
+                path1 = res.tempFilePath
+                context.drawImage(path1, 0, 0, unit * 289, unit * 289)
+                context.draw(true, that.getTempFilePath);
+            }
+        })
+        
         
         var unit = that.data.screenWidth / 375;
         //console.log(that.data.screenWidth)
@@ -226,7 +236,7 @@ Page({
         
         context.fillStyle = "#FFF";
         context.fillRect(0, 0, unit * 289, unit * 500)
-        context.drawImage(path1, 0, 0, unit * 289, unit * 289)
+        // context.drawImage(path1, 0, 0, unit * 289, unit * 289)
         /**标题**/
         context.setFontSize(14)
         context.setFillStyle("#000")
