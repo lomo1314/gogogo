@@ -295,7 +295,7 @@ checkbox, radio{
 /* 排行榜具体项 */
 .product-list{
   width: 710rpx;
-  height: 145rpx;
+  height: 210rpx;
   background: #f3f4f6;
   border-radius: 15rpx;
   overflow: hidden;
@@ -303,8 +303,8 @@ checkbox, radio{
   margin-top: 12rpx;
 }
 .product-list-img1{
-  width: 223rpx;
-  height: 145rpx;
+  width: 221rpx;
+  height: 210rpx;
   border-top-left-radius: 15rpx;
   border-bottom-left-radius: 15rpx;
 }
@@ -315,9 +315,9 @@ checkbox, radio{
   font-size: 22rpx;
   color: #121212;
   width: 420rpx;
-  overflow: hidden;
+  /* overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap
+  white-space: nowrap */
 }
 .product-list-price{
   margin-top: -10rpx;
@@ -372,7 +372,7 @@ checkbox, radio{
 }
 .rank-list-main{
   height: 104rpx;
-  padding-top: 20rpx;
+  padding-top: 30rpx;
 }
 .tao-btns image{
   width: 25rpx;

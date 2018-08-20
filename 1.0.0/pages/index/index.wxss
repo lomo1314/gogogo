@@ -201,7 +201,7 @@
 
 .list-img {
     width: 342rpx;
-	height: 249rpx;
+	height: 342rpx;
 	border-radius: 15rpx;
 }
 

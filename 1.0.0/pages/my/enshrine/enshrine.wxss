@@ -245,7 +245,7 @@
 .rank-list {
     position: relative;
     /* overflow: hidden; */
-    height: 145rpx;
+    height: 210rpx;
     background: #f3f4f6;
     border-radius: 15rpx;
 		margin-top: 12rpx;

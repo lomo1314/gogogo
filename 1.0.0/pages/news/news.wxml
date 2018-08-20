@@ -1,8 +1,8 @@
 <!--news.wxml-->
 <!-- loading -->
-<!-- <loading hidden="{{hidden}}">
+<loading hidden="{{hidden}}">
 	加载中...
-</loading> -->
+</loading>
 <import src="/wxParse/wxParse.wxml" />
 <!-- 首页专辑 -->
 <view>

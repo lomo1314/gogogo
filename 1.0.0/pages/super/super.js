@@ -50,7 +50,12 @@ Page({
             }
         })
 	 },
-
+	/**点击进入搜索页面**/
+	searchOpen: function () {
+		wx.navigateTo({
+			url: '../search/search'
+		})
+	},
 	changeIndicatorDots: function (e) {
 		this.setData({
 			indicatorDots: !this.data.indicatorDots

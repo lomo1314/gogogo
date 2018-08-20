@@ -16,13 +16,13 @@
 <view class="en-list">
 	<view class="en-lis-class {{enlisbg}}" bindtap="showTips">
 		<view class="sun_ify"></view>{{allIfy}}
-		<view class="en-cla-box " hidden="{{classHidden}}" >
+		<view class="en-cla-box " hidden="{{classHidden}}">
 			<view class="en-sta" wx:for="{{cateMore}}" wx:key="cateMore.index" data-id="{{item.cate_id}}" data-name="{{item.name}}" bindtap="filtrate">
-				<view class="ify-icon {{item.cateimg}}" ></view>{{item.name}}
+				<view class="ify-icon {{item.cateimg}}"></view>{{item.name}}
 			</view>
 		</view>
 	</view>
-	<view class="en-lis-state {{enlisbg01}}"  bindtap="showTips02">
+	<view class="en-lis-state {{enlisbg01}}" bindtap="showTips02">
 		<view class="sun_state "></view>{{allstat}}
 		<view class="en-cla-box" hidden="{{stateHidden}}">
 			<view class="en-sta" data-name="全部" data-stat="" bindtap="status">全部</view>
@@ -34,35 +34,35 @@
 <!-- 收藏内容 -->
 <view class="en-cont">
 	<block wx:if="{{hiddenTips}}">
-	<view class="en-item">
-		<view class="list rank-list touch-item {{item.isTouchMove ? 'touch-move-active' : ''}} " wx:for="{{dataCols}}" wx:key="dataCols.index"
-		    data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove">
-			<view class="listEns">
-				<navigator hover-class="hoverClass" url="/pages/matter/matter?id={{item.id}}&num_iid={{item.num_iid}}">
-					<view class="product-list-img fl">
-						<image class="product-list-img1" mode="aspectFill" src="{{item.pic_url}}"></image>
-					</view>
-					<view class="flex-column rank-list-main fl">
-						<view class="product-list-name">{{item.title}}</view>
-						<view class="product-list-price">
-							<text class="mr20">原价: {{item.coupon_price}}元</text>
+		<view class="en-item">
+			<view class="list rank-list touch-item {{item.isTouchMove ? 'touch-move-active' : ''}} " wx:for="{{dataCols}}" wx:key="dataCols.index"
+			    data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove">
+				<view class="listEns">
+					<navigator hover-class="hoverClass" url="/pages/matter/matter?id={{item.id}}&num_iid={{item.num_iid}}">
+						<view class="product-list-img fl">
+							<image class="product-list-img1" mode="aspectFill" src="{{item.pic_url}}"></image>
 						</view>
-						<view class="product-list-des">
-							<text class="roll-disc">券后: ¥{{item.coupon_price}}</text>
+						<view class="flex-column rank-list-main fl">
+							<view class="product-list-name">{{item.title}}</view>
+							<view class="product-list-price">
+								<text class="mr20">原价: {{item.coupon_price}}元</text>
+							</view>
+							<view class="product-list-des">
+								<text class="roll-disc">券后: ¥{{item.coupon_price}}</text>
+							</view>
 						</view>
-					</view>
-				</navigator>
-			</view>
-			<view bindtap="delItem" class="posit">
-				<view class="editor" data-numid="{{item.num_iid}}" data-id="{{item.id}}" catchtap="setShare">分享</view>
-				<view class="del" data-numid="{{item.num_iid}}" data-index="{{index}}" catchtap="del">删除</view>
+					</navigator>
+				</view>
+				<view bindtap="delItem" class="posit">
+					<button class="editor" data-title="{{item.title}}" data-numid="{{item.num_iid}}" data-id="{{item.id}}" data-url="{{item.pic_url}}" open-type="share">分享</button>
+					<view class="del" data-numid="{{item.num_iid}}" data-index="{{index}}" catchtap="del">删除</view>
+				</view>
 			</view>
 		</view>
-	</view>
-</block>
-<block wx:else>
-	<view>暂无数据</view>
-</block>
+	</block>
+	<block wx:else>
+		<view>暂无数据</view>
+	</block>
 </view>
 
 <!-- 内容项end -->

@@ -3,7 +3,7 @@
   <view class="banner">
     <image src="/image/red-bg.png"></image>
   </view>
-  <form bindreset="formReset">
+  <form bindreset="formReset" bindtap="searchOpen">
     <view class="search">
       <view class="search-box">
         <icon class="search-btn" type="search" size="14" color="#b2b2b2" />

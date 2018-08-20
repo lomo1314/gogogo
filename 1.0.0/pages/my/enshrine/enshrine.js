@@ -7,14 +7,14 @@ Page({
 		classHidden: true, //全部分类列表
 		stateHidden: true, //全部状态
 		dataCols: [], //收藏商品
-		cateMore:[],//收藏商品分类
+		cateMore: [], //收藏商品分类
 		startX: 0, //开始坐标
 		startY: 0,
-		enlisbg:"",
-		enlisbg01:"",
-		allIfy:"全部类目",
-		allstat:"全部状态",
-		hiddenTips:true, //如果没有数据展示判断
+		enlisbg: "",
+		enlisbg01: "",
+		allIfy: "全部类目",
+		allstat: "全部状态",
+		hiddenTips: true, //如果没有数据展示判断
 	},
 
 	onLoad: function (options) {
@@ -42,14 +42,14 @@ Page({
 			console.log(arr.data.cate)
 			that.setData({
 				dataCols: arr.data.info, //产品数据
-				cateMore:arr.data.cate  // 产品分类
+				cateMore: arr.data.cate // 产品分类
 			})
 		})
 
 	},
 	//手指触摸动作开始 记录起点X坐标
 	touchstart: function (e) {
-		var that=this
+		var that = this
 		//console.log(e.changedTouches[0].clientX,e.changedTouches[0].clientY)
 		//开始触摸时 重置所有删除
 		that.data.dataCols.forEach(function (v, i) {
@@ -59,7 +59,7 @@ Page({
 		that.setData({
 			startX: e.changedTouches[0].clientX,
 			startY: e.changedTouches[0].clientY,
-			//dataCols: this.data.dataCols
+			dataCols: this.data.dataCols
 		})
 	},
 	//滑动事件处理
@@ -70,7 +70,7 @@ Page({
 			startY = that.data.startY, //开始Y坐标
 			touchMoveX = e.changedTouches[0].clientX, //滑动变化坐标
 			touchMoveY = e.changedTouches[0].clientY, //滑动变化坐标
-			
+
 			//获取滑动角度
 			angle = that.angle({
 				X: startX,
@@ -79,7 +79,7 @@ Page({
 				X: touchMoveX,
 				Y: touchMoveY
 			});
-			
+
 		that.data.dataCols.forEach(function (v, i) {
 			v.isTouchMove = false
 			//滑动超过30度角 return
@@ -109,84 +109,103 @@ Page({
 	},
 	//删除事件
 	del: function (e) {
-		var that=this
-		
+		var that = this
+
 		// console.log(e.target.dataset.numid)
-		var num_iid=e.target.dataset.numid;
-		var ajaxDeta={
-			num_iid:num_iid, //商品id
-			type:2, //删除状态
+		var num_iid = e.target.dataset.numid;
+		var ajaxDeta = {
+			num_iid: num_iid, //商品id
+			type: 2, //删除状态
 		}
-		util.collectAjax(ajaxDeta,function (res) { 
+		util.collectAjax(ajaxDeta, function (res) {
 			//console.log(res)
-		 })
+		})
 		//获取列表中要删除项的下标
 		var index = e.target.dataset.index;
 		//console.log(index)
 		var dataCols = this.data.dataCols;
 		//移除列表中下标为index的项
-		dataCols.splice(index,1);
+		dataCols.splice(index, 1);
 		that.setData({
 			dataCols: that.data.dataCols
 		})
-	
+
 	},
 	//分享时间
-	setShare:function (e) {
-		var that=this
-		var num_iid=e.target.dataset.numid;
-		var id=e.target.dataset.id
-		// console.log(id)
-	  },
+	//转发分享按钮
+	onShareAppMessage: function (res) {
+		var that = this
+		//console.log(res)
+		var id, num_iid, imageUrl, title
+		if (res.from === 'button') {
+			// 来自页面内转发按钮
+			//console.log(res.target)
+			title = res.target.dataset.title
+			id = res.target.dataset.id
+			num_iid = res.target.dataset.num_iid
+			imageUrl = res.target.dataset.url
+		}
+		return {
+			title: title,
+			path: '/pages/matter/matter?id=' + id + '&&num_iid=' + num_iid,
+			imageUrl: imageUrl
+		}
+		//更新数据
+		// that.setData({
+		// 	dataCols: that.data.dataCols
+		// })
+	},
 
 	//   返回上一页
 	navigateBack: function () {
-        var self = this;
+		var self = this;
 		var pages = getCurrentPages();
-        wx.navigateBack({ changed: true });//返回上一页
+		wx.navigateBack({
+			changed: true
+		}); //返回上一页
 	},
 	//点击出下拉菜单
-	showTips:function () { 
-		var that=this
-		if(that.data.enlisbg==""){
+	showTips: function () {
+		var that = this
+		if (that.data.enlisbg == "") {
 			that.setData({
-				classHidden:false,
-				enlisbg:"enlisbg"
+				classHidden: false,
+				enlisbg: "enlisbg"
 			})
-		}else{
+		} else {
 			that.setData({
-				classHidden:true,
-				enlisbg:""
-			})
-		}
-        
-	 },
-	 //点击下来菜单 全部分类
-	 showTips02:function () { 
-		var that=this
-		if(that.data.enlisbg01==""){
-			that.setData({
-				stateHidden:false,
-				enlisbg01:"enlisbg"
-			})
-		}else{
-			that.setData({
-				stateHidden:true,
-				enlisbg01:""
+				classHidden: true,
+				enlisbg: ""
 			})
 		}
-        
-	  },
 
-	 //点击筛选收藏产品种类
-	 filtrate:function (e) { 
-		 var that=this
-		 //console.log(e.target);
-		 var cate_id=e.target.dataset.id
-		 that.setData({
-			allIfy:e.target.dataset.name //选中商品种类
-		 })
-		 var ajaxDeta = {
+	},
+	//点击下来菜单 全部分类
+	showTips02: function () {
+		var that = this
+		if (that.data.enlisbg01 == "") {
+			that.setData({
+				stateHidden: false,
+				enlisbg01: "enlisbg"
+			})
+		} else {
+			that.setData({
+				stateHidden: true,
+				enlisbg01: ""
+			})
+		}
+
+	},
+
+	//点击筛选收藏产品种类
+	filtrate: function (e) {
+		var that = this
+		//console.log(e.target);
+		var cate_id = e.target.dataset.id
+		that.setData({
+			allIfy: e.target.dataset.name //选中商品种类
+		})
+		var ajaxDeta = {
 			page: "", //页码数
 			cate_id: cate_id, //分类id
 			status: 1, // 1为在售 2失效
@@ -196,21 +215,21 @@ Page({
 			var arr = res.data
 			that.setData({
 				dataCols: arr.data.info, //产品数据
-				cateMore:arr.data.cate,  // 产品分类
-				enlisbg:"",
-				classHidden:true,
+				cateMore: arr.data.cate, // 产品分类
+				enlisbg: "",
+				classHidden: true,
 			})
 		})
-	  },
-	  //点击筛选状态
-	  status:function (e) { 
-		var that=this
-		
-		var statIng=e.target.dataset.stat
-		var statuName=e.target.dataset.name
+	},
+	//点击筛选状态
+	status: function (e) {
+		var that = this
+
+		var statIng = e.target.dataset.stat
+		var statuName = e.target.dataset.name
 
 		that.setData({
-			allstat:statuName //选中商品种类
+			allstat: statuName //选中商品种类
 		})
 		var ajaxDeta = {
 			page: "", //页码数
@@ -220,23 +239,23 @@ Page({
 		util.collList(ajaxDeta, function (res) {
 			var arr = res.data
 			console.log(arr)
-			if(arr.code==400){
+			if (arr.code == 400) {
 				that.setData({
-					enlisbg01:"",
-					stateHidden:true,
-					hiddenTips:false
+					enlisbg01: "",
+					stateHidden: true,
+					hiddenTips: false
 				})
-			}else if(arr.code==200){
+			} else if (arr.code == 200) {
 				that.setData({
-					hiddenTips:true,
+					hiddenTips: true,
 					dataCols: arr.data.info, //产品数据
-					cateMore:arr.data.cate,  // 产品分类
-					enlisbg01:"",
-					stateHidden:true,
+					cateMore: arr.data.cate, // 产品分类
+					enlisbg01: "",
+					stateHidden: true,
 				})
 			}
-			
+
 		})
-	   }
-	
+	}
+
 })

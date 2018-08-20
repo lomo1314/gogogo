@@ -45,19 +45,7 @@
 	</view>
 	<!-- 商品列表end -->
 	<!-- 广告位 -->
-	<!-- wx:if="{{condition}}" -->
 	<view class="guangg">
-		<!-- <view class="thr-img adver-img">
-			<navigator hover-class="none" url="/pages/news/news">
-				<image src=""></image>
-			</navigator>
-			<navigator hover-class="none" url="/pages/news/news">
-				<image src=""></image>
-			</navigator>
-			<navigator hover-class="none" url="/pages/news/news">
-				<image src=""></image>
-			</navigator>
-		</view> -->
 		<view class="adverImg" wx:for="{{advertising}}" wx:key="advertising.index">
 			<block wx:if="{{advTotal==1}}">
 				<view class="adver-img one-img">
