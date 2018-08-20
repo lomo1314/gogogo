@@ -1,69 +1,79 @@
-
+var WxParse = require('../../wxParse/wxParse.js') // 识别html标签插件
 var  util = require( '../../utils/util.js' );//AJAX
 var app = getApp()
 Page( {
     data: {
         /* 页面配置*/
-       newsText:[]
+       newsText:[],
+       cate_id:"", //详情id
+       newsTitle:"", //专辑大标题
     },
-//	//分享
-	onShareAppMessage: function () {
-	    return {
-	      title: '手机中国',
-	      desc: '自定义分享描述',
-	      path: '/pages/index/index'
-	    }
-	},
+// //	//分享
+// 	onShareAppMessage: function () {
+// 	    return {
+// 	      title: '手机中国',
+// 	      desc: '自定义分享描述',
+// 	      path: '/pages/index/index'
+// 	    }
+// 	},
     /** 
      * 页面初始化
      * options 为页面跳转所带来的参数
      */
     onLoad:function(options){
     	//重新设置标题
-    	wx.setNavigationBarTitle({
-		  title: '新闻详情'
-		})
-    	
-    	//数据请求
-    	var that = this;
-        var id = options.id;
-        var ajaxData = {      
-        	'apic' :'Weicode_ProDetail',
-        	'pid':id
-        }
+    	// wx.setNavigationBarTitle({
+		//   title: '新闻详情'
+		// })
+        var that=this
+        var cate_id=options.cate_id
+        var name=options.name
+        that.setData({
+            newsTitle:name
+        })
         
-        //加载数据
-        ajaxFn(ajaxData,function(){
-			//如果失败，再次请求，，再次失败---提示检查网络	
-			ajaxFn(ajaxData,function(){	
-//				console.log(1)
-				that.setData({failhidden:false})				
-        	})		
-        })	
-		function ajaxFn(ajaxData,failFn){
-			util.AJAX( ajaxData, function( res ) {
-				if(res.errMsg.indexOf('fail')>-1){					
-//					that.setData({failhidden:false})
-					if(failFn) failFn();					
-					return;
-				}
-//				console.log(2)
-	            var arr = res.data.data;
-	//          // 重新写入数据
-	            that.setData({
-	            });           
-	        });
-		}
+        wx.request({
+            url: 'https://go.cnmo.com/index.php?g=api&m=article&a=articleList',
+            data: {cate_id:cate_id},
+            method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+            header: {
+                'content-type': 'application/x-www-form-urlencoded' // 公共写着个头，否则数据调用不出来
+            },
+            success: function(res){
+                var arr=res.data
+                //console.log(arr)
+                if(arr.code==200){
+                    that.setData({
+                        newsText:arr.data.data, //专辑内容
+                    })
+                }
+            },
+            fail: function() {
+                // fail
+            },
+            complete: function() {
+                // complete
+            }
+        })  
+    },
+    //图片点击事件
+  imgYu:function(event){
+    var src = event.currentTarget.dataset.src;//获取data-src
+    var imgList = event.currentTarget.dataset.list;//获取data-list
+    //图片预览
+    wx.previewImage({
+      current: src, // 当前显示图片的http链接
+      urls: imgList // 需要预览的图片http链接列表
+    })
+  },
+  //   返回上一页
+	navigateBack: function () {
+        var self = this;
+		var pages = getCurrentPages();
+        wx.navigateBack({ changed: true });//返回上一页
     },
     onReady: function() {
-    	  // 页面渲染完成
-        var that = this;
-        // 数据加载完成后 延迟隐藏loading
-        setTimeout( function() {
-            that.setData( {
-                hidden: true
-            })
-        }, 500 );
+    	
     },
     /**页面显示*/
     onShow: function() {
@@ -75,34 +85,7 @@ Page( {
     onUnload: function() {
         // 页面关闭
     },
-    /**点击输入评论**/
-    commentsInput:function(){ 
-    	var that=this;
-    	that.setData({
-            commentsOpen: false
-        })
-    	
-    } ,
-    //自定义 返回，需返回页面都需要增加 此js ，后期更改为公共
-    navigateBack: function () {
-        var self = this;
-        var pages = getCurrentPages();
-        if (pages.length == 1) {
-          if (self.data.circleId && self.data.circleId >0) {
-            wx.redirectTo({
-              url: '../../circle/index/index?circleId=' + self.data.circleId
-              + '&circleName=' + (self.data.circleName || '')
-            });
-          } else {
-            wx.switchTab({
-              url: "../../home/grouplist/grouplist"
-            });
-          }
-        } else {
-            wx.navigateBack({ changed: true });//返回上一页
-        }
-      }
-   
+
 })
 
 

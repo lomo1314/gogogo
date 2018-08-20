@@ -127,19 +127,24 @@
     background-size: 750rpx 217rpx;
     position: relative;
 }
+.rel_box{
+    position:absolute;
+    width: 100%;
+    left: 126rpx;
+    top: 50rpx;
 
+}
 .reel-num {
     font-size: 86rpx;
     color: #fff;
-    line-height: 217rpx;
-    padding-left: 126rpx;
+    float: left;
 }
 
 .reel-text {
     color: #ffc30c;
-    position: absolute;
-    top: 114rpx;
-    left: 244rpx;
+    float: left;
+    margin-top: 58rpx;
+    margin-left: 15rpx;
 }
 
 .picImg {

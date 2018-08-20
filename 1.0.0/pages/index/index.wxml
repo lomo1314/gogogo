@@ -6,7 +6,7 @@
 <!--<view class="refresh" hidden="{{refresh}}"></view>-->
 <!-- banner -->
 <!-- 头部搜索框 -->
-<view >
+<view>
 	<view class="banner">
 		<image src="/image/top_img.jpg"></image>
 	</view>
@@ -28,10 +28,15 @@
 </view>
 <!-- 搜索end -->
 <view class="zhanwei"></view>
+
+
 <!-- 页面整体内容 -->
-<scroll-view scroll-y="true" style="height:{{winHeight}}px" upper-threshold="50"  lower-threshold="50" bindscrolltolower="scrolltolower">
-<!-- 商品列表 -->
-<view class="nva-list">
+<scroll-view scroll-y="true" style="height:{{winHeight}}px" upper-threshold="50" lower-threshold="50" bindscrolltolower="scrolltolower"
+    scroll-top='{{topNum}}' bindscroll="scrolltoupper">
+	<!-- 返回顶部-->
+	<image class="go-top" src="/image/go-top.png" hidden='{{!floorstatus}}' bindtap="goTop"></image>
+	<!-- 商品列表 -->
+	<view class="nva-list">
 		<block wx:for="{{classifyList}}" wx:key="classifyList.index">
 			<navigator url="../ifyDetail/ifyDetail?id={{item.id}}&&name={{item.name}}" class="ifyboxs" hover-class="none">
 				<view class="ify-name">{{item.name}}</view>
@@ -42,16 +47,39 @@
 	<!-- 广告位 -->
 	<!-- wx:if="{{condition}}" -->
 	<view class="guangg">
-		<view class="thr-img adver-img">
-			<navigator hover-class="none" url="/pages/ifyDetail/ifyDetail">
-				<image src=""></image>
-			</navigator>
+		<!-- <view class="thr-img adver-img">
 			<navigator hover-class="none" url="/pages/news/news">
 				<image src=""></image>
 			</navigator>
 			<navigator hover-class="none" url="/pages/news/news">
 				<image src=""></image>
 			</navigator>
+			<navigator hover-class="none" url="/pages/news/news">
+				<image src=""></image>
+			</navigator>
+		</view> -->
+		<view class="adverImg" wx:for="{{advertising}}" wx:key="advertising.index">
+			<block wx:if="{{advTotal==1}}">
+				<view class="adver-img one-img">
+					<navigator hover-class="none" url="/pages/news/news?cate_id={{item.id}}&&name={{item.name}}">
+						<image src="{{item.headimg}}"></image>
+					</navigator>
+				</view>
+			</block>
+			<block wx:if="{{advTotal==2}}">
+				<view class="adver-img two-img">
+					<navigator hover-class="none" url="/pages/news/news?cate_id={{item.id}}&&name={{item.name}}">
+						<image src="{{item.headimg}}"></image>
+					</navigator>
+				</view>
+			</block>
+			<block wx:if="{{advTotal==3}}">
+				<view class="adver-img thr-img">
+					<navigator hover-class="none" url="/pages/news/news?cate_id={{item.id}}&&name={{item.name}}">
+						<image src="{{item.headimg}}"></image>
+					</navigator>
+				</view>
+			</block>
 		</view>
 	</view>
 	<!-- 广告位 end -->
@@ -83,39 +111,39 @@
 	<view class="home-new">
 		<!-- 图文 -->
 		<text class="til-h2">今日上新</text>
-			<view class="list-cont">
-				<view class="list-pic fl" wx:for="{{todayList}}" wx:key="todayList.index">
-					<navigator hover-class="none" url="/pages/matter/matter?id={{item.id}}&num_iid={{item.num_iid}}">
-						<image class="list-img" src="{{item.pic_url}}"></image>
-						<view class="list-tit-name">{{item.title}}</view>
-						<view class="list-icon">
-							<image src="/image/icon-share.png"></image>
-						</view>
-						<text class="red-sign">券后:{{item.coupon_price}}</text>
-						<view class="list-text">
-							<text>原价:{{item.price}}</text>
-							<text>销量:{{item.volume}}</text>
-							<view class="list-yh">
-								<image src="/image/icon-yh.png"></image>优惠:{{item.quan}} </view>
-						</view>
-					</navigator>
-				</view>
-	            <!-- 没有更多的时候 -->
-		    <view class="loading-list">
-					<block wx:if="{{wifihidden}}">
-						 <text class="wifihidden">网络不给力,请检查您的网络</text>
+		<view class="list-cont">
+			<view class="list-pic fl" wx:for="{{todayList}}" wx:key="todayList.index">
+				<navigator hover-class="none" url="/pages/matter/matter?id={{item.id}}&num_iid={{item.num_iid}}">
+					<image class="list-img" src="{{item.pic_url}}"></image>
+					<view class="list-tit-name">{{item.title}}</view>
+					<view class="list-icon">
+						<image src="/image/icon-share.png"></image>
+					</view>
+					<text class="red-sign">券后:{{item.coupon_price}}</text>
+					<view class="list-text">
+						<text>原价:{{item.price}}</text>
+						<text>销量:{{item.volume}}</text>
+						<view class="list-yh">
+							<image src="/image/icon-yh.png"></image>优惠:{{item.quan}} </view>
+					</view>
+				</navigator>
+			</view>
+			<!-- 没有更多的时候 -->
+			<view class="loading-list">
+				<block wx:if="{{wifihidden}}">
+					<text class="wifihidden">网络不给力,请检查您的网络</text>
+				</block>
+				<block wx:else>
+					<block wx:if="{{todayhidden}}">
+						<image class="loading-gif" src="../../image/loading.gif"></image>
+						<text class="fz14">加载中...</text>
 					</block>
 					<block wx:else>
-						<block wx:if="{{todayhidden}}">
-							<image class="loading-gif" src="../../image/loading.gif"></image>
-							<text class="fz14">加载中...</text>
-						</block>               		            		        
-						<block wx:else>
-							<text>没有更多了</text>
-						</block>
+						<text>没有更多了</text>
 					</block>
-				</view>
+				</block>
 			</view>
+		</view>
 
 	</view>
 	<!-- 今日上新 -end -->

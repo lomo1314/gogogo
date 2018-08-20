@@ -1,49 +1,133 @@
-.news-page{
-	padding: 0 30rpx;
+page{
+	background: #f3f3f3;
 }
-.news-tit{
-	font-size: 26px;
-	font-weight: bold;
-	line-height: 1.2;
-	padding: 20rpx 0;
+.banner image {
+    width: 100%;
+    height: 165rpx;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 11;
 }
-.news-info{
-	color: #666;
-	padding:20rpx 0;
-	font-size: 14px;
+.top-ban image{
+	width: 100%;
+    height: 33rpx;
+    position: fixed;
+    top: 165rpx;
+    left: 0;
+    z-index: -1;
 }
-.news-content text{
-	text-indent: 28px;
+.det-til {
+    position: fixed;
+    top: 70rpx;
+	left: 68rpx;
+	z-index: 222;
+}
+.det-til text{
 	display: block;
+	color: #fff;
 }
-/*底部*/
-.news-footer{
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	height: 80rpx;
-	background: #f4f4f4;
+.det-cont{
+	width: 710rpx;
+	margin: 0 auto;
+	position: absolute;
+	top: 165rpx;
+	left: 20rpx;
+	border-top-left-radius: 25rpx;
+	border-top-right-radius: 25rpx;
+	color: #121212;
+	z-index: 1;
+}
+.det-cont image{
 	width: 100%;
 }
-.news-btn{
-	margin: 15rpx 20rpx;
-}
-.news-btn image{
-	width: 45rpx;
-	height: 45rpx;
-}
-.icon_more image{
-	transform:rotate(90deg);
-	width: 32rpx;
-	height: 16rpx;
-}
-.news-input{
-	border-radius: 20rpx;
+.cont-news{
+	padding: 35rpx;
 	background: #fff;
-	height: 50rpx;
-	line-height: 50rpx;
-	font-size: 14px;
-	text-align: left;
-	text-indent: 20rpx;
+	margin-bottom: 48rpx;
+	border-radius: 15rpx;
+}
+.cont-news text{
 	display: block;
+	padding: 10rpx 25rpx 26rpx;
+}
+.dImg-boxs image{
+	border-radius: 15rpx;
+}
+.list-dImg{
+	display:flex;
+    flex-wrap:wrap;	
+}
+.list-dImg image{
+	width: 205rpx;
+	height: 205rpx;
+	margin: 5rpx;	
+}
+.dImgOne image{
+	width: 642rpx;
+	height: 642rpx;
+	margin: 0;
+}
+.dImgFour{
+	width: 580rpx;
+}
+.dImgFour image{
+	width: 205rpx;
+	height: 205rpx;
+	margin: 5rpx;
+}
+.reel {
+    width: 634rpx;
+    height: 108rpx;
+	background-size: 634rpx 108rpx;
+	background-position: left;
+	position: relative;
+	margin-bottom: 15rpx;
+}
+.bg-quan{
+	background-image: url(http://go.cnmo.com/static/newpi/images/api/adv_bg01.png);
+}
+.bg-zk{
+	background-image: url(http://go.cnmo.com/static/newpi/images/api/adv_bg02.png);
+}
+.rel_box{
+	position: absolute;
+	left: 122rpx;
+	top: 20rpx;
+	width: 100%;
+}
+.reel-num {
+    font-size: 76rpx;
+    color: #fff;
+	font-weight: 700;
+    float: left;
+}
+.reel-text {
+	float: left;
+	margin-top: 30rpx;
+    color: #ffc30c;
+}
+.bg-zk .rel_box{
+	left: 227rpx;
+}
+.det-title{
+	font-size: 36rpx;
+	color: #ff0000;
+	font-weight: 700;
+	margin-bottom: 12rpx;
+}
+.det-txet{
+	font-size: 24rpx;
+	color: #393939;
+	line-height: 1.5;
+}
+.det-til {
+    position: fixed;
+    top: 70rpx;
+	left: 68rpx;
+	z-index: 222;
+}
+.det-til text{
+	display: block;
+	color: #fff;
 }

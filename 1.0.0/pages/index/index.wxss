@@ -134,25 +134,46 @@
 .guangg {
     background: #fff;
     margin-top: -15rpx;
-}
-
-.adver-img {
     display: flex;
     flex-wrap: wrap;
     width: 710rpx;
     margin: 0 auto;
     justify-content: left;
 }
+.adverImg{
+    height: 170rpx;
+    float: left; 
+}
+/* .adver-img {
+    display: flex;
+    flex-wrap: wrap;
+    width: 710rpx;
+    margin: 0 auto;
+    justify-content: left;
+} */
 
 .adver-img navigator {
     float: left;
-    background: #1472e0;
     margin: 10rpx;
     border-radius: 15rpx;
 }
+.adver-img image{
+    border-radius: 15rpx;
+}
+.one-img image{
+    width: 710rpx;
+    height: 150rpx;
 
+}
+.one-img navigator {
+    margin: 0;
+}
 .thr-img navigator image {
     width: 216rpx;
+    height: 150rpx;
+}
+.two-img navigator image{
+    width: 335rpx;
     height: 150rpx;
 }
 

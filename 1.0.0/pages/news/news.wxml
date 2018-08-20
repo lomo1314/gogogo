@@ -1,66 +1,70 @@
 <!--news.wxml-->
 <!-- loading -->
-<loading hidden="{{hidden}}">
-    加载中...
-</loading>
+<!-- <loading hidden="{{hidden}}">
+	加载中...
+</loading> -->
+<import src="/wxParse/wxParse.wxml" />
+<!-- 首页专辑 -->
 <view>
-	<image src="/image/go-back.png" bindtap="navigateBack"></image>
-</view>
-<view class="container">
-	<view class="news-page">
-	<!--<view wx:for="{{newsText}}">-->
-	    <!--<view class="news-tit">
-	        <text class="question-title">{{item.title}}</text>
-	    </view>
-	    <view class="news-info">
-	        <text class="">{{item.name}}</text>
-	    </view>
-	    <view class="news-content">
-	    	{{item.text}}
-	    </view>-->
-	    <view class="news-tit">
-	        <text>小米VR一体机正式推出 1499元相当酷炫</text>
-	    </view>
-	    <view class="news-info">
-	        <text class="">2018-05-31 22:09</text>
-	        <text class="">孔六六</text>
-	    </view>
-	    <view class="news-content">
-			<text>和Oculus联合打造的VR产品。而如今在小米年度旗舰发布会上，这款产品在针对本地优化后终于亮相国内。小米VR一体机采用骁龙821处理器，定制VR专用Fast-Switch 2K超清屏，Oculus调制衍射光学系统，以及千余Oculus游戏大作和全景巨幕视频。存储方面有32GB与64GB两种可选，售价分别为1499元与1799元，购买即送价值169元的精品游戏。小米VR一体机将于6月1日零点在小米商城、小米有品、天猫、京东开售，当日还会有22家小米之家同步开售</text>
-			<text>和Oculus联合打造的VR产品。而如今在小米年度旗舰发布会上，这款产品在针对本地优化后终于亮相国内。小米VR一体机采用骁龙821处理器，定制VR专用Fast-Switch 2K超清屏，Oculus调制衍射光学系统，以及千余Oculus游戏大作和全景巨幕视频。存储方面有32GB与64GB两种可选，售价分别为1499元与1799元，购买即送价值169元的精品游戏。小米VR一体机将于6月1日零点在小米商城、小米有品、天猫、京东开售，当日还会有22家小米之家同步开售</text>
-			<text>和Oculus联合打造的VR产品。而如今在小米年度旗舰发布会上，这款产品在针对本地优化后终于亮相国内。小米VR一体机采用骁龙821处理器，定制VR专用Fast-Switch 2K超清屏，Oculus调制衍射光学系统，以及千余Oculus游戏大作和全景巨幕视频。存储方面有32GB与64GB两种可选，售价分别为1499元与1799元，购买即送价值169元的精品游戏。小米VR一体机将于6月1日零点在小米商城、小米有品、天猫、京东开售，当日还会有22家小米之家同步开售</text>
-			<text>和Oculus联合打造的VR产品。而如今在小米年度旗舰发布会上，这款产品在针对本地优化后终于亮相国内。小米VR一体机采用骁龙821处理器，定制VR专用Fast-Switch 2K超清屏，Oculus调制衍射光学系统，以及千余Oculus游戏大作和全景巨幕视频。存储方面有32GB与64GB两种可选，售价分别为1499元与1799元，购买即送价值169元的精品游戏。小米VR一体机将于6月1日零点在小米商城、小米有品、天猫、京东开售，当日还会有22家小米之家同步开售</text>
-			<text>和Oculus联合打造的VR产品。而如今在小米年度旗舰发布会上，这款产品在针对本地优化后终于亮相国内。小米VR一体机采用骁龙821处理器，定制VR专用Fast-Switch 2K超清屏，Oculus调制衍射光学系统，以及千余Oculus游戏大作和全景巨幕视频。存储方面有32GB与64GB两种可选，售价分别为1499元与1799元，购买即送价值169元的精品游戏。小米VR一体机将于6月1日零点在小米商城、小米有品、天猫、京东开售，当日还会有22家小米之家同步开售</text>
-			<text>和Oculus联合打造的VR产品。而如今在小米年度旗舰发布会上，这款产品在针对本地优化后终于亮相国内。小米VR一体机采用骁龙821处理器，定制VR专用Fast-Switch 2K超清屏，Oculus调制衍射光学系统，以及千余Oculus游戏大作和全景巨幕视频。存储方面有32GB与64GB两种可选，售价分别为1499元与1799元，购买即送价值169元的精品游戏。小米VR一体机将于6月1日零点在小米商城、小米有品、天猫、京东开售，当日还会有22家小米之家同步开售</text>
-	    	
-	    </view>
+	<view class="banner">
+		<image src="/image/sheng-top01.png"></image>
 	</view>
-    <view class="news-footer">
-    	<view class="flex-between" hidden="commentsOpen">
-	    	<view class="news-btn icon_more">
-	            <image src="../../image/icon_more.png"></image>
-	        </view>
-	        <view class="news-btn flex-item news-input">
-	        	<text bindtap="commentsInput">说两句</text>
-	        </view>
-	        <view class="news-btn">
-	            <image src="../../image/star2.png"></image>
-	            <text>302</text>
-	        </view>
-	        <view class="news-btn">
-	            <image src="../../image/star2.png"></image>
-	            <!--<text>收藏</text>-->
-	        </view>
-	        <view class="news-btn">
-	            <image src="../../image/star2.png"></image>
-	        </view>
-        </view>
-        <view class="" hidden="!commentsOpen">
-        	<form>	
-        		<input type="text" name="" id="" placeholder="说点什么吧" />
-        		<input type="text" name="" value="name"/>
-        			
-        	</form>
-        </view>
-    </view>
+	<view class="top-ban">
+		<image src="/image/sheng-top02.png"></image>
+	</view>
+	<!-- 返回按钮 -->
+	<view class="go-back" bindtap="navigateBack">
+		<image src="/image/go-back.png"></image>
+	</view>
+</view>
+<view>
+	<!-- 标题 -->
+	<view class="det-til">
+		<text class="fz24">{{newsTitle}}</text>
+	</view>
+	<!-- 内容 -->
+	<view class="det-cont" scroll-y="true">
+		<view class="fz22 cont-news" wx:for="{{newsText}}" wx:key="newsText.index">
+			<view class="det-title">{{item.title}}</view>
+			<view class="det-txet">{{item.p}}</view>
+			<!-- 领劵  -->
+			<block wx:if="{{item.quan!=0}}">
+				<view class="reel bg-quan" data-text="{{item.api_quanurl}}" bindtap="copyText">
+					<viwe class="rel_box">
+						<view class="reel-num">{{item.quan}}</view>
+						<text class="reel-text fz22">优惠券</text>
+					</viwe>
+				</view>
+			</block>
+			<!-- 折后价  -->
+			<block wx:if="{{item.price_zk!=0}}">
+				<view class="reel bg-zk" data-text="{{item.api_quanurl}}" bindtap="copyText">
+					<viwe class="rel_box">
+						<view class="reel-num">{{item.quan}}</view>
+						<text class="reel-text fz22">元</text>
+					</viwe>
+				</view>
+			</block>
+			<view class="dImg-boxs">
+				<block wx:if="{{item.img_num!=4&&item.img_num!=1}}">
+					<view wx:if="{{item.img}}" class="list-dImg">
+						<image bindtap="imgYu" data-list="{{item.img}}" data-src="{{dImg}}" wx:for="{{item.img}}" wx:key="item.index" wx:for-item="dImg"
+						    src="{{dImg}}"></image>
+					</view>
+				</block>
+				<block wx:if="{{item.img_num==4}}">
+					<view wx:if="{{item.img}}" class="dImgFour">
+						<image bindtap="imgYu" data-list="{{item.img}}" data-src="{{dImg}}" wx:for="{{item.img}}" wx:key="item.index" wx:for-item="dImg"
+						    src="{{dImg}}"></image>
+					</view>
+				</block>
+				<block wx:if="{{item.img_num==1}}">
+					<view wx:if="{{item.img}}" class="dImgOne">
+						<image bindtap="imgYu" data-list="{{item.img}}" data-src="{{dImg}}" wx:for="{{item.img}}" wx:key="item.index" wx:for-item="dImg"
+						    src="{{dImg}}"></image>
+					</view>
+				</block>
+			</view>
+		</view>
+	</view>
 </view>

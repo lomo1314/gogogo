@@ -69,8 +69,10 @@
   <!-- 领劵  -->
   <block wx:if="{{commodityLis.is_quan==1}}">
     <view class="reel" data-text="{{commodityLis.api_quanurl}}" bindtap="copyText">
+        <viwe class="rel_box">
       <view class="reel-num">{{commodityLis.quan}}</view>
       <text class="reel-text fz22">优惠券</text>
+      </viwe>
     </view>
   </block>
 
@@ -116,5 +118,4 @@
 </view>
 <canvas canvas-id='share' hidden='{{canvasHidden}}' class="erweima"></canvas>
 <!-- 返回顶部-->
-
 <image class="go-top" src="/image/go-top.png" hidden='{{!floorstatus}}' bindtap="goTop"></image>

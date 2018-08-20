@@ -388,4 +388,5 @@ checkbox, radio{
   bottom: 100rpx;
   width: 60rpx;
   height: 60rpx;
+  z-index: 123;
 }

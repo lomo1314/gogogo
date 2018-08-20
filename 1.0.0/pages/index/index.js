@@ -25,6 +25,9 @@ Page({
 		todayhidden: true, // 显示加载更多 loading
 		//触底函数判断
 		canUseajaxDay: true,
+		//广告专辑位置数据
+		advertising:[],
+		advTotal:""
 	},
 	//	//分享
 	//	onShareAppMessage: function () {
@@ -66,13 +69,18 @@ Page({
 		//广告接口数据
 		util.advertising(function (res) {
 			var arr = res.data
-			// console.log(arr)
+			//console.log(arr.data.info)
+			that.setData({
+				advertising:arr.data.info,
+				advTotal:arr.data.total
+			})
 		})
 		//最热商品 接口 
 		var horData = {
 			sort: "hot",
 			p: 1
 		}
+		//商品接口
 		util.hotAjax(horData, function (res) {
 			var arr = res.data
 			that.setData({
@@ -95,6 +103,7 @@ Page({
 
 
 	},
+	
 	//今日上新数据
 	ajaxDay: function (param, fn) {
 		var that = this
@@ -286,99 +295,25 @@ Page({
 			url: '../search/search'
 		})
 	},
-	// //开始输入内容
-	// bindKeyInput: function (e) {
-	// 	var that = this;
-	// 	var value = e.detail.value.replace(/(^\s*)|(\s*$)/g, "");
-	// 	if (value == "") return;
-	// 	//that.dataAjax(value, 0)
-	// },
-
-	// //点击完成按钮
-	// bindconfirm: function (e) {
-	// 	var that = this;
-	// 	var value = e.detail.value.replace(/(^\s*)|(\s*$)/g, "");
-	// 	if (value == "") return;
-	// 	that.setData({
-	// 		failhidden: true,
-	// 		hidden: true
-	// 	})
-	// 	wx.showToast({
-	// 		title: '加载中',
-	// 		icon: 'loading',
-	// 		duration: 10000
-	// 	})
-	// 	// wx.navigateTo({
-	// 	// 	url: '../search/search'
-	// 	// })
-	// },
-	// /**点击导航数据请求封装**/
-	// dataAjax: function (nav, failFn) {
-	// 	var that = this;
-	// 	switch (nav) {
-	// 		case 1:
-	// 			var page = that.data.dataHotePage;
-	// 			break;
-	// 		case 2:
-	// 			var page = that.data.dataNewPage;
-	// 			break;
-	// 		case 3:
-	// 			var page = that.data.dataMoneyPage;
-	// 			break;
-	// 		case 4:
-	// 			var page = that.data.dataMoneyPage;
-	// 			break;
-	// 	}
-	// 	var ajaxData = {
-	// 		'apic': 'Weicode_ProList',
-	// 		't': nav,
-	// 		'p': page
-	// 	}
-	// 	util.AJAX(ajaxData, function (res) {
-	// 		if (res.errMsg.indexOf('fail') > -1) {
-	// 			if (failFn) failFn();
-	// 			return;
-	// 		}
-	// 		//版本信息赋值
-	// 		app.globalVar.ver = res.data.ver;
-	// 		var arr = res.data.data;
-	// 		switch (nav) {
-	// 			case 1: //热门 
-	// 				// 获取当前数据进行保存
-	// 				var list = that.data.dataHote;
-	// 				// 然后重新写入数据
-	// 				that.setData({
-	// 					dataHote: list.concat(arr), // 存储数据
-	// 					dataHoteLength: arr.length, //请求过来的条数
-	// 					dataHotePage: that.data.dataHotePage + 1 // 统计加载次数
-	// 				});
-	// 				break;
-	// 			case 2: //最新
-	// 				var list = that.data.dataNew;
-	// 				that.setData({
-	// 					dataNew: list.concat(arr),
-	// 					dataNewLength: arr.length,
-	// 					dataNewPage: that.data.dataNewPage + 1
-	// 				});
-	// 				break;
-	// 			case 3: //价格高到低						
-	// 				var list = that.data.dataMoney;
-	// 				that.setData({
-	// 					dataMoney: list.concat(arr),
-	// 					dataMoneyLength: arr.length,
-	// 					dataMoneyPage: that.data.dataMoneyPage + 1
-	// 				});
-	// 				break;
-	// 			case 4: //价格低到高
-	// 				var list = that.data.dataMoney;
-	// 				that.setData({
-	// 					dataMoney: list.concat(arr),
-	// 					dataMoneyLength: arr.length,
-	// 					dataMoneyPage: that.data.dataMoneyPage + 1
-	// 				});
-	// 				break;
-	// 		}
-
-	// 	});
-	// }
+	 // 获取滚动条当前位置
+	 scrolltoupper:function(e){
+		//console.log(e)
+		if (e.detail.scrollTop > 100) {
+		  this.setData({
+			floorstatus: true
+		  });
+		} else {
+		  this.setData({
+			floorstatus: false
+		  });
+		}
+	  },
+	
+	  //回到顶部
+	  goTop: function (e) {  // 一键回到顶部
+		var that=this
+		this.setData({
+		  topNum: this.data.topNum = 0
+		});
+	  },
 })

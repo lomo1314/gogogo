@@ -42,7 +42,7 @@ module.exports = {
     //广告接口
     advertising: function (fn) {
         wx.request({
-            url: 'https://go.cnmo.com/index.php?g=api&m=ad&a=index',
+            url: 'https://go.cnmo.com/index.php?g=api&m=article&a=index',
             method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
             header: {
                 'content-type': 'application/x-www-form-urlencoded' // 公共写着个头，否则数据调用不出来
