@@ -40,7 +40,7 @@
 			<block wx:if="{{item.price_zk!=0}}">
 				<view class="reel bg-zk" data-text="{{item.api_quanurl}}" bindtap="copyText">
 					<viwe class="rel_box">
-						<view class="reel-num">{{item.quan}}</view>
+						<view class="reel-num">{{item.price_zk}}</view>
 						<text class="reel-text fz22">元</text>
 					</viwe>
 				</view>
@@ -68,3 +68,13 @@
 		</view>
 	</view>
 </view>
+<!-- 弹框提示 以及蒙层 -->
+<view class="mark" hidden="{{markHidden}}" bindtap="closeMark">
+		<view class="tops_box">
+		  <view class="box_cont">
+			<view class="box_h2">温馨提示</view>
+			<text>复制成功！打开手机淘宝下单即可</text>
+			<view bindtap="closeMark" class="box_btn">我知道了</view>
+		  </view>
+		</view>
+	  </view>
