@@ -125,7 +125,7 @@ Page({
 		
 		//console.log(that.data.dataTodayLength)
 		/* ------------------------- */
-        //if(!canUseReachBottom) return;//如果触底函数不可用，则不调用网络请求数据
+        if(!canUseReachBottom) return;//如果触底函数不可用，则不调用网络请求数据
       /* ------------------------- */
 		// 加载更多 loading
 		that.setData({
@@ -183,7 +183,7 @@ Page({
 		}
        
 		util.hotAjax(ajaxData, function (res) {
-			//canUseReachBottom = true;//
+			canUseReachBottom = true;
 			// if (res.errMsg.indexOf('fail') > -1) {
 			// 	if (failFn) failFn();
 			// 	return;

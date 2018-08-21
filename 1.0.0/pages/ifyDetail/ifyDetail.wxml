@@ -14,9 +14,9 @@
 <!-- 分类 -->
 <view class="ify-listPage">
 	<view class="ify-scroll">
-		<scroll-view class="ify-liat" scroll-x="true" style="white-space: nowrap; display:flex ">
+		<scroll-view class="ify-liat" scroll-x="true" scroll-with-animation="5s" scroll-left="{{scrollLeft}}" style="white-space: nowrap; display:flex ">
 			<block wx:for="{{classifyList}}" wx:key="classifyList.index">
-				<view class="ifyboxs" data-id="{{item.id}}" data-name="{{item.name}}" bindtap="changeTag">
+				<view class="ifyboxs" data-id="{{item.id}}" data-index="{{index}}" data-name="{{item.name}}" bindtap="changeTag">
 					<view class="ify-icon '{{item.cateimg}}'"></view>
 					<view class="ify-name">{{item.name}}</view>
 				</view>
@@ -47,9 +47,8 @@
 				<view class="product" hidden="{{searhhidden}}">
 					<block wx:if="{{listhidden}}">
 						<view class="no-product">
-							<text>未搜索到</text>
-							<text class="search-pro">“{{inputValue}}”</text>
-							<view>建议更换关键词试试</view>
+							<text>没有更多了</text>
+							<!-- <view>建议更换关键词试试</view> -->
 						</view>
 					</block>
 					<block wx:else>
@@ -92,9 +91,9 @@
 				<view class="product" hidden="{{searhhidden}}">
 					<block wx:if="{{listhidden}}">
 						<view class="no-product">
-							<text>未搜索到</text>
-							<text class="search-pro">“{{inputValue}}”</text>
-							<view>建议更换关键词试试</view>
+							<text>没有更多了</text>
+							<!-- <text class="search-pro">“{{inputValue}}”</text>
+							<view>建议更换关键词试试</view> -->
 						</view>
 					</block>
 					<block wx:else>
@@ -137,9 +136,8 @@
 				<view class="product" hidden="{{searhhidden}}">
 					<block wx:if="{{listhidden}}">
 						<view class="no-product">
-							<text>未搜索到</text>
-							<text class="search-pro">“{{inputValue}}”</text>
-							<view>建议更换关键词试试</view>
+							<text>没有更多了</text>
+							<!-- <view>建议更换关键词试试</view> -->
 						</view>
 					</block>
 					<block wx:else>
@@ -182,9 +180,9 @@
 				<view class="product" hidden="{{searhhidden}}">
 					<block wx:if="{{listhidden}}">
 						<view class="no-product">
-							<text>未搜索到</text>
-							<text class="search-pro">“{{inputValue}}”</text>
-							<view>建议更换关键词试试</view>
+							<text>没有更多了</text>
+							<!-- <text class="search-pro">“{{inputValue}}”</text>
+							<view>建议更换关键词试试</view> -->
 						</view>
 					</block>
 					<block wx:else>

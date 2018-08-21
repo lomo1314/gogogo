@@ -11,7 +11,7 @@ Page({
 		dataSyn: [],
 		dataSynLength: 0, //请求过来的条数
 		dataSynPage: 1, //当前页面
-		synhidden: true, // 显示加载更多 loading
+		synhidden: false, // 显示加载更多 loading
 		// 销量数据
 		saleList: [],
 		dataSaleLength: 0, //数据条数 hottop
@@ -35,31 +35,38 @@ Page({
         
         ifyName:"",//分类具体
         tagNames:"", //具体选项列表内容
-        
+		scrollLeft:"", //横向滚动距离
+		screenWidth: '', //设备屏幕宽度
+		listhidden:false, // 无数据时
 
     },
     onLoad: function (options) {
-        //console.log(options.id)
-        console.log(options.name)
-        var that = this
-        var cid=options.id
-        that.setData({
-            ifyName:options.id,
-            tagNames:options.name
-        })
-        /**获取系统信息*/
+		var that = this
+		/**获取系统信息*/
         wx.getSystemInfo({
             success: function (res) {
                 that.setData({
-                    winHeight: res.windowHeight 
+					winHeight: res.windowHeight,
+					screenWidth: res.screenWidth
                 });
             }
         });
+		//console.log(options.id)
+		var unit = that.data.screenWidth / 375;
+		var cid=options.id
+		var indexFrom=options.index
+        that.setData({
+            ifyName:options.id,
+			tagNames:options.name,
+
+        })
+        
         //调用分类数据内容
         util.classifyAjax("", function (res) {
             var arr = res.data;
             that.setData({
-                classifyList: arr.data
+				classifyList: arr.data,
+				scrollLeft:unit*75*(indexFrom),//横向滚动距离
             })
         })
         //进入页面调取数据
@@ -70,10 +77,19 @@ Page({
         }
         util.ifyList(ajaxData, function (res) {
             var arr=res.data
-            console.log(arr)
-            that.setData({
-                dataSyn:arr.data.info
-            })
+			console.log(arr)
+			if(arr.code==200){
+				that.setData({
+					dataSyn:arr.data.info,
+					listhidden:false,
+				})
+			} else if(arr.code==400){
+				that.setData({
+					// dataSyn:arr.data.info,
+					listhidden:true,
+				})
+			}
+            
         })
     },
     
@@ -94,12 +110,23 @@ Page({
     },
     // 点击切换分类数据
     changeTag:function (e) {
-        var that=this 
+		var that=this 
+		
+		//scrollLeft
+		var index=e.currentTarget.dataset.index
+		//屏幕宽度计算 移动距离
+		var unit = that.data.screenWidth / 375;
+		
+		that.setData({
+			scrollLeft:unit*75*(index),
+			ifyName:e.currentTarget.dataset.id,
+		})
         var ajaxData={
-            cid:e.currentTarget.dataset.id
+			cid:e.currentTarget.dataset.id,
         }
         util.ifyList(ajaxData, function (res) {
-            var arr=res.data 
+			var arr=res.data
+			console.log(arr)
             if(arr.code==200){
                 that.setData({
                     dataSyn:arr.data.info,
@@ -107,11 +134,10 @@ Page({
                 })
             }else if(arr.code==400){
                 that.setData({
-                    tagNames:e.currentTarget.dataset.name
+					tagNames:e.currentTarget.dataset.name,
+					
                 })
             }
-
-            
         })
      },
     /**
@@ -216,7 +242,6 @@ Page({
 				});
 			}
 			if (that.data.dataMoney.length == 0) {
-				
 				that.dataAjax(that.data.ifyName,that.data.page, function () {
 					//如果加载失败--再次加载,再次失败--提示
 					that.dataAjax(that.data.ifyName,that.data.page, function () {
@@ -353,8 +378,7 @@ Page({
 		var ajaxData = {
 			cid:cid,
 			sort: nav, //排序 不填就是默认综合default 1|销量 hot2|价格 3price_asc=价格正序;4price_desc=价格倒叙|5优惠券 low
-			page: page, // 页码数
-			
+			p: page, // 页码数	
 		}
 		util.ifyList(ajaxData, function (res) {
 			if (res.errMsg.indexOf('fail') > -1) {

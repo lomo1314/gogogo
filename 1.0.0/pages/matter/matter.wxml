@@ -1,4 +1,7 @@
 <import src="/wxParse/wxParse.wxml" />
+<!-- <loading hidden="{{hidden}}">
+    加载中123~
+  </loading> -->
 <!-- 头图 -->
 <view class="matter-head">
 

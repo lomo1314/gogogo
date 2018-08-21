@@ -27,14 +27,6 @@
 	<view class="det-cont" scroll-y="true">
 		<view class="fz22 cont-news">
 				<template is="wxParse" data="{{wxParseData:article.nodes}}"/>
-			<!-- <text>
-				【手机中国新闻】近段时间，小米即将上市成为科技圈一大盛事，其一举一动都受到大家关注。日前，小米正式通过上市聆讯，作为小米科技CEO的雷军也率领核心高管团出席了香港路演活动。
-			</text>
-			<image src="/image/img.png"></image>
-			<text>
-				在谈到小米估值问题时，雷军表示：我不care小米是不是互联网公司。很多人问我到底是给小米腾讯的估值还是苹果的估值，我说我要腾讯乘苹果的估值，因为小米是全能型的。雷军用“新物种”重新定义了小米，并表示：过去一个星期我终于想明白了，小米是全球罕见的，同时能做电商、硬件、互联网的全能型公司。
-			</text>
-			<image src="/image/img.png"></image> -->
 		</view>
 	</view>
 </view>

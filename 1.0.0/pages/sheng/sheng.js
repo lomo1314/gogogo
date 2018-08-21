@@ -1,5 +1,6 @@
 var util = require('../../utils/util.js'); //AJAX
 var app = getApp()
+
 Page({
 	data: {
 		curr_id: '',

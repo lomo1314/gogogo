@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <!-- loading -->
 <loading hidden="{{hidden}}">
-	加载中123~
+	加载中~
 </loading>
 <!--<view class="refresh" hidden="{{refresh}}"></view>-->
 <!-- banner -->
@@ -38,7 +38,7 @@
 	<!-- 商品列表 -->
 	<view class="nva-list">
 		<block wx:for="{{classifyList}}" wx:key="classifyList.index">
-			<navigator url="../ifyDetail/ifyDetail?id={{item.id}}&&name={{item.name}}" class="ifyboxs" hover-class="none">
+			<navigator url="../ifyDetail/ifyDetail?id={{item.id}}&&name={{item.name}}&&index={{index}}" class="ifyboxs" hover-class="none">
 				<view class="ify-name">{{item.name}}</view>
 			</navigator>
 		</block>

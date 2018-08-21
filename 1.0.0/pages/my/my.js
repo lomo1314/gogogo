@@ -24,7 +24,7 @@ Page({
         //	      console.log(res.target)
         //	    }
         return {
-            title: '手机中国',
+            title: '购好啊',
             desc: '自定义分享描述',
             path: '/pages/index/index',
             imageUrl: '/image/share.png'

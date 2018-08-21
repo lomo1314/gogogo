@@ -39,7 +39,7 @@
 <!-- 分类 -->
 <view class="classify">
     <block wx:for="{{classifyList}}" wx:key="classifyList.index"> 
-        <navigator url="../ifyDetail/ifyDetail?id={{item.id}}" class="ifyboxs" hover-class="none">
+        <navigator url="../ifyDetail/ifyDetail?id={{item.id}}&&name={{item.name}}" class="ifyboxs" hover-class="none">
           <view class="ify-icon '{{item.cateimg}}'"></view>
           <view class="ify-name">{{item.name}}</view>
         </navigator>

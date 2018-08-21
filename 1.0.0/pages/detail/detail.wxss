@@ -39,7 +39,6 @@
 .det-cont image{
 	width: 100%;
 }
-.cont-news text{
-	display: block;
+.cont-news {
 	padding: 10rpx 25rpx 26rpx;
 }

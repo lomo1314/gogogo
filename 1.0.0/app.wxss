@@ -1,184 +1,224 @@
 /* @import "/wxParse/wxParse.wxss"; */
+
 /**app.wxss**/
+
 page {
-  background-color: #fff;
-  height: 100%;
-  color: #353535;
-  font-family:Helvetica, Arial, "Hiragino Sans GB", "Source Han Sans CN", "PingFang SC", Roboto, "微软雅黑", "Heiti SC", "Microsoft Yahei", sans-serif;
-}
-.fz14{
-	font-size: 14px;
-}
-.fz16{
-	font-size: 16rpx;
-}
-.fz17{
-	font-size: 17px;
-}
-.fz22{
-  font-size: 22rpx;
-}
-.fz24{
-  font-size: 24rpx;
-}
-.green{
-  color: #44aeb1;
-}
-.red{
-  color: #F76260;
-}
-.blue{
-  color: #4e7ed1;
-}
-.yellow{
-  color: #f17524;
-}
-.gray{
-  color: #b2b2b2;
-}
-.fl{
-	float: left;
-}
-.fr{
-  float: right;
-}
-.strong{
-  font-weight: bold;
+    background-color: #fff;
+    height: 100%;
+    color: #353535;
+    font-family: Helvetica, Arial, "Hiragino Sans GB", "Source Han Sans CN", "PingFang SC", Roboto, "微软雅黑", "Heiti SC", "Microsoft Yahei", sans-serif;
 }
 
-.bc_green{
-  background-color: #09BB07;
-}
-.bc_red{
-  background-color: #F76260;
-}
-.bc_blue{
-  background-color: #10AEFF;
-}
-.bc_yellow{
-  background-color: #FFBE00;
-}
-.bc_gray{
-  background-color: #C9C9C9;
+.fz14 {
+    font-size: 14px;
 }
 
-.tc{
-  text-align: center;
+.fz16 {
+    font-size: 16rpx;
 }
 
-.page input{
-  padding: 20rpx 30rpx;
-  background-color: #fff;
-}
-checkbox, radio{
-  margin-right: 10rpx;
+.fz17 {
+    font-size: 17px;
 }
 
-.btn-area{
-  padding: 0 30px;
+.fz22 {
+    font-size: 22rpx;
 }
-.btn-area button{
-  margin-top: 20rpx;
-  margin-bottom: 20rpx;
+
+.fz24 {
+    font-size: 24rpx;
+}
+
+.green {
+    color: #44aeb1;
+}
+
+.red {
+    color: #F76260;
+}
+
+.blue {
+    color: #4e7ed1;
+}
+
+.yellow {
+    color: #f17524;
+}
+
+.gray {
+    color: #b2b2b2;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.strong {
+    font-weight: bold;
+}
+
+.bc_green {
+    background-color: #09BB07;
+}
+
+.bc_red {
+    background-color: #F76260;
+}
+
+.bc_blue {
+    background-color: #10AEFF;
+}
+
+.bc_yellow {
+    background-color: #FFBE00;
+}
+
+.bc_gray {
+    background-color: #C9C9C9;
+}
+
+.tc {
+    text-align: center;
+}
+
+.page input {
+    padding: 20rpx 30rpx;
+    background-color: #fff;
+}
+
+checkbox,
+radio {
+    margin-right: 10rpx;
+}
+
+.btn-area {
+    padding: 0 30px;
+}
+
+.btn-area button {
+    margin-top: 20rpx;
+    margin-bottom: 20rpx;
 }
 
 .page {
-	min-height: 100%;
-	flex: 1;
-	background-color: #FBF9FE;
-	font-size: 32rpx;
-	font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
-	overflow: hidden;
-}
-.page__hd{
-	padding: 50rpx 50rpx 100rpx 50rpx;
-	text-align: center;
-}
-.page__title{
-	display: inline-block;
-	padding: 20rpx 40rpx;
-	font-size: 32rpx;
-	color: #AAAAAA;
-	border-bottom: 1px solid #CCCCCC;
+    min-height: 100%;
+    flex: 1;
+    background-color: #FBF9FE;
+    font-size: 32rpx;
+    font-family: -apple-system-font, Helvetica Neue, Helvetica, sans-serif;
+    overflow: hidden;
 }
 
-.list{
-	background-color:#FFFFFF;
-  border-bottom:1px solid #eeeeee;
+.page__hd {
+    padding: 50rpx 50rpx 100rpx 50rpx;
+    text-align: center;
+}
+
+.page__title {
+    display: inline-block;
+    padding: 20rpx 40rpx;
+    font-size: 32rpx;
+    color: #AAAAAA;
+    border-bottom: 1px solid #CCCCCC;
+}
+
+.list {
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #eeeeee;
 }
 
 /*加载更多*/
-.loading-list{
-	height: 40px;
-	/* display: flex; */
-	justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-.loading-gif{
-	height: 16px;
-	width: 16px;	
-	margin-right:10px;
-}
-/*加载失败*/
-.wifihidden{
-	height: 40px;
-	line-height: 40px;
-	text-align: center;
-	font-size: 14px;
-}
-/*按下效果*/
-.hoverClass{
-	background-color: #e7e5eb;
+
+.loading-list {
+    height: 40px;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
+.loading-gif {
+    height: 16px;
+    width: 16px;
+    margin-right: 10px;
+}
+
+/*加载失败*/
+
+.wifihidden {
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 14px;
+}
+
+/*按下效果*/
+
+.hoverClass {
+    background-color: #e7e5eb;
+}
 
 /*flex布局*/
-.flex-flex{
-  display: flex;
+
+.flex-flex {
+    display: flex;
 }
+
 /*垂直居中*/
-.flex-ver{
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: flex-start;
-  align-items: center;
+
+.flex-ver {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
 }
+
 /*垂直居中,水平两端对齐*/
-.flex-between{
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content:space-between;
-  align-items: center;
+
+.flex-between {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
 }
+
 /*垂直上下两端对齐*/
-.flex-column{
-	display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
-.flex-item{
-  flex-grow: 1;
-  text-align: center;
+
+.flex-item {
+    flex-grow: 1;
+    text-align: center;
 }
+
 /* 页面产品--------展示公共 */
-.list-cont{
-	width: 732rpx;
-	margin: 0 auto;
-	overflow: hidden;
+
+.list-cont {
+    width: 732rpx;
+    margin: 0 auto;
+    overflow: hidden;
 }
+
 .list-pic {
     width: 342rpx;
     position: relative;
     overflow: hidden;
-	border-radius: 25rpx;
-	margin: 20rpx 12rpx 0;
+    border-radius: 25rpx;
+    margin: 20rpx 12rpx 0;
 }
 
 .list-img {
     width: 342rpx;
-	height: 249rpx;
-	border-radius: 15rpx;
+    height: 249rpx;
+    border-radius: 15rpx;
 }
 
 .list-tit-name {
@@ -193,40 +233,43 @@ checkbox, radio{
 .red-sign {
     position: absolute;
     left: 0;
-    top: 210rpx;
+    top: 300rpx;
     font-size: 16rpx;
     color: #fff;
-    width: 95rpx;
+    width: 103rpx;
     height: 28rpx;
-	line-height: 28rpx;
-	padding-left: 12rpx;
-	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHMAAAAcCAYAAABS4YBpAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMDY3IDc5LjE1Nzc0NywgMjAxNS8wMy8zMC0yMzo0MDo0MiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkUyNjc4RjU0ODQwMzExRThCMDRFOERGM0JCMTUyNzcyIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkUyNjc4RjU1ODQwMzExRThCMDRFOERGM0JCMTUyNzcyIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RTI2NzhGNTI4NDAzMTFFOEIwNEU4REYzQkIxNTI3NzIiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RTI2NzhGNTM4NDAzMTFFOEIwNEU4REYzQkIxNTI3NzIiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5/RTECAAABYklEQVR42uyZzUoCURiGZ0qLNiEFXob7tm2iAnHZxk2EuJFwY6s2tYmgRW6CWggKgYT3UF2Hd+AyFHSRvh+NMovx54iTnx/vCw+MhzmemXk4c37G72QyQ889fdDz/jfraHMAumtosw2KrvebWLLB3QAmnhyBNMgGchfKFp+b2pyAJkhSpo3kQB1sU6aNXIBX4FOmjVyCZ8q0kxJ4oEw7uQG3lGknd6BMmXbyBAqUqTeyOXANDsFBcDxtw0Bmti8gHy5M8BmqSQVUQ7/leG/GpEc6Ys372/JrsWfqSiOi7G1OHdlMeAdnlGkjO+ADHFOmnuQjyq4c6v9yzNSTRzAMvW5F7v0C9WTMPAef/pLfMxkdmYjkmGlIJGUaEsl15uaKlKXIV9TCkzEgkjINieRrdrNEnoLvWSexZxoRSZmGRFKmIZGUqTddV5HjCZC/4gtJxfCfcUQ+H+0rvbYf0HGtNBJgAL1sQWqSdHSQAAAAAElFTkSuQmCC");
-	background-size: 115rpx 28rpx;
+    line-height: 28rpx;
+    padding-left: 12rpx;
+    background-image: url(http://go.cnmo.com/static/newpi/images/api/icon-biao.png);
+    background-size: 115rpx 28rpx;
 }
-
 
 .list-text {
-	font-size: 16rpx;
-	color: #7a7a7a;
-	margin-bottom: 15rpx;
+    font-size: 16rpx;
+    color: #7a7a7a;
+    margin-bottom: 15rpx;
 }
-.list-text text{
-	margin-right: 20rpx;
+
+.list-text text {
+    margin-right: 20rpx;
 }
+
 .list-text .list-yh {
-	float: right;
-	color: #ff0000;
-	padding: 2rpx 5rpx 2rpx 10rpx;
-	border: 1px solid #ff0000;
-	border-radius: 25rpx;
+    float: right;
+    color: #ff0000;
+    padding: 2rpx 5rpx 2rpx 10rpx;
+    border: 1px solid #ff0000;
+    border-radius: 25rpx;
 }
-.list-text .list-yh image{
-	width: 15rpx;
-	height: 15rpx;
-	vertical-align: middle;
-	margin-top: -2rpx;
-	margin-right: 3rpx;
+
+.list-text .list-yh image {
+    width: 15rpx;
+    height: 15rpx;
+    vertical-align: middle;
+    margin-top: -2rpx;
+    margin-right: 3rpx;
 }
+
 .list-icon {
     width: 120rpx;
     height: 120rpx;
@@ -237,36 +280,41 @@ checkbox, radio{
     right: -60rpx;
 }
 
-.list-icon image{
-	width: 17rpx;
-	height: 17rpx;
-	margin-top: 77rpx;
-	margin-left: 28rpx;
+.list-icon image {
+    width: 17rpx;
+    height: 17rpx;
+    margin-top: 77rpx;
+    margin-left: 28rpx;
 }
+
 /* 页面产品--------展示公共 */
+
 /* 返回按钮 --- 整站通用 */
+
 .go-back {
-  position: fixed;
-  top: 66rpx;
-  left: 20rpx;
-  z-index: 22;
-  width: 50rpx;
+    position: fixed;
+    top: 66rpx;
+    left: 20rpx;
+    z-index: 22;
+    width: 50rpx;
 }
 
 .go-back image {
-  width: 16rpx;
-  height: 27rpx;
+    width: 16rpx;
+    height: 27rpx;
 }
-/* 返回按钮 end */
-.flex-ver {
-  flex-flow:row nowrap;
-  justify-content:flex-start;
-  align-items:center;
-  
-  }
 
-  /* 综合 四项  */
-  .ify-listNav {
+/* 返回按钮 end */
+
+.flex-ver {
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+/* 综合 四项  */
+
+.ify-listNav {
     width: 710rpx;
     height: 88rpx;
     border-radius: 35rpx;
@@ -277,116 +325,136 @@ checkbox, radio{
     z-index: 2;
     font-size: 22rpx;
     color: #7a7a7a;
-
 }
 
 .ify-listNav .nav-text {
     text-align: center;
     display: inline-block;
-    padding:20rpx 60rpx;
+    padding: 20rpx 60rpx;
 }
-.nav-updown1{
-	height: 19rpx;
-	width: 13rpx;
-	margin-left:3px;
+.ify-listNav .nav-text.active{
+    color: #eb2e2e;
 }
+.nav-updown1 {
+    height: 19rpx;
+    width: 13rpx;
+    margin-left: 3px;
+}
+
 /* 综合四项 end */
 
 /* 排行榜具体项 */
-.product-list{
-  width: 710rpx;
-  height: 210rpx;
-  background: #f3f4f6;
-  border-radius: 15rpx;
-  overflow: hidden;
-  position: relative;
-  margin-top: 12rpx;
+
+.product-list {
+    width: 710rpx;
+    height: 210rpx;
+    background: #f3f4f6;
+    border-radius: 15rpx;
+    overflow: hidden;
+    position: relative;
+    margin-top: 12rpx;
 }
-.product-list-img1{
-  width: 221rpx;
-  height: 210rpx;
-  border-top-left-radius: 15rpx;
-  border-bottom-left-radius: 15rpx;
+
+.product-list-img1 {
+    width: 221rpx;
+    height: 210rpx;
+    border-top-left-radius: 15rpx;
+    border-bottom-left-radius: 15rpx;
 }
-.product-list-img{
-  margin-right: 24rpx;
+
+.product-list-img {
+    margin-right: 24rpx;
 }
-.product-list-name{
-  font-size: 22rpx;
-  color: #121212;
-  width: 420rpx;
-  /* overflow: hidden;
+
+.product-list-name {
+    font-size: 22rpx;
+    color: #121212;
+    
+    /* overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap */
 }
-.product-list-price{
-  margin-top: -10rpx;
+
+.product-list-price {
+    margin-top: -10rpx;
 }
-.product-list-price text{
-  font-size: 15rpx;
-  color: #7a7a7a;
+
+.product-list-price text {
+    font-size: 15rpx;
+    color: #7a7a7a;
 }
-.mr20{
-  margin-right: 20rpx;
+
+.mr20 {
+    margin-right: 20rpx;
 }
-.roll-disc{
-  display: inline-block;
-  width: 104rpx;
-  height: 24rpx;
-  line-height: 24rpx;
-  padding-left: 10rpx;
-  background-image: url(http://go.cnmo.com/static/newpi/images/api/hot-juan.png);
-  background-size: 114rpx 24rpx;
-  font-size: 16rpx;
-  color: #fff;
-  margin-right: 20rpx;
+
+.roll-disc {
+    display: inline-block;
+    width: 104rpx;
+    height: 24rpx;
+    line-height: 24rpx;
+    padding-left: 10rpx;
+    background-image: url(http://go.cnmo.com/static/newpi/images/api/hot-juan.png);
+    background-size: 114rpx 24rpx;
+    font-size: 16rpx;
+    color: #fff;
+    margin-right: 20rpx;
 }
-.tianmao{
-  display: inline-block;
-  width: 85rpx;
-  height: 18rpx;
-  background-image: url(http://go.cnmo.com/static/newpi/images/api/icon-mao.png);
-  background-size: 85rpx 18rpx;
-  vertical-align: middle;
-  margin-top: 15rpx;
+
+.tianmao {
+    display: inline-block;
+    width: 85rpx;
+    height: 18rpx;
+    background-image: url(http://go.cnmo.com/static/newpi/images/api/icon-mao.png);
+    background-size: 85rpx 18rpx;
+    vertical-align: middle;
+    margin-top: 15rpx;
 }
-.roll{
-  width: 111rpx;
-  height: 111rpx;
-  border-radius: 50%;
-  background: #eb2e2e;
-  position: absolute;
-  right: 20rpx;
-  bottom: -55rpx;
-  text-align: center;
-  background-image: url(http://go.cnmo.com/static/newpi/images/api/icon-juan01.png);
-  background-size: 45rpx 42rpx;
-  background-position-x: center;
-  background-position-y: 8rpx;
-  background-repeat: no-repeat;
+
+.roll {
+    width: 111rpx;
+    height: 111rpx;
+    border-radius: 50%;
+    background: #eb2e2e;
+    position: absolute;
+    right: 20rpx;
+    bottom: -55rpx;
+    text-align: center;
+    background-image: url(http://go.cnmo.com/static/newpi/images/api/icon-juan01.png);
+    background-size: 45rpx 42rpx;
+    background-position-x: center;
+    background-position-y: 8rpx;
+    background-repeat: no-repeat;
 }
-.roll text{
-  font-size: 16rpx;
-  color: #fff;
-  line-height: 5;
+
+.roll text {
+    font-size: 16rpx;
+    color: #fff;
+    line-height: 5;
 }
-.rank-list-main{
-  height: 104rpx;
-  padding-top: 30rpx;
+
+.rank-list-main {
+    height: 104rpx;
+    padding-top: 30rpx;
+    width: 420rpx;
 }
-.tao-btns image{
-  width: 25rpx;
-  height: 25rpx;
-  vertical-align: middle;
-  margin-top: 15rpx;
+
+.tao-btns image {
+    width: 25rpx;
+    height: 25rpx;
+    vertical-align: middle;
+    margin-top: 15rpx;
 }
+
 /* 排行榜 具体项 */
+
 /* 返回顶部 */
-.go-top{
-  position: fixed;
-  right: 20rpx;
-  bottom: 100rpx;
-  width: 60rpx;
-  height: 60rpx;
-  z-index: 123;
+
+.go-top {
+    position: fixed;
+    right: 20rpx;
+    bottom: 100rpx;
+    width: 60rpx;
+    height: 60rpx;
+    z-index: 123;
 }
