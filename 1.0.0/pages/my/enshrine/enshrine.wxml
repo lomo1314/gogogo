@@ -18,7 +18,8 @@
 		<view class="sun_ify"></view>{{allIfy}}
 		<view class="en-cla-box " hidden="{{classHidden}}">
 			<view class="en-sta" wx:for="{{cateMore}}" wx:key="cateMore.index" data-id="{{item.cate_id}}" data-name="{{item.name}}" bindtap="filtrate">
-				<view class="ify-icon {{item.cateimg}}"></view>{{item.name}}
+				<!-- {{item.cateimg}} -->
+				<view class="ify-icon "></view>{{item.name}}
 			</view>
 		</view>
 	</view>
@@ -32,7 +33,7 @@
 	</view>
 </view>
 <!-- 收藏内容 -->
-<view class="en-cont">
+<view  class="en-cont">
 	<block wx:if="{{hiddenTips}}">
 		<view class="en-item">
 			<view class="list rank-list touch-item {{item.isTouchMove ? 'touch-move-active' : ''}} " wx:for="{{dataCols}}" wx:key="dataCols.index"
@@ -64,5 +65,12 @@
 		<view>暂无数据</view>
 	</block>
 </view>
-
+<view hidden="{{nonet}}">
+		<view class="nva-list" style="height:350rpx">
+				<view class="badWline">
+						<image class="loading-gif" src="/image/loading01.gif"></image>
+						<view class="fz14">请登录</view>
+				</view>
+			</view>
+</view>
 <!-- 内容项end -->

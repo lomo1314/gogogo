@@ -172,9 +172,10 @@
 }
 
 .failhidden {
-    margin: 80px 0;
     text-align: center;
     width: 750rpx;
+    color: #121212;
+    font-size: 22rpx;
 }
 
 .searchNav {

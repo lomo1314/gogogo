@@ -20,6 +20,8 @@ Page({
 		dataSaleLength: 0, //数据条数 hottop
 		dataSalePage: 1, //当前页面
 		salehidden: true, // 显示加载更多 loading
+
+		nonet: true,
 	},
 	// readArticle: function (e) {
 	// 	var $data = e.currentTarget.dataset; //打印可以看到，此处已获取到了包含id、title、和content的对象
@@ -30,7 +32,15 @@ Page({
 	onLoad: function (options) {
 
 		var that = this;
-
+        //获取手机联网状态
+		wx.onNetworkStatusChange(function(res){
+			console.log(res)
+			if(res.networkType == "none"){
+			  that.setData({nonet: false})
+			}else{
+			  that.setData({nonet: true})
+			}
+		  })
 		/**获取系统信息*/
 		wx.getSystemInfo({
 			success: function (res) {

@@ -41,6 +41,18 @@ Page({
 				});
 			}
 		});
+		//初始进入搜索页面， 推荐最热产品
+        that.dataAjax("", that.data.page, function (res) {
+			//如果失败再次发送请求
+			that.dataAjax("", that.data.page, function () {
+				wx.hideToast()
+				that.setData({
+					
+					searhhidden: true
+				})
+			})
+		})
+	
 	},
 	//开始输入内容
 	bindKeyInput: function (e) {
@@ -57,7 +69,7 @@ Page({
 		that.data.value=value;
 		if (value == "") return;
 		that.setData({
-			failhidden: true,
+			
 			hidden: true,
 			hiddenCon: false,
 			dataSyn:[], //清空数据
@@ -74,7 +86,7 @@ Page({
 			that.dataAjax(value, that.data.page, function () {
 				wx.hideToast()
 				that.setData({
-					failhidden: false,
+					
 					searhhidden: true
 				})
 			})
@@ -137,14 +149,14 @@ Page({
 				dataSyn: [],
 				dataSynLength: 0,
 				dataSynPage: 1,
-				wifihidden: false,
+				synhidden: true,
 				page: 1
 			});
 			that.dataAjax(that.data.value, cur, function () {
 				// //如果加载失败--再次加载,再次失败--提示
 				that.dataAjax(that.data.value, that.data.page, function () {
 					that.setData({
-						wifihidden: true
+						synhidden: true
 					});
 				})
 			})
@@ -155,14 +167,14 @@ Page({
 				dataSyn: [],
 				dataSynLength: 0,
 				dataSynPage: 1,
-				wifihidden: false,
+				synhidden: true,
 				page: 2
 			});
 			that.dataAjax(that.data.value, cur, function () {
 				// //如果加载失败--再次加载,再次失败--提示
 				that.dataAjax(that.data.value, that.data.page, function () {
 					that.setData({
-						wifihidden: true
+						synhidden: true
 					});
 				})
 			})
@@ -173,14 +185,14 @@ Page({
 				dataSyn: [],
 				dataSynLength: 0,
 				dataSynPage: 1,
-				wifihidden: false,
+				synhidden: true,
 				page: 5
 			});
 			that.dataAjax(that.data.value, cur, function () {
 				// //如果加载失败--再次加载,再次失败--提示
 				that.dataAjax(that.data.value, that.data.page, function () {
 					that.setData({
-						wifihidden: true
+						synhidden: true
 					});
 				})
 			})
@@ -194,7 +206,7 @@ Page({
 				dataSyn: [],
 				dataSynLength: 0,
 				dataSynPage: 1,
-				wifihidden: false
+				synhidden: true,
 			});
 			//如果点击价格
 			if (that.data.listorder == 0) {
@@ -209,7 +221,7 @@ Page({
 					// //如果加载失败--再次加载,再次失败--提示
 					that.dataAjax(that.data.value, that.data.page, function () {
 						that.setData({
-							wifihidden: true
+							synhidden: true
 						});
 					})
 				})
@@ -224,7 +236,7 @@ Page({
 					// //如果加载失败--再次加载,再次失败--提示
 					that.dataAjax(that.data.value, that.data.page, function () {
 						that.setData({
-							wifihidden: true
+							synhidden: true
 						});
 					})
 				})
@@ -234,76 +246,12 @@ Page({
 			})
 		}
 		return false;
-		// if (this.data.currentTab ==cur) {
-		// 	//如果是第三个价钱点击切换单独处理
-		// 	if (this.data.currentTab == "2") {
-		// 		//重置数据
-		// 		that.setData({
-		// 			dataMoney: [],
-		// 			dataMoneyLength: 0,
-		// 			dataMoneyPage: 1,
-		// 			wifihidden: false
-		// 		});
-		// 		//如果点击价格
-		// 		if (that.data.listorder == 0) {
-		// 			var num = 1;
-		// 			that.setData({
-		// 				currentTab: cur,
-		// 				page: 4
-		// 			})
-		// 			that.dataAjax(that.data.value,that.data.page, function () {
-		// 				//如果加载失败--再次加载,再次失败--提示
-		// 				that.dataAjax(that.data.value,that.data.page, function () {
-		// 					that.setData({
-		// 						wifihidden: true
-		// 					});
-		// 				})
-		// 			})
-		// 		} else {
-		// 			var num = 0;
-		// 			that.setData({
-		// 				currentTab: cur,
-		// 				page: 3
-		// 			})
-		// 			that.dataAjax(that.data.value,that.data.page, function () {
-		// 				//如果加载失败--再次加载,再次失败--提示
-		// 				that.dataAjax(that.data.value,that.data.page, function () {
-		// 					that.setData({
-		// 						wifihidden: true
-		// 					});
-		// 				})
-		// 			})
-		// 		}
-		// 		that.setData({
-		// 			listorder: num
-		// 		})
-		// 	}
-		// 	return false;
-		// } 
 	},
 	/**数据请求封装**/
 	dataAjax: function (val, nav,page_size, failFn) {
 		/*num如果是1的话说明是点击完成的搜索，如果是0的话，是在输入中的搜索*/
 		// 
 		var that = this;
-		// switch (nav) {
-		// 	case 1:
-		// 		var page = that.data.dataSynPage; //综合数据
-		// 		break;
-		// 	case 2:
-		// 		var page = that.data.dataSalePage; //销量数据
-		// 		break;
-		// 	case 3:
-		// 		var page = that.data.dataMoneyPage; //价格数据
-		// 		break;
-		// 	case 4:
-		// 		var page = that.data.dataMoneyPage; //价格数据
-		// 		break;
-		// 	case 5:
-		// 		var page = that.data.dataRollPage; // 优惠券数据
-		// 		break;
-
-		// }
 		var page = that.data.dataSynPage; //综合数据
 		var ajaxData = {
 			keyword: val, //关键字
@@ -318,67 +266,34 @@ Page({
 				return;
 			}
 			var arr = res.data.data;
-			console.log(res.data.code)
+			//console.log(res.data.code)
 			wx.hideToast();
 			var arr = res.data.data;
 			if (res.data.code == 200) {
 				var list = that.data.dataSyn;
 				// 然后重新写入数据
 				that.setData({
+					failhidden:true, //未搜索到隐藏
 					dataSyn: list.concat(arr.info), // 存储数据
 					dataSynLength: arr.info.length, //请求过来的条数
 					dataSynPage: that.data.dataSynPage + 1 // 统计加载次数
 				});
-			} else if (res.data.code == 400) {
+			} else if (res.data.code == 201) {
+				var list = that.data.dataSyn;
 				that.setData({
+					failhidden:false,//未搜索到 展示
+					synhidden:false,
+					dataSyn: list.concat(arr.info), // 存储数据
+					dataSynLength: arr.info.length, //请求过来的条数
+					dataSynPage: that.data.dataSynPage + 1 // 统计加载次数
+				})
+			} else if(res.data.code == 400){
+				that.setData({
+					failhidden:true, //未搜索到隐藏
 					synhidden:false,
 				})
-				
 			}
-			// switch (nav) {
-			// 	case 1: //综合
-			// 		// 获取当前数据进行保存
-			// 		var list = that.data.dataSyn;
-			// 		// 然后重新写入数据
-			// 		that.setData({
-			// 			dataSyn: list.concat(arr.info), // 存储数据
-			// 			dataSynLength: arr.info.length, //请求过来的条数
-			// 			dataSynPage: that.data.dataSynPage + 1 // 统计加载次数
-			// 		});
-			// 		break;
-			// 	case 2: //销量
-			// 		var list = that.data.saleList;
-			// 		that.setData({
-			// 			saleList: list.concat(arr.info),
-			// 			dataSaleLength: arr.info.length,
-			// 			dataSalePage: that.data.dataSalePage + 1
-			// 		});
-			// 		break;
-			// 	case 3: //价格高到低						
-			// 		var list = that.data.dataMoney;
-			// 		that.setData({
-			// 			dataMoney: list.concat(arr.info),
-			// 			dataMoneyLength: arr.info.length,
-			// 			dataMoneyPage: that.data.dataMoneyPage + 1
-			// 		});
-			// 		break;
-			// 	case 4: //价格低到高
-			// 		var list = that.data.dataMoney;
-			// 		that.setData({
-			// 			dataMoney: list.concat(arr.info),
-			// 			dataMoneyLength: arr.info.length,
-			// 			dataMoneyPage: that.data.dataMoneyPage + 1
-			// 		});
-			// 		break;
-			// 	case 5: //优惠券
-			// 		var list = that.data.dataRoll;
-			// 		that.setData({
-			// 			dataRoll: list.concat(arr.info),
-			// 			dataRollLength: arr.info.length,
-			// 			dataRollPage: that.data.dataRollPage + 1
-			// 		});
-			// 		break;
-			// }
+			
 
 		});
 	},

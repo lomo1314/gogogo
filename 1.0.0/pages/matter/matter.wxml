@@ -25,7 +25,7 @@
 </view>
 <!-- 头图 end -->
 <!-- 内容项 -->
-<view>
+<view class="cont-matter">
   <view class="head-img">
     <image src="{{commodityLis.pic_url}}"></image>
   </view>

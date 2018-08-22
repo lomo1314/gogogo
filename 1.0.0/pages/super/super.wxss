@@ -222,7 +222,7 @@
 .wenti{
   width: 50rpx;
   height: 50rpx;
-  background-position: -520rpx 0;
+  background-position: -517rpx 0;
 }
 .shouji{
   width: 39rpx;
@@ -232,20 +232,20 @@
 .neiyi{
   width: 64rpx;
   height: 50rpx;
-  background-position: 0 -60rpx;
+  background-position: 0 -58rpx;
 }
 .xiangbao{
   width: 50rpx;
   height: 50rpx;
-  background-position: -80rpx -60rpx;
+  background-position: -80rpx -58rpx;
 }
 .jiafang{
   width: 55rpx;
   height: 50rpx;
-  background-position: -200rpx -60rpx;
+  background-position: -200rpx -58rpx;
 }
 .lingshi{
   width: 50rpx;
   height: 55rpx;
-  background-position: -260rpx -60rpx;
+  background-position: -260rpx -58rpx;
 }

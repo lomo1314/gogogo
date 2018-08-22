@@ -46,7 +46,9 @@
     position: relative;
     padding: 20rpx 20rpx;
 }
-
+.cont-matter{
+    overflow-x: hidden;
+}
 .mTxet {
     display: block;
     color: #121212;

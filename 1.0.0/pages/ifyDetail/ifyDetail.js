@@ -21,7 +21,7 @@ Page({
 		scrollLeft: "", //横向滚动距离
 		screenWidth: '', //设备屏幕宽度
 		listhidden: false, // 无数据时
-
+        catalogSelect:0,//判断是否选中
 	},
 	onLoad: function (options) {
 		var that = this
@@ -41,7 +41,8 @@ Page({
 		that.setData({
 			ifyName: options.id,
 			tagNames: options.name,
-
+            //判断选中 index
+			catalogSelect :indexFrom,
 		})
 
 		//调用分类数据内容
@@ -77,12 +78,15 @@ Page({
 		var unit = that.data.screenWidth / 375;
 		var name = e.currentTarget.dataset.name
 		that.setData({
+			//判断选中 index
+			catalogSelect :index,
 			scrollLeft: unit * 75 * (index), //横屏滚动距离
 			ifyName: e.currentTarget.dataset.id, // 分类id
 			tagNames: name, // 分类名字
 			//重选分类，清空已加载数据
-			dataSyn: [],
+			dataSyn: [],	
 		})
+		
 		var ajaxData = {
 			cid: e.currentTarget.dataset.id,
 			sort: that.data.page,

@@ -27,7 +27,9 @@ Page({
 		canUseajaxDay: true,
 		//广告专辑位置数据
 		advertising:[],
-		advTotal:""
+		advTotal:"",
+	
+		nonet: true,
 	},
 	//	//分享
 	//	onShareAppMessage: function () {
@@ -42,10 +44,19 @@ Page({
 	 * options 为页面跳转所带来的参数
 	 */
 	onLoad: function (options) {
-
 		var that = this;
-
 		/**获取系统信息*/
+		//console.log("5555555------666666")
+		//获取手机联网状态
+		wx.onNetworkStatusChange(function(res){
+			console.log(res)
+			if(res.networkType == "none"){
+			  that.setData({nonet: false})
+			}else{
+			  that.setData({nonet: true})
+			}
+		  })
+	  
 		wx.getSystemInfo({
 			success: function (res) {
 				that.setData({
@@ -54,6 +65,8 @@ Page({
 				});
 			}
 		});
+		
+	  
 		//      wx.hideTabBar()
 		/**显示loading*/
 		that.setData({
@@ -84,8 +97,14 @@ Page({
 		util.hotAjax(horData, function (res) {
 			var arr = res.data
 			that.setData({
-				hotList: arr.data.info
+				hotList: arr.data.info,
+
 			})
+			if(!arr){
+				that.setData({
+					failWline:false,
+				})
+			}
 
 		})
 		

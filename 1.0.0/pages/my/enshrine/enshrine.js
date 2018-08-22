@@ -15,12 +15,28 @@ Page({
 		allIfy: "全部类目",
 		allstat: "全部状态",
 		hiddenTips: true, //如果没有数据展示判断
+		nonet: true,
 	},
 
 	onLoad: function (options) {
-
+        var token = wx.getStorageSync('token') || [];
 		var that = this;
-
+		 //获取手机联网状态
+		 if(token==""){
+			 console.log(123)
+			 that.setData({
+				nonet:false,
+			 })
+			 return false;
+		 }
+		wx.onNetworkStatusChange(function(res){
+			console.log(res)
+			if(res.networkType == "none"){
+			  that.setData({nonet: false})
+			}else{
+			  that.setData({nonet: true})
+			}
+		  })
 		/**获取系统信息*/
 		wx.getSystemInfo({
 			success: function (res) {
@@ -44,6 +60,7 @@ Page({
 				dataCols: arr.data.info, //产品数据
 				cateMore: arr.data.cate // 产品分类
 			})
+			
 		})
 
 	},

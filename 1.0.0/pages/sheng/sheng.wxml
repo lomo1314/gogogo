@@ -50,7 +50,7 @@
           <text class="fz14">加载中...</text>
         </block>
         <block wx:else>
-          <text>没有更多了</text>
+            <text class="fz14">我也是有底线的~</text>
         </block>
       </block>
     </view>

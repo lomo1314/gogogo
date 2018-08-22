@@ -222,16 +222,17 @@
 }
 
 .en-sta {
-    width: 100%;
+    width: 49%;
     height: 70rpx;
     line-height: 70rpx;
-		padding-left: 20rpx;
 		color: #bcbcbc;
-		text-align: center;
+    text-align: center;
+    margin-bottom: 2%;
 }
 
 .en-sta:nth-of-type(odd) {
     background: #f3f3f3;
+    margin-right: 2%;
 }
 
 .en-sta:nth-of-type(even) {

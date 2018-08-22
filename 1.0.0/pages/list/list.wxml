@@ -29,7 +29,7 @@
 <!-- 人气，销量 end -->
 
 <!-- tab-内容 -->
-<swiper current="{{currentTab}}"  class="swiper-box" duration="300" style="height:{{winHeight}}px" bindchange="bindChange">
+<swiper  wx:if="{{nonet}}" current="{{currentTab}}"  class="swiper-box" duration="300" style="height:{{winHeight}}px" bindchange="bindChange">
   <!--热门100top-->
   <swiper-item>
     <scroll-view class="hot-box" scroll-y="true" upper-threshold="50" lower-threshold="100" bindscrolltolower="scrolltolower">
@@ -70,11 +70,11 @@
         </block>
         <block wx:else>
           <block wx:if="{{hothidden}}">
-            <image class="loading-gif" src="../../image/loading.gif"></image>
+            <image class="loading-gif" src="../../image/loading01.gif"></image>
             <text class="fz14">加载中...</text>
           </block>
           <block wx:else>
-            <text>没有更多了</text>
+              <text class="fz14">我也是有底线的~</text>
           </block>
         </block>
       </view>
@@ -120,16 +120,23 @@
         </block>
         <block wx:else>
           <block wx:if="{{salehidden}}">
-            <image class="loading-gif" src="../../image/loading.gif"></image>
+            <image class="loading-gif" src="../../image/loading01.gif"></image>
             <text class="fz14">加载中...</text>
           </block>
           <block wx:else>
-            <text>没有更多了</text>
+              <text class="fz14">我也是有底线的~</text>
           </block>
         </block>
       </view>
     </scroll-view>
   </swiper-item>
-
 </swiper>
+<swiper wx:else>
+    <swiper-item class="" style="height:350rpx">
+      <view class="badWline">
+          <image class="loading-gif" src="../../image/loading01.gif"></image>
+          <view class="fz14">加载失败</view>
+      </view>
+    </swiper-item>
+  </swiper>
 <!-- tab-内容 -end-->
