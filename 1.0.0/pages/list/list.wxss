@@ -68,7 +68,11 @@ width: 100%;
 }
 .list-til{
   font-size: 22rpx;
-  color: #eb2f2e;
+  /* color: #eb2f2e; */
+  color: #393939;
+}
+.active .list-til{
+   color: #eb2f2e;
 }
 .list-text{
   font-size: 18rpx;

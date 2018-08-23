@@ -297,6 +297,26 @@ Page({
 
 		});
 	},
+    // 获取滚动条当前位置
+	scrolltoupper: function (e) {
+		//console.log(e.detail.scrollTop)
+		if (e.detail.scrollTop > 100) {
+			this.setData({
+				floorstatus: true
+			});
+		} else {
+			this.setData({
+				floorstatus: false
+			});
+		}
+	},
 
+	//回到顶部
+	goTop: function (e) { // 一键回到顶部
+		var that = this
+		that.setData({
+			topNum: that.data.topNum = 0
+		});
+	},
 	
 })

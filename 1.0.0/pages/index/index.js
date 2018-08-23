@@ -32,13 +32,13 @@ Page({
 		nonet: true,
 	},
 	//	//分享
-	//	onShareAppMessage: function () {
-	//	    return {
-	//	      title: '手机中国',
-	//	      desc: '自定义分享描述',
-	//	      path: '/pages/index/index'
-	//	    }
-	//	},
+		onShareAppMessage: function () {
+		    return {
+		      title: '够好啊',
+		    //   desc: '自定义分享描述',
+		      path: '/pages/index/index'
+		    }
+		},
 	/** 
 	 * 页面初始化
 	 * options 为页面跳转所带来的参数

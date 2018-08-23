@@ -5,6 +5,18 @@ App({
     ver: '', //小程序版本
     //		refreshIndex:false//首页刷新按钮
     barClolor: ['#ffffff', '#1472e0'], //顶部导航颜色
+      /**分享*/
+  onShareAppMessage: function (res) {
+    //		if (res.from === 'button') {
+    //	      // 来自页面内转发按钮
+    //	      console.log(res.target)
+    //	    }
+    return {
+        title: '购好啊',
+        // desc: '自定义分享描述',
+        path: '/pages/index/index',
+        // imageUrl: '/image/share.png'
+    }
   },
   onLaunch: function () {
     //调用API从本地缓存中获取数据
@@ -33,6 +45,7 @@ App({
     };
     this.globalVar.barClolor[0] = color;
     this.globalVar.barClolor[1] = bgColor;
+    
   },
   getUserInfo: function (cb) {
     var that = this
@@ -58,6 +71,9 @@ App({
     userInfo: null
   },
    
+
+},
  
+  
 
 })

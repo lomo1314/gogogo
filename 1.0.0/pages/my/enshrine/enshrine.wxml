@@ -74,3 +74,5 @@
 			</view>
 </view>
 <!-- 内容项end -->
+<!-- 返回顶部-->
+<image class="go-top" src="/image/go-top.png" hidden='{{!floorstatus}}' bindtap="goTop"></image>

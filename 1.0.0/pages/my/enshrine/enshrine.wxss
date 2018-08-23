@@ -297,6 +297,7 @@ button::after {
     height: 210rpx;
     text-align: center;
     line-height: 210rpx;
+    font-size: 32rpx;
 }
 
 .editor {

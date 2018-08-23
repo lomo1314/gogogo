@@ -19,24 +19,28 @@ Page({
 	},
 
 	onLoad: function (options) {
-        var token = wx.getStorageSync('token') || [];
+		var token = wx.getStorageSync('token') || [];
 		var that = this;
-		 //获取手机联网状态
-		 if(token==""){
-			 console.log(123)
-			 that.setData({
-				nonet:false,
-			 })
-			 return false;
-		 }
-		wx.onNetworkStatusChange(function(res){
+		//获取手机联网状态
+		if (token == "") {
+			console.log(123)
+			that.setData({
+				nonet: false,
+			})
+			return false;
+		}
+		wx.onNetworkStatusChange(function (res) {
 			console.log(res)
-			if(res.networkType == "none"){
-			  that.setData({nonet: false})
-			}else{
-			  that.setData({nonet: true})
+			if (res.networkType == "none") {
+				that.setData({
+					nonet: false
+				})
+			} else {
+				that.setData({
+					nonet: true
+				})
 			}
-		  })
+		})
 		/**获取系统信息*/
 		wx.getSystemInfo({
 			success: function (res) {
@@ -60,7 +64,7 @@ Page({
 				dataCols: arr.data.info, //产品数据
 				cateMore: arr.data.cate // 产品分类
 			})
-			
+
 		})
 
 	},
@@ -184,6 +188,10 @@ Page({
 	//点击出下拉菜单
 	showTips: function () {
 		var that = this
+		that.setData({
+			enlisbg01: "", //第er个下拉框收起
+			stateHidden: true,
+		})
 		if (that.data.enlisbg == "") {
 			that.setData({
 				classHidden: false,
@@ -200,10 +208,15 @@ Page({
 	//点击下来菜单 全部分类
 	showTips02: function () {
 		var that = this
+		that.setData({
+			enlisbg: "", //第一个下拉框收起
+			classHidden: true,
+		})
 		if (that.data.enlisbg01 == "") {
 			that.setData({
 				stateHidden: false,
-				enlisbg01: "enlisbg"
+				enlisbg01: "enlisbg",
+
 			})
 		} else {
 			that.setData({
@@ -273,6 +286,33 @@ Page({
 			}
 
 		})
-	}
+	},
+
+	// 获取滚动条当前位置
+	onPageScroll: function (e) {
+		//console.log(e)
+		if (e.scrollTop > 100) {
+			this.setData({
+				floorstatus: true
+			});
+		} else {
+			this.setData({
+				floorstatus: false
+			});
+		}
+	},
+	//回到顶部
+	goTop: function (e) { // 一键回到顶部
+		if (wx.pageScrollTo) {
+			wx.pageScrollTo({
+				scrollTop: 0
+			})
+		} else {
+			wx.showModal({
+				title: '提示',
+				content: '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。'
+			})
+		}
+	},
 
 })
