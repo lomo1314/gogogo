@@ -28,115 +28,62 @@
 </view>
 <!-- 人气，销量 end -->
 
-<!-- tab-内容 -->
-<swiper  wx:if="{{nonet}}" current="{{currentTab}}"  class="swiper-box" duration="300" style="height:{{winHeight}}px" bindchange="bindChange">
-  <!--热门100top-->
-  <swiper-item>
-    <scroll-view class="hot-box" scroll-y="true" upper-threshold="50" lower-threshold="100" bindscrolltolower="scrolltolower">
-      <view class="product">
-        <view class="list product-list rank-list" wx:for="{{hotList}}" wx:key="hotList.index">
-          <navigator url="/pages/matter/matter?id={{item.id}}&num_iid={{item.num_iid}}" hover-class="hoverClass">
-            <view class="product-list-img fl">
-              <image class="product-list-img1" mode="aspectFill" src="{{item.pic_url}}"></image>
-            </view>
-            <view class="flex-column rank-list-main fl">
-              <view class="product-list-name">{{item.title}}</view>
-              <view class="product-list-price">
-                <text class="mr20">原价: {{item.price}}</text>
-                <text>销量：{{item.volume}}</text>
-              </view>
-              <view class="product-list-des">
-                <text class="roll-disc">券后: ¥{{item.coupon_price}}</text>
-                <text class="tianmao"></text>
-                <block wx:if="{{item.is_quan==1}}">
-                  <view class="roll fr">
-                    <text>领{{item.quan}}元卷</text>
-                  </view>
-                </block>
-                <block wx:else>
-                  <view class="tao-btns fr ">
-                    <image src="/image/taobao.png"></image>
-                  </view>
-                </block>
-              </view>
-            </view>
-          </navigator>
+<scroll-view  wx:if="{{nonet}}" scroll-top='{{topNum}}' scroll-with-animation="5s" class="swiper-box" scroll-y="true" style="height:{{winHeight}}px"
+  upper-threshold="50" lower-threshold="100" bindscrolltolower="scrolltolower" bindscroll="scrolltoupper">
+  <!-- 返回顶部-->
+  <image class="go-top" src="/image/go-top.png" hidden='{{!floorstatus}}' bindtap="goTop"></image>
+  <view class="product">
+    <view class="list product-list rank-list" wx:for="{{hotList}}" wx:key="hotList.index">
+      <navigator url="/pages/matter/matter?id={{item.id}}&num_iid={{item.num_iid}}" hover-class="hoverClass">
+        <view class="product-list-img fl">
+          <image class="product-list-img1" mode="aspectFill" src="{{item.pic_url}}"></image>
         </view>
-      </view>
-      <!-- 没有更多的时候 -->
-      <view class="loading-list">
-        <block wx:if="{{wifihidden}}">
-          <text class="wifihidden">网络不给力,请检查您的网络</text>
-        </block>
-        <block wx:else>
-          <block wx:if="{{hothidden}}">
-            <image class="loading-gif" src="../../image/loading01.gif"></image>
-            <text class="fz14">加载中...</text>
-          </block>
-          <block wx:else>
-              <text class="fz14">我也是有底线的~</text>
-          </block>
-        </block>
-      </view>
-    </scroll-view>
-  </swiper-item>
-  <!--销量100 top-->
-  <swiper-item>
-    <scroll-view class="hot-box" scroll-y="true"  upper-threshold="50" lower-threshold="100" bindscrolltolower="scrolltolower">
-        <view class="product">
-            <view class="list product-list rank-list" wx:for="{{saleList}}" wx:key="saleList.index">
-                <navigator url="/pages/matter/matter?id={{item.id}}&num_iid={{item.num_iid}}" hover-class="hoverClass">
-                  <view class="product-list-img fl">
-                    <image class="product-list-img1" mode="aspectFill" src="{{item.pic_url}}"></image>
-                  </view>
-                  <view class="flex-column rank-list-main fl">
-                    <view class="product-list-name">{{item.title}}</view>
-                    <view class="product-list-price">
-                      <text class="mr20">原价: {{item.price}}</text>
-                      <text>销量：{{item.volume}}</text>
-                    </view>
-                    <view class="product-list-des">
-                      <text class="roll-disc">券后: ¥{{item.coupon_price}}</text>
-                      <text class="tianmao"></text>
-                      <block wx:if="{{item.is_quan==1}}">
-                        <view class="roll fr">
-                          <text>领{{item.quan}}元卷</text>
-                        </view>
-                      </block>
-                      <block wx:else>
-                        <view class="tao-btns fr ">
-                          <image src="/image/taobao.png"></image>
-                        </view>
-                      </block>
-                    </view>
-                  </view>
-                </navigator>
-            </view>
+        <view class="flex-column rank-list-main fl">
+          <view class="product-list-name">{{item.title}}</view>
+          <view class="product-list-price">
+            <text class="mr20">原价: {{item.price}}</text>
+            <text>销量：{{item.volume}}</text>
           </view>
-      <!-- 没有更多的时候 -->
-      <view class="loading-list">
-        <block wx:if="{{wifihidden}}">
-          <text class="wifihidden">网络不给力,请检查您的网络</text>
-        </block>
-        <block wx:else>
-          <block wx:if="{{salehidden}}">
-            <image class="loading-gif" src="../../image/loading01.gif"></image>
-            <text class="fz14">加载中...</text>
-          </block>
-          <block wx:else>
-              <text class="fz14">我也是有底线的~</text>
-          </block>
-        </block>
-      </view>
-    </scroll-view>
-  </swiper-item>
-</swiper>
-<swiper wx:else>
-    <swiper-item class="" style="height:350rpx">
-      <view class="badWline">
-          <image class="loading-gif" src="../../image/loading01.gif"></image>
-          <view class="fz14">加载失败</view>
-      </view>
-    </swiper-item>
-  </swiper>
+          <view class="product-list-des">
+            <text class="roll-disc">券后: ¥{{item.coupon_price}}</text>
+            <text class="tianmao"></text>
+            <block wx:if="{{item.is_quan==1}}">
+              <view class="roll fr">
+                <text>领{{item.quan}}元卷</text>
+              </view>
+            </block>
+            <block wx:else>
+              <view class="tao-btns fr ">
+                <image src="/image/taobao.png"></image>
+              </view>
+            </block>
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+  <!-- 没有更多的时候 -->
+  <view class="loading-list">
+    <block wx:if="{{wifihidden}}">
+      <text class="wifihidden">网络不给力,请检查您的网络</text>
+    </block>
+    <block wx:else>
+      <block wx:if="{{hothidden}}">
+        <image class="loading-gif" src="../../image/loading01.gif"></image>
+        <text class="fz14">加载中...</text>
+      </block>
+      <block wx:else>
+        <text class="fz14">我也是有底线的~</text>
+      </block>
+    </block>
+  </view>
+</scroll-view>
+<scroll-view wx:else>
+  <view class="" style="height:350rpx">
+    <view class="badWline">
+      <image class="loading-gif" src="../../image/badloding.png"></image>
+      <view class="fz14">加载失败</view>
+    </view>
+  </view>
+</scroll-view>
 <!-- tab-内容 -end-->

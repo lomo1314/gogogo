@@ -178,7 +178,7 @@ Page({
 		})
 		if (that.data.dataTodayPage == 1) {
 			canUseReachBottom = false;
-			console.log(that.data.page + "jjjjjjjj")
+			//console.log(that.data.page + "jjjjjjjj")
 			that.ajaxDay(that.data.page, function (res) {
 				that.setData({
 					todayhidden: true,
@@ -187,7 +187,7 @@ Page({
 			})
 		} else {
 			canUseReachBottom = false;
-			console.log(that.data.dataTodayPage + "pagessss")
+			//console.log(that.data.dataTodayPage + "pagessss")
 			that.ajaxDay(that.data.dataTodayPage, function (res) {
 				that.setData({
 					todayhidden: true,

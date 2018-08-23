@@ -87,9 +87,11 @@ width: 100%;
   width: 710rpx;
   margin: 0 auto;
 	overflow: hidden;
-	box-sizing: border-box;
+  box-sizing: border-box;
+  height: 100%;
 }
-.hot-box{
-	display: block;
-	height: 100%;
+
+.product{
+  width: 710rpx;
+  margin: 0 auto;
 }

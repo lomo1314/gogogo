@@ -21,7 +21,8 @@ Page({
 		scrollLeft: "", //横向滚动距离
 		screenWidth: '', //设备屏幕宽度
 		listhidden: false, // 无数据时
-        catalogSelect:0,//判断是否选中
+		catalogSelect: 0, //判断是否选中
+
 	},
 	onLoad: function (options) {
 		var that = this
@@ -41,8 +42,8 @@ Page({
 		that.setData({
 			ifyName: options.id,
 			tagNames: options.name,
-            //判断选中 index
-			catalogSelect :indexFrom,
+			//判断选中 index
+			catalogSelect: indexFrom,
 		})
 
 		//调用分类数据内容
@@ -57,9 +58,9 @@ Page({
 		var ajaxData = {
 			cid: cid,
 			sort: 1, //排序 不填就是默认综合default 1|销量 hot2|价格 3price_asc=价格正序;4price_desc=价格倒叙|5优惠券 low
-            
+
 		}
-		
+
 		that.dataAjax(cid, 1, function () {
 			// //如果加载失败--再次加载,再次失败--提示
 			that.dataAjax(that.data.ifyName, that.data.page, function () {
@@ -68,6 +69,27 @@ Page({
 				});
 			})
 		})
+	},
+	// 获取滚动条当前位置
+	scrolltoupper: function (e) {
+		//console.log(e)
+		if (e.detail.scrollTop > 100) {
+			this.setData({
+				floorstatus: true
+			});
+		} else {
+			this.setData({
+				floorstatus: false
+			});
+		}
+	},
+
+	//回到顶部
+	goTop: function (e) { // 一键回到顶部
+		var that = this
+		this.setData({
+			topNum: this.data.topNum = 0
+		});
 	},
 	// 点击切换分类数据
 	changeTag: function (e) {
@@ -79,14 +101,14 @@ Page({
 		var name = e.currentTarget.dataset.name
 		that.setData({
 			//判断选中 index
-			catalogSelect :index,
+			catalogSelect: index,
 			scrollLeft: unit * 75 * (index), //横屏滚动距离
 			ifyName: e.currentTarget.dataset.id, // 分类id
 			tagNames: name, // 分类名字
 			//重选分类，清空已加载数据
-			dataSyn: [],	
+			dataSyn: [],
 		})
-		
+
 		var ajaxData = {
 			cid: e.currentTarget.dataset.id,
 			sort: that.data.page,
@@ -105,7 +127,7 @@ Page({
 			} else if (res.data.code == 400) {
 				that.setData({
 					dataSyn: [],
-					synhidden:false,
+					synhidden: false,
 					tagNames: e.currentTarget.dataset.name,
 				})
 			}
@@ -263,9 +285,9 @@ Page({
 				});
 			} else if (res.data.code == 400) {
 				that.setData({
-					synhidden:false,
+					synhidden: false,
 				})
-				
+
 			}
 		});
 	},
@@ -322,17 +344,6 @@ Page({
 			indicatorDots: !this.data.indicatorDots
 		})
 	},
-	// 获取滚动条当前位置
-	scrolltoupper: function (e) {
-		//console.log(e)
-		if (e.detail.scrollTop > 100) {
-			this.setData({
-				floorstatus: true
-			});
-		} else {
-			this.setData({
-				floorstatus: false
-			});
-		}
-	},
+
+
 })

@@ -68,7 +68,7 @@
 <view hidden="{{nonet}}">
 		<view class="nva-list" style="height:350rpx">
 				<view class="badWline">
-						<image class="loading-gif" src="/image/loading01.gif"></image>
+						<image class="loading-gif" src="/image/badloding.png"></image>
 						<view class="fz14">请登录</view>
 				</view>
 			</view>

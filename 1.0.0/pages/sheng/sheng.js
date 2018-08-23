@@ -15,7 +15,7 @@ Page({
 		saveList: [],
 		dataSaveLength: 0,
 		dataSavePage: 1, //当前页面
-		saveHidden: true, // 显示加载更多 loading
+		saveHidden: false, // 显示加载更多 loading
 	},
 	onReady: function () {
 		this.videoContext = wx.createVideoContext('myVideo');
@@ -28,9 +28,9 @@ Page({
 		})
 		this.videoContext.play();
 	},
-	
+
 	onLoad: function () {
-		var that=this
+		var that = this
 		/**获取系统信息*/
 		wx.getSystemInfo({
 			success: function (res) {
@@ -40,22 +40,27 @@ Page({
 				});
 			}
 		});
-		var dataTp={
-			p:that.data.dataSavePage
+		var dataTp = {
+			p: that.data.dataSavePage
 		}
 		util.saveAjax(dataTp, function (res) {
 			var arr = res.data
-			//console.log(arr)
+			console.log(arr)
 			// 获取当前数据进行保存
 			var list = that.data.saveList;
-		
-			that.setData({
-				//todayList: arr.data.info,
-				// 然后重新写入数据
-				saveList: list.concat(arr.data.info), // 存储数据
-				dataSaveLength: arr.data.info.length, //请求过来的条数
-				dataSavePage: that.data.dataTodayPage + 1 // 统计加载次数
-			})
+			if (arr.code == 200) {
+				that.setData({
+					//todayList: arr.data.info,
+					// 然后重新写入数据
+					saveList: list.concat(arr.data.info), // 存储数据
+					dataSaveLength: arr.data.info.length, //请求过来的条数
+					dataSavePage: that.data.dataTodayPage + 1 // 统计加载次数
+				})
+			}else if(arr.code == 400){
+				that.setData({
+					saveHidden:false, //loading 隐藏掉
+				})
+			}
 		})
 	},
 	/**
@@ -64,43 +69,43 @@ Page({
 	 */
 	scrolltolower: function (e) {
 		var that = this;
-		
+
 		//console.log(that.data.dataTodayLength)
 		/* ------------------------- */
-        //if(!canUseReachBottom) return;//如果触底函数不可用，则不调用网络请求数据
-      /* ------------------------- */
+		//if(!canUseReachBottom) return;//如果触底函数不可用，则不调用网络请求数据
+		/* ------------------------- */
 		// 加载更多 loading
 		that.setData({
-		    todayhidden: true,
+			todayhidden: true,
 			wifihidden: false
 		})
-		if(that.data.dataTodayPage==1){
+		if (that.data.dataTodayPage == 1) {
 			//canUseReachBottom = false;
-			
-			that.ajaxDay(that.data.page,function (res) { 
+
+			that.ajaxDay(that.data.page, function (res) {
 				that.setData({
-					todayhidden: true,
+					saveHidden: true,
 					wifihidden: false
 				})
-			 })
-		}else {
+			})
+		} else {
 			//canUseReachBottom = false;
-			that.ajaxDay(that.data.dataTodayPage,function (res) { 
+			that.ajaxDay(that.data.dataTodayPage, function (res) {
 				that.setData({
-					todayhidden: true,
+					saveHidden: true,
 					wifihidden: false
 				})
-			 })
+			})
 		}
-		
+
 	},
 	//省技巧，接口数据
 	ajaxSave: function (param, fn) {
 		var that = this
 		//var todayPage=that.data.dataTodayPage
 		//console.log(param)
-		var ajaxData={
-            p: param
+		var ajaxData = {
+			p: param
 		}
 		util.saveAjax(ajaxData, function (res) {
 			//canUseReachBottom = true;//
@@ -108,7 +113,7 @@ Page({
 			//console.log(arr)
 			// 获取当前数据进行保存
 			var list = that.data.saveList;
-			
+
 			that.setData({
 				//todayList: arr.data.info,
 				// 然后重新写入数据

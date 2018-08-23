@@ -45,8 +45,8 @@
         <text class="wifihidden">网络不给力,请检查您的网络</text>
       </block>
       <block wx:else>
-        <block wx:if="{{hidden}}">
-          <image class="loading-gif" src="../../image/loading.gif"></image>
+        <block wx:if="{{saveHidden}}">
+          <image class="loading-gif" src="../../image/loading01.gif"></image>
           <text class="fz14">加载中...</text>
         </block>
         <block wx:else>
