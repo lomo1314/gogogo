@@ -231,6 +231,7 @@ Page({
             canvasMark: false, //蒙层展示
         })
         var context = wx.createCanvasContext('share')
+        var unit = that.data.screenWidth / 375;
         var path1 = that.data.commodityLis.api_headimg //分享图片地址
         var path2 = that.data.commodityLis.api_erwmpic // 分享图片二维码
         var erwema=""
@@ -253,8 +254,6 @@ Page({
             }
         })
         
-        
-        var unit = that.data.screenWidth / 375;
         //console.log(that.data.screenWidth)
         //var avatarUrl = that.data.avatarUrl
 
