@@ -134,6 +134,7 @@ radio {
 /*加载更多*/
 .loading-list {
     max-height: 180rpx;
+    padding-top: 30rpx;
     display: block;
     justify-content: center;
     align-items: center;

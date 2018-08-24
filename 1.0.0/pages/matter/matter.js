@@ -206,9 +206,16 @@ Page({
             success: function (res) {
                 wx.getClipboardData({
                     success: function (res) {
-                        that.setData({
-                            markHidden: false,
-                        })
+                        wx.showLoading({
+                            title: '请稍等',
+                            mask: true,
+                            duration: 500,
+                        });
+                        setTimeout(function () { 
+                            that.setData({
+                                markHidden: false,
+                            })
+                         },500)
                         
                     }
                 })
