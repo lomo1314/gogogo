@@ -41,6 +41,7 @@
   flex-direction: row;
   flex: 1;
   box-shadow:4px 4px 15px #860909;
+  position: relative;
 }
 
 .search-txt {
@@ -76,6 +77,13 @@
 .search-btn1::after {
   content: '';
   border: none;
+}
+.icon-sea{
+  width: 66rpx;
+  height: 34rpx;
+  position: absolute;
+  right: 20rpx;
+  top: 15rpx;
 }
 
 .search-no {

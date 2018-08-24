@@ -134,8 +134,12 @@ Page({
         // wx.reLaunch({
         //     url: '../index/index?id=1'
         // })
-        wx.navigateBack({
-            delta: 1
+        // wx.navigateBack({
+        //     delta: 4
+        // })
+        // 直接跳回首页
+        wx.switchTab({
+            url: '../index/index?id=1'
         })
     },
     //点击收藏

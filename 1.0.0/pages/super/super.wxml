@@ -9,6 +9,7 @@
         <icon class="search-btn" type="search" size="14" color="#b2b2b2" />
         <input class="search-txt" placeholder-class="search-pla" placeholder="搜索宝贝或复制宝贝标题" focus="{{true}}" type="text" bindinput="bindKeyInput"
           bindconfirm="bindconfirm" />
+          <image class="icon-sea" src="/image/icon-sou.png"></image>
       </view>
       <!-- <view class="fz16 search-no" bindtap="navigateBack">取消</view>		 -->
     </view>
