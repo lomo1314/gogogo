@@ -238,8 +238,7 @@ Page({
         
         var that = this;
         //手机端延迟
-        var path1 = that.data.thisPic //分享图片地址
-        var path2 = that.data.thisErwm // 分享图片二维码
+        
         // 接口数据
         var dataLis={
             id:that.data.matterId, //id
@@ -247,7 +246,7 @@ Page({
             pageurl:that.data.pageurl, //当前页面路径
         }
         //商品详情接口 数据为空，则调用备用接口数据
-        if(path1==""||path2==""){
+        if(that.data.thisPic==""||that.data.thisErwm==""){
             wx.request({
                 url: 'https://go.cnmo.com/index.php?g=api&m=detail&a=getImg',
                 data: dataLis,
@@ -260,6 +259,120 @@ Page({
                         thisPic:arr.data.api_headimg, //头图
                         thisErwm:arr.data.api_erwmpic //分享所用二维码
                     })
+                    var path1 = that.data.thisPic //分享图片地址
+                    var path2 = that.data.thisErwm // 分享图片二维码
+                    wx.showLoading({
+                        title: '正在生成图片...',
+                        mask: true,
+                        duration: 1000,
+                    });
+                    //设置画板显示，才能开始绘图
+                    that.setData({
+                        canvasHidden: false, //canvas 制图展示
+                        canvasMark: false, //蒙层展示
+                    })
+                    var context = wx.createCanvasContext('share')
+                    var unit = that.data.screenWidth / 375;
+                    var erwema=""
+                    wx.downloadFile({ //当图片为网络图片时，需要先下载到本地，再进行操作，
+                        url: path2, //否则canvas会加载不到图片，本地的无需这步骤
+                        success: function (res) {
+                            //console.log(res)
+                            path2 = res.tempFilePath
+                            context.drawImage(path2, unit * 15, unit * 374, unit * 90, unit * 90);
+                            context.draw(true, that.getTempFilePath);
+                        }
+                    })
+                    wx.downloadFile({ //当图片为网络图片时，需要先下载到本地，再进行操作，
+                        url: path1, //否则canvas会加载不到图片，本地的无需这步骤
+                        success: function (res) {
+                            //console.log(res)
+                            path1 = res.tempFilePath
+                            context.drawImage(path1, 0, 0, unit * 289, unit * 289)
+                            context.draw(true, that.getTempFilePath);
+                        }
+                    })
+                    
+                    //console.log(that.data.screenWidth)
+                    //var avatarUrl = that.data.avatarUrl
+            
+                    var proTit = that.data.commodityLis.title; //分享图片 标题
+                    
+                    context.fillStyle = "#FFF";
+                    context.fillRect(0, 0, unit * 289, unit * 500)
+                    // context.drawImage(path1, 0, 0, unit * 289, unit * 289)
+                    /**标题**/
+                    context.setFontSize(14)
+                    context.setFillStyle("#000")
+                    // context.fillText(proTit, 5, unit * 312)
+                    //画图文字换行，内容、画布、初始x、初始y、行高、画布宽
+                    that.changLine(true, proTit, context, unit * 15, unit * 312, 16, 265)
+                    //价格图片背景
+                    var prceBg = "/image/erwm_jian.png"
+                    context.fillStyle = "#FFF";
+                    context.drawImage(prceBg, unit * 15, unit * 340, unit * 256, unit * 25)
+                    /**价格**/
+                    //卷后价：
+                    var juan = that.data.commodityLis.coupon_price
+                    // 在售价：
+                    var perMon = that.data.commodityLis.price
+                    //销量
+                    var sal = that.data.commodityLis.volume
+                    context.setFontSize(11)
+                    context.setFillStyle("#fff")
+                    context.fillText('券后价:￥', unit * 23, unit * 356)
+                    context.fillText(juan, unit * 69, unit * 356)
+                    context.fillText('在售价:￥', unit * 120, unit * 356)
+                    context.fillText(perMon, unit * 167, unit * 356)
+                    context.fillText('销量:', unit * 203, unit * 356)
+                    context.fillText(sal, unit * 230, unit * 356)
+                    /**价格end**/
+            
+                    /**长按上方图片即可发送图片或保存图片**/
+                    context.fillStyle = "#f9f9d3";
+                    context.fillRect(0, unit * 470, unit * 289, unit * 32)
+                    context.setFontSize(11);
+                    context.setFillStyle("#1f1f1f")
+                    context.fillText("说明：", unit * 15, unit * 490)
+                    context.setFillStyle("#b9b985")
+                    context.fillText("长按上方图片即可发送图片或保存图片。", unit * 50, unit * 490)
+                    /**二维码**/
+                    //console.log(path2)
+                    //context.drawImage(path2, unit * 15, unit * 374, unit * 90, unit * 90);
+                    /** 长按二维码识别查看商品 */
+                    context.setFontSize(11);
+                    context.setFillStyle("#bcbcbc")
+                    //     context.fillText("长按二维码识别查看商品", unit * 147, unit * 455)
+                    //把画板内容绘制成图片，并回调 画板图片路径
+                    context.draw(false, function () {
+                        wx.canvasToTempFilePath({
+                            x: 0,
+                            y: 0,
+                            width: unit * 375,
+                            height: unit * 640,
+                            destWidth: unit * 375,
+                            destHeight: unit * 640,
+                            canvasId: 'share',
+                            success: function (res) {
+                                //console.log(res)
+                                that.setData({
+                                    shareImgPath: res.tempFilePath
+                                })
+                                if (!res.tempFilePath) {
+                                    wx.showModal({
+                                        title: '提示',
+                                        content: '图片绘制中，请稍后重试',
+                                        showCancel: false
+                                    })
+                                }
+                                //console.log(that.data.shareImgPath)
+                                that.setData({
+                                    FilePath: res.tempFilePath
+                                })
+                                //console.log(that.data.FilePath)
+                            }
+                        })
+                    });
                 },
                 fail: function() {
                     // fail
@@ -268,7 +381,11 @@ Page({
                     // complete
                 }
             })
-        }
+        }else{
+
+       
+        var path1 = that.data.thisPic //分享图片地址
+        var path2 = that.data.thisErwm // 分享图片二维码
         wx.showLoading({
             title: '正在生成图片...',
             mask: true,
@@ -381,6 +498,7 @@ Page({
                 }
             })
         });
+    }
     },
     //保存图片
     saveImageToPhotos: function () {
@@ -389,12 +507,12 @@ Page({
         })
         var that = this;
         var FilePath1 = that.data.FilePath
-        console.log(that.data.FilePath+"222")
+        //console.log(that.data.FilePath+"222")
         wx.saveImageToPhotosAlbum({
             filePath: FilePath1,
             //保存成功失败之后，都要隐藏画板，否则影响界面显示。
             success: (res) => {
-                console.log(res)
+               // console.log(res)
                 wx.hideLoading()
                 that.setData({
                     canvasHidden: true,
@@ -409,7 +527,7 @@ Page({
                 })
             },
             fail: (err) => {
-                console.log(err)
+                //console.log(err)
                 wx.hideLoading()
                 that.setData({
                     canvasHidden: true,

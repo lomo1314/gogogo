@@ -131,7 +131,14 @@ radio {
     border-bottom: 1px solid #eeeeee;
 }
 
+.search-txt {
+    flex: 1;
+    height: 100%;
+    line-height: 100%;
+}
+
 /*加载更多*/
+
 .loading-list {
     max-height: 180rpx;
     padding-top: 30rpx;
@@ -145,10 +152,11 @@ radio {
     width: 426rpx;
     height: 151rpx;
     margin-right: 10px;
-    display:block;
-    margin:0 auto
+    display: block;
+    margin: 0 auto
 }
-.nva-list{
+
+.nva-list {
     overflow: hidden;
     display: flex;
     flex-wrap: wrap;
@@ -162,6 +170,7 @@ radio {
     border-top-right-radius: 25rpx;
     padding: 15rpx 12rpx;
 }
+
 /*加载失败*/
 
 .wifihidden {
@@ -170,15 +179,18 @@ radio {
     text-align: center;
     font-size: 14px;
 }
-.wifihidden image{
+
+.wifihidden image {
     width: 426rpx;
     height: 151rpx;
     margin-right: 10px;
-    display:block;
-    margin:0 auto
+    display: block;
+    margin: 0 auto
 }
+
 /* 断网 */
-.badWline{
+
+.badWline {
     width: 100%;
     height: 180rpx;
     margin-top: 80rpx;
@@ -363,9 +375,11 @@ radio {
     display: inline-block;
     padding: 20rpx 60rpx;
 }
-.ify-listNav .nav-text.active{
+
+.ify-listNav .nav-text.active {
     color: #eb2e2e;
 }
+
 .nav-updown1 {
     height: 19rpx;
     width: 13rpx;
@@ -400,7 +414,6 @@ radio {
 .product-list-name {
     font-size: 22rpx;
     color: #121212;
-    
     /* overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap */

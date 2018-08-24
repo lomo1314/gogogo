@@ -213,7 +213,7 @@
     top:0;
     left: 0;
     background: rgba(0, 0, 0, .6);
-    z-index: 1233;
+    z-index: 123;
 }
 .tops_box{
     width: 100%;
@@ -233,7 +233,7 @@
     font-size: 24rpx;
     text-align: center;
     overflow: hidden;
-    z-index: 1233;
+    z-index: 123;
 }
 .box_h2{
     font-size: 32rpx;

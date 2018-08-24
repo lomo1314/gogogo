@@ -49,7 +49,7 @@ Page({
 		//console.log("5555555------666666")
 		//获取手机联网状态
 		wx.onNetworkStatusChange(function(res){
-			console.log(res)
+			//console.log(res)
 			if(res.networkType == "none"){
 			  that.setData({nonet: false})
 			}else{
