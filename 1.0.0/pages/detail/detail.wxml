@@ -2,7 +2,7 @@
 <!-- 省技巧，文章页 -->
 <!-- 识别html标签 -->
 <import src="/wxParse/wxParse.wxml"/>
-<view hidden="{{failhidden}}" class="failhidden">网络不给力，请检查您的网络</view>
+<!-- <view hidden="{{failhidden}}" class="failhidden">网络不给力，请检查您的网络</view> -->
 <!-- 省技巧，文本内容 -->
 <view>
 	<view class="banner">
@@ -26,7 +26,7 @@
 	<!-- 内容 -->
 	<view class="det-cont" scroll-y="true">
 		<view class="fz22 cont-news">
-				<template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+		 <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
 		</view>
 	</view>
 </view>

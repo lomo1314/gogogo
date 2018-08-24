@@ -16,14 +16,15 @@ Page({
         screenWidth: '', //设备屏幕宽度
         commId: "", //商品id
         matterId:"",//路径id
+        pageurl:"",// 当前页面地址
         markHidden: true, //蒙层开关
         FilePath: '', //路径
         canvasHidden: true, //设置画板的显示与隐藏，画板不隐藏会影响页面正常显示
         shareImgPath: '', //分享图片
         canvasMark: true, // 制图阴影背景 
-        // 暂存本地 二维码
+        //  二维码
         thisErwm:"",
-        //暂存本地 图片地址
+        // 图片地址
         thisPic:"",
 
 
@@ -38,7 +39,8 @@ Page({
         var num_iid = options.num_iid
         that.setData({
             commId: options.num_iid,
-            matterId:id
+            matterId:id,
+            pageurl:pageurl
         })
         //获取用户设备信息，屏幕宽度
         wx.getSystemInfo({
@@ -103,6 +105,8 @@ Page({
             }
             that.setData({
                 commodityLis: arr.data, //总数据
+                thisErwm:arr.data.api_erwmpic, // 二维码
+                thisPic:arr.data.api_headimg, // 头图
             })
         })
 
@@ -127,8 +131,11 @@ Page({
     //返回首页
     goHome: function () {
         var that = this
-        wx.reLaunch({
-            url: '../index/index?id=1'
+        // wx.reLaunch({
+        //     url: '../index/index?id=1'
+        // })
+        wx.navigateBack({
+            delta: 1
         })
     },
     //点击收藏
@@ -191,8 +198,7 @@ Page({
     }
         //if()
     },
-
-    // 点击复制吱口令
+    // 点击复制吱口令 2018-08-24 双提示？问题带修正
     copyText: function (e) {
         var that = this
         wx.setClipboardData({
@@ -201,8 +207,9 @@ Page({
                 wx.getClipboardData({
                     success: function (res) {
                         that.setData({
-                            markHidden: false
+                            markHidden: false,
                         })
+                        
                     }
                 })
             }
@@ -217,9 +224,40 @@ Page({
     },
     //定义的保存图片方法
     saveImageToPhotosAlbum: function () {
-
+        
         var that = this;
         //手机端延迟
+        var path1 = that.data.thisPic //分享图片地址
+        var path2 = that.data.thisErwm // 分享图片二维码
+        // 接口数据
+        var dataLis={
+            id:that.data.matterId, //id
+            num_iid:that.data.commId, // 商品id
+            pageurl:that.data.pageurl, //当前页面路径
+        }
+        //商品详情接口 数据为空，则调用备用接口数据
+        if(path1==""||path2==""){
+            wx.request({
+                url: 'https://go.cnmo.com/index.php?g=api&m=detail&a=getImg',
+                data: dataLis,
+                method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+                header: {'content-type': 'application/x-www-form-urlencoded',}, // 设置请求的 header
+                success: function(res){
+                    var arr=res.data
+                    console.log(arr)
+                    that.setData({
+                        thisPic:arr.data.api_headimg, //头图
+                        thisErwm:arr.data.api_erwmpic //分享所用二维码
+                    })
+                },
+                fail: function() {
+                    // fail
+                },
+                complete: function() {
+                    // complete
+                }
+            })
+        }
         wx.showLoading({
             title: '正在生成图片...',
             mask: true,
@@ -232,8 +270,6 @@ Page({
         })
         var context = wx.createCanvasContext('share')
         var unit = that.data.screenWidth / 375;
-        var path1 = that.data.commodityLis.api_headimg //分享图片地址
-        var path2 = that.data.commodityLis.api_erwmpic // 分享图片二维码
         var erwema=""
         wx.downloadFile({ //当图片为网络图片时，需要先下载到本地，再进行操作，
             url: path2, //否则canvas会加载不到图片，本地的无需这步骤

@@ -325,7 +325,8 @@ radio {
     top: 66rpx;
     left: 20rpx;
     z-index: 22;
-    width: 50rpx;
+    width: 80rpx;
+    height: 80rpx;
 }
 
 .go-back image {

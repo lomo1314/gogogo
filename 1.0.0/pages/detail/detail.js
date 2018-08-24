@@ -32,13 +32,19 @@ Page({
             success: function(res){
                 // success
                 var arr=res.data
-                var article =res.data.data.info
-                WxParse.wxParse('article', 'html', article, that,5); 
                 console.log(arr)
-                //写入数据组中
-                that.setData({
-                    essayCont:arr.data
-                })
+                if(arr.code==200){
+                    var article =res.data.data.info
+                    WxParse.wxParse('article', 'html', article, that,5); 
+                    console.log(arr)
+                    //写入数据组中
+                    that.setData({
+                        essayCont:arr.data
+                    })
+                }else if(arr.code==400){
+                    //
+                }
+                
                 
 
             },

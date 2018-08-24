@@ -81,9 +81,9 @@
 				<navigator hover-class="none" url="/pages/matter/matter?id={{item.id}}&num_iid={{item.num_iid}}">
 					<image class="list-img" src="{{item.pic_url}}"></image>
 					<view class="list-tit-name">{{item.title}}</view>
-					<view class="list-icon">
+					<!-- <view class="list-icon">
 						<image src="/image/icon-share.png"></image>
-					</view>
+					</view> -->
 					<text class="red-sign">券后:{{item.coupon_price}}</text>
 					<view class="list-text">
 						<text>原价:{{item.price}}</text>
@@ -105,9 +105,9 @@
 				<navigator hover-class="none" url="/pages/matter/matter?id={{item.id}}&num_iid={{item.num_iid}}">
 					<image class="list-img" src="{{item.pic_url}}"></image>
 					<view class="list-tit-name">{{item.title}}</view>
-					<view class="list-icon">
+					<!-- <view class="list-icon">
 						<image src="/image/icon-share.png"></image>
-					</view>
+					</view> -->
 					<text class="red-sign">券后:{{item.coupon_price}}</text>
 					<view class="list-text">
 						<text>原价:{{item.price}}</text>
