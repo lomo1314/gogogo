@@ -8,10 +8,10 @@
 <!-- 头部搜索框 -->
 <view>
 	<view class="banner">
-		<image src="/image/top_img.jpg"></image>
+		<image mode="widthFix" src="/image/top_img.jpg"></image>
 	</view>
 	<view class="ban-tip">
-		<image src="/image/top_img22.jpg"></image>
+		<image mode="widthFix" src="/image/top_img22.jpg"></image>
 	</view>
 	<form bindreset="formReset" bindtap="searchOpen">
 		<view class="search">
@@ -72,6 +72,7 @@
 	</view>
 	<!-- 广告位 end -->
 	<!-- 最热商品 -->
+	<view class="h20"></view>
 	<view class="home-hot">
 			
 		<!-- 图文 -->
@@ -84,9 +85,9 @@
 					<!-- <view class="list-icon">
 						<image src="/image/icon-share.png"></image>
 					</view> -->
-					<text class="red-sign">券后:{{item.coupon_price}}</text>
+					<text class="red-sign">券后:<text class="red-mon">￥{{item.coupon_price}}</text></text>
 					<view class="list-text">
-						<text>原价:{{item.price}}</text>
+						<text class="list-men">原价:{{item.price}}</text>
 						<text>销量:{{item.volume}}</text>
 						<view class="list-yh">
 							<image src="/image/icon-yh.png"></image>优惠:{{item.quan}} </view>
@@ -97,6 +98,7 @@
 	</view>
 	<!-- 最热商品 -end -->
 	<!-- 今日上新 -->
+	<view class="h20"></view>
 	<view class="home-new">
 		<!-- 图文 -->
 		<text class="til-h2">今日上新</text>
@@ -108,9 +110,9 @@
 					<!-- <view class="list-icon">
 						<image src="/image/icon-share.png"></image>
 					</view> -->
-					<text class="red-sign">券后:{{item.coupon_price}}</text>
+					<text class="red-sign">券后:<text class="red-mon">￥{{item.coupon_price}}</text></text>
 					<view class="list-text">
-						<text>原价:{{item.price}}</text>
+						<text class="list-men">原价:{{item.price}}</text>
 						<text>销量:{{item.volume}}</text>
 						<view class="list-yh">
 							<image src="/image/icon-yh.png"></image>优惠:{{item.quan}} </view>
@@ -128,7 +130,7 @@
 						<view class="fz14">加载中...</view>
 					</block>
 					<block wx:else>
-						<text class="fz14">我也是有底线的~</text>
+						<text class="fz14 colGar">我也是有底线的~</text>
 					</block>
 				</block>
 			</view>

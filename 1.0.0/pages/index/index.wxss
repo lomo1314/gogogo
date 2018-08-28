@@ -1,8 +1,15 @@
-.banner {}
+.banner {
+    width: 750rpx;
+    /* height: 311rpx; */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
 
 .banner image {
-    width: 100%;
-    height: 311rpx;
+    width: 750rpx;
+    /* height: 311rpx; */
     position: fixed;
     top: 0;
     left: 0;
@@ -110,24 +117,11 @@
     height: 106rpx;
 }
 
-.nva-list {
-    overflow: hidden;
-    display: flex;
-    flex-wrap: wrap;
-    width: 686rpx;
-    margin: 0 auto;
-    font-size: 24rpx;
-    line-height: 2;
-    background: #fff;
-    /* border-radius: 25rpx; */
-    border-top-left-radius: 25rpx;
-    border-top-right-radius: 25rpx;
-    padding: 15rpx 12rpx;
-}
+
 
 .nva-list navigator {
     float: left;
-    padding: 0 25rpx;
+    padding: 0 18rpx;
     color: #595959;
 }
 
@@ -181,8 +175,9 @@
 
 /* 最热商品 */
 .home-hot,.home-new{
-	padding-top: 15rpx;
-	background: #fff;
+    
+    /* margin-top: 15rpx; */
+	
 }
 .fl {
     float: left;
@@ -208,7 +203,7 @@
 }
 
 .list-tit-name {
-    font-size: 24rpx;
+    font-size: 28rpx;
     color: #121212;
     width: 342rpx;
     overflow: hidden;
@@ -231,28 +226,13 @@
 } */
 
 
-.list-text {
-	font-size: 16rpx;
+/* .list-text {
+	font-size: 18rpx;
 	color: #7a7a7a;
 	margin-bottom: 15rpx;
-}
-.list-text text{
-	margin-right: 20rpx;
-}
-.list-text .list-yh {
-	float: right;
-	color: #ff0000;
-	padding: 2rpx 5rpx 2rpx 10rpx;
-	border: 1px solid #ff0000;
-	border-radius: 25rpx;
-}
-.list-text .list-yh image{
-	width: 15rpx;
-	height: 15rpx;
-	vertical-align: middle;
-	margin-top: -2rpx;
-	margin-right: 3rpx;
-}
+} */
+
+
 .list-icon {
     width: 120rpx;
     height: 120rpx;
@@ -270,8 +250,17 @@
 	margin-left: 28rpx;
 }
 .til-h2 {
-    padding: 0 20rpx;
     font-size: 36rpx;
     color: #393939;
     font-weight: 700;
+    display: block;
+    width: 720rpx;
+    margin: 0 auto;
+    background: #fff;
+}
+.h20{
+    height: 20rpx;
+    background: #fff;
+    width: 720rpx;
+    margin: 0 auto;
 }

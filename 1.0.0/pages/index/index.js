@@ -61,7 +61,7 @@ Page({
 			success: function (res) {
 				that.setData({
 					winWidth: res.windowWidth,
-					winHeight: res.windowHeight - 145
+					winHeight: res.windowHeight - 106
 				});
 			}
 		});
@@ -82,7 +82,7 @@ Page({
 		//广告接口数据
 		util.advertising(function (res) {
 			var arr = res.data
-			//console.log(arr.data.info)
+			console.log(res)
 			that.setData({
 				advertising:arr.data.info,
 				advTotal:arr.data.total

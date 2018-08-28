@@ -181,3 +181,6 @@
 .searchNav {
     top: 238rpx;
 }
+.product-list-des{
+    margin-top: 28rpx;
+}

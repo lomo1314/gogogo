@@ -4,7 +4,10 @@
   </loading> -->
 <!-- 头图 -->
 <view class="matter-head">
-
+  <!-- 返回按钮 -->
+	<view class="go-back01" bindtap="navigateBack">
+		<image src="/image/go-back001.png"></image>
+	</view>
   <!-- 首页按钮 -->
   <view class="home-btn" bindtap="goHome">
     <image src="/image/home-btn.png"></image>
@@ -31,7 +34,7 @@
   </view>
   <!-- 标题 -->
   <view class="matter-til">
-    <text class="mTxet fz22">{{commodityLis.title}}</text>
+    <text class="mTxet fz28">{{commodityLis.title}}</text>
     <view class="mat-ul">
       <view class="mat-cond fl">
         <image src="/image/matter-gou.png"></image>
@@ -45,14 +48,14 @@
         <image src="/image/matter-gou.png"></image>
         <text class="fz16">24小时内发货</text>
       </view>
-      <view class="mat-cond fl">
+      <!-- <view class="mat-cond fl">
         <image src="/image/matter-gou.png"></image>
         <text class="fz16">集分宝</text>
-      </view>
-      <view class="mat-cond fl">
+      </view> -->
+      <!-- <view class="mat-cond fl">
         <image src="/image/matter-gou.png"></image>
         <text class="fz16">支付宝支付</text>
-      </view>
+      </view> -->
     </view>
     <!-- 右侧 收藏 -->
     <view class="mCollect" bindtap="collBind">
@@ -93,7 +96,7 @@
     <view class="mar-btton fr">
       <view class="fl fz22 mr-Abtn mr-bg01" bindtap="collBind">{{ensType}}</view>
       <block wx:if="{{commodityLis.is_quan==1}}">
-        <view bindtap="copyText" class="fl fz22 mr-Abtn mr-bg02" data-text="{{commodityLis.api_quanurl}}">口令购买</view>
+        <view bindtap="copyText" class="fl fz22 mr-Abtn mr-bg02" data-text="{{commodityLis.api_quanurl}}">领券购买</view>
       </block>
       <block wx:else>
         <view bindtap="copyText" class="fl fz22 mr-Abtn mr-bg02" data-text="{{commodityLis.api_quanurl}}">立即购买</view>

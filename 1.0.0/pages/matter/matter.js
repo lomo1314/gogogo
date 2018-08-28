@@ -614,5 +614,13 @@ Page({
       })
     }
   },
+  //   返回上一页
+	navigateBack: function () {
+		var self = this;
+		var pages = getCurrentPages();
+		wx.navigateBack({
+			changed: true
+		}); //返回上一页
+	},
 
 })

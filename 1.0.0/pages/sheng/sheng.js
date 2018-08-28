@@ -36,7 +36,7 @@ Page({
 			success: function (res) {
 				that.setData({
 					winWidth: res.windowWidth,
-					winHeight: res.windowHeight - 145
+					winHeight: res.windowHeight - 45
 				});
 			}
 		});
@@ -56,9 +56,9 @@ Page({
 					dataSaveLength: arr.data.info.length, //请求过来的条数
 					dataSavePage: that.data.dataTodayPage + 1 // 统计加载次数
 				})
-			}else if(arr.code == 400){
+			} else if (arr.code == 400) {
 				that.setData({
-					saveHidden:false, //loading 隐藏掉
+					saveHidden: false, //loading 隐藏掉
 				})
 			}
 		})
@@ -82,7 +82,7 @@ Page({
 		if (that.data.dataTodayPage == 1) {
 			//canUseReachBottom = false;
 
-			that.ajaxDay(that.data.page, function (res) {
+			that.ajaxSave(that.data.page, function (res) {
 				that.setData({
 					saveHidden: true,
 					wifihidden: false
@@ -90,7 +90,7 @@ Page({
 			})
 		} else {
 			//canUseReachBottom = false;
-			that.ajaxDay(that.data.dataTodayPage, function (res) {
+			that.ajaxSave(that.data.dataTodayPage, function (res) {
 				that.setData({
 					saveHidden: true,
 					wifihidden: false
@@ -110,17 +110,21 @@ Page({
 		util.saveAjax(ajaxData, function (res) {
 			//canUseReachBottom = true;//
 			var arr = res.data
-			//console.log(arr)
-			// 获取当前数据进行保存
-			var list = that.data.saveList;
+			console.log(arr)
+			if (arr.code == 200) {
+				// 获取当前数据进行保存
+				var list = that.data.saveList;
 
-			that.setData({
-				//todayList: arr.data.info,
-				// 然后重新写入数据
-				saveList: list.concat(arr.data.info), // 存储数据
-				dataSaveLength: arr.data.info.length, //请求过来的条数
-				dataSavePage: that.data.dataTodayPage + 1 // 统计加载次数
-			})
+				that.setData({
+					//todayList: arr.data.info,
+					// 然后重新写入数据
+					saveList: list.concat(arr.data.info), // 存储数据
+					dataSaveLength: arr.data.info.length, //请求过来的条数
+					dataSavePage: that.data.dataTodayPage + 1 // 统计加载次数
+				})
+			} else if (arr.code == 400) {
+				saveHidden: false
+			}
 		})
 
 	},

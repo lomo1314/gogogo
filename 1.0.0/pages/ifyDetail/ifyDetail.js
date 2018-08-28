@@ -11,7 +11,7 @@ Page({
 		dataSyn: [],
 		dataSynLength: 0, //请求过来的条数
 		dataSynPage: 1, //当前页面
-		synhidden: false, // 显示加载更多 loading
+		synhidden: true, // 显示加载更多 loading
 		hidden: true, // loading
 		wifihidden: false, //网络不可用
 		refresh: false,
@@ -22,6 +22,7 @@ Page({
 		screenWidth: '', //设备屏幕宽度
 		listhidden: false, // 无数据时
 		catalogSelect: 0, //判断是否选中
+		minHeight:"", //无数据是，有底线，几个字展示
 
 	},
 	onLoad: function (options) {
@@ -119,16 +120,27 @@ Page({
 			if (res.data.code == 200) {
 				var list = that.data.dataSyn;
 				// 然后重新写入数据
+				
 				that.setData({
+					synhidden: true,
 					dataSyn: list.concat(arr.info), // 存储数据
 					dataSynLength: arr.info.length, //请求过来的条数
 					dataSynPage: that.data.dataSynPage + 1 // 统计加载次数
 				});
+				
+				if(arr.info.length<4){
+					that.setData({
+						synhidden: false,
+						minHeight:"minHeight"
+					})
+			      }
 			} else if (res.data.code == 400) {
 				that.setData({
 					dataSyn: [],
 					synhidden: false,
 					tagNames: e.currentTarget.dataset.name,
+					minHeight:"minHeight"
+					
 				})
 			}
 		})
@@ -283,9 +295,16 @@ Page({
 					dataSynLength: arr.info.length, //请求过来的条数
 					dataSynPage: that.data.dataSynPage + 1 // 统计加载次数
 				});
+				if(arr.info.length<4){
+					that.setData({
+						synhidden: false,
+						minHeight:"minHeight"
+					})
+			      }
 			} else if (res.data.code == 400) {
 				that.setData({
 					synhidden: false,
+					minHeight:"minHeight"
 				})
 
 			}
@@ -317,13 +336,15 @@ Page({
 		//console.log(that.data.dataSynPage)
 		that.setData({
 			synhidden: true,
-			wifihidden: false
+			wifihidden: false,
+			minHeight:""
 		})
 
 		// 如果加载数据超过10条
 		if (this.data.dataSynLength < 10) {
 			that.setData({
-				synhidden: false
+				synhidden: false,
+				minHeight:""
 			})
 		} else {
 			//console.log(that.data.dataSynPage+"综合页码数",that.data.page)

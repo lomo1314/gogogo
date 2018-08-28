@@ -46,7 +46,7 @@ Page({
 			success: function (res) {
 				that.setData({
 					winWidth: res.windowWidth,
-					winHeight: res.windowHeight - 38
+					winHeight: res.windowHeight - 108
 				});
 			}
 		});

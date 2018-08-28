@@ -20,8 +20,8 @@
 <view>
 	<!-- 标题 -->
 	<view class="det-til">
-		<text class="fz24">{{essayCont.title}}</text>
-		<text class="fz16">{{essayCont.add_time}}</text>
+		<text class="fz28">{{essayCont.title}}</text>
+		<text class="fz22">{{essayCont.add_time}}</text>
 	</view>
 	<!-- 内容 -->
 	<view class="det-cont" scroll-y="true">

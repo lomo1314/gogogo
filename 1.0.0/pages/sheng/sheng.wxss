@@ -25,6 +25,7 @@
     margin: 0 auto;
     background: #fff;
     border-radius: 25rpx;
+    min-height: 180rpx;
 }
 
 .skill-txt,
@@ -44,7 +45,7 @@
 }
 
 .skill-p {
-    font-size: 22rpx;
+    font-size: 26rpx;
     color: #121212;
     padding-left: 26rpx;
     padding-bottom: 10rpx;

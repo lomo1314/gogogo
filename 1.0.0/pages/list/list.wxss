@@ -67,7 +67,7 @@ width: 100%;
   margin-top: 5rpx;
 }
 .list-til{
-  font-size: 22rpx;
+  font-size: 26rpx;
   /* color: #eb2f2e; */
   color: #393939;
 }

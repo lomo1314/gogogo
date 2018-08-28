@@ -33,7 +33,7 @@
 	</view>
 </view>
 <!-- 收藏内容 -->
-<scroll-view wx:if="{{nonet}}" scroll-y="true" style="height:{{winHeight}}px" upper-threshold="50" lower-threshold="50" scroll-top='{{topNum}}' scroll-with-animation="5s" bindscroll="scrolltoupper">
+<scroll-view wx:if="{{nonet}}" scroll-y="true" style="height:{{winHeight}}px" upper-threshold="100" lower-threshold="100" scroll-top='{{topNum}}' scroll-with-animation="5s" bindscroll="scrolltoupper">
 <view  class="en-cont">
 	<block wx:if="{{hiddenTips}}">
 		<view class="en-item">

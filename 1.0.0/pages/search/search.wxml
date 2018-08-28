@@ -70,7 +70,7 @@
 								<text>销量:{{item.volume}}</text>
 							</view>
 							<view class="product-list-des">
-								<text class="roll-disc">券后:{{item.coupon_price}}</text>
+								<text class="roll-disc">券后:<text class="red-mon">￥{{item.coupon_price}}</text></text>
 								<text class="tianmao"></text>
 								<block wx:if="{{item.shop_type=='B'}}">
 									<view class="roll fr">

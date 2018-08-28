@@ -16,13 +16,20 @@
 }
 .det-til {
     position: fixed;
-    top: 70rpx;
+    top: 67rpx;
 	left: 68rpx;
 	z-index: 222;
 }
 .det-til text{
 	display: block;
 	color: #fff;
+	width: 512rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    align-content: center;
 }
 .det-cont{
 	width: 710rpx;
@@ -39,7 +46,7 @@
 }
 .WxEmojiView{
 	padding: 20rpx 25rpx 26rpx;
-	font-size: 22rpx;
+	font-size: 26rpx;
 }
 .det-cont .wxParse-p image{
 	width: 710rpx;

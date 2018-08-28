@@ -28,6 +28,9 @@ page {
 .fz24 {
     font-size: 24rpx;
 }
+.fz28{
+    font-size: 28rpx;
+}
 
 .green {
     color: #44aeb1;
@@ -90,6 +93,11 @@ page {
     background-color: #fff;
 }
 
+.widthFix{
+    border: 0;
+    widows: 100%;
+}
+
 checkbox,
 radio {
     margin-right: 10rpx;
@@ -140,7 +148,7 @@ radio {
 /*加载更多*/
 
 .loading-list {
-    max-height: 180rpx;
+    max-height: 200rpx;
     padding-top: 30rpx;
     display: block;
     justify-content: center;
@@ -162,7 +170,7 @@ radio {
     flex-wrap: wrap;
     width: 686rpx;
     margin: 0 auto;
-    font-size: 24rpx;
+    font-size: 30rpx;
     line-height: 2;
     background: #fff;
     /* border-radius: 25rpx; */
@@ -264,7 +272,7 @@ radio {
 }
 
 .list-tit-name {
-    font-size: 24rpx;
+    font-size: 28rpx;
     color: #121212;
     width: 342rpx;
     overflow: hidden;
@@ -275,40 +283,52 @@ radio {
 .red-sign {
     position: absolute;
     left: 0;
-    top: 300rpx;
-    font-size: 16rpx;
+    top: 285rpx;
+    font-size: 18rpx;
     color: #fff;
-    width: 103rpx;
-    height: 28rpx;
-    line-height: 28rpx;
+    width: 162rpx;
+    height: 41rpx;
+    line-height: 41rpx;
     padding-left: 12rpx;
     background-image: url(http://go.cnmo.com/static/newpi/images/api/icon-biao.png);
-    background-size: 115rpx 28rpx;
+    background-size: 174rpx 41rpx;
+}
+.red-mon{
+    font-size: 26rpx;
 }
 
 .list-text {
-    font-size: 16rpx;
+    font-size: 20rpx;
     color: #7a7a7a;
     margin-bottom: 15rpx;
+    margin-top: 5rpx;
+    position: relative;
 }
-
-.list-text text {
+/* .mr20{
+    margin-right: 20rpx;
+} */
+.list-text .list-men{
     margin-right: 20rpx;
 }
 
 .list-text .list-yh {
     float: right;
     color: #ff0000;
-    padding: 2rpx 5rpx 2rpx 10rpx;
+    padding: 2rpx 10rpx 2rpx 10rpx;
     border: 1px solid #ff0000;
     border-radius: 25rpx;
+   
+    position: absolute;
+    right: 0;
+    top: -3rpx;
+    
 }
 
 .list-text .list-yh image {
-    width: 15rpx;
-    height: 15rpx;
+    width: 18rpx;
+    height: 18rpx;
     vertical-align: middle;
-    margin-top: -2rpx;
+    margin-top: -3rpx;
     margin-right: 3rpx;
 }
 
@@ -328,24 +348,35 @@ radio {
     margin-top: 77rpx;
     margin-left: 28rpx;
 }
+.colGar{
+    color:#7a7a7a;
+}
 
 /* 页面产品--------展示公共 */
 
 /* 返回按钮 --- 整站通用 */
 
+
+.minHeight{
+position: absolute;
+bottom: 30rpx;
+left: 50%;
+transform: translate(-50%, -50%);
+}
 .go-back {
     position: fixed;
     top: 66rpx;
     left: 20rpx;
     z-index: 22;
-    width: 80rpx;
-    height: 80rpx;
+    width: 100rpx;
+    height: 100rpx;
 }
 
 .go-back image {
-    width: 16rpx;
-    height: 27rpx;
+    width: 24rpx;
+    height: 24rpx;
 }
+
 
 /* 返回按钮 end */
 
@@ -360,20 +391,22 @@ radio {
 .ify-listNav {
     width: 710rpx;
     height: 88rpx;
+    border-top-left-radius: 35rpx;
+    border-top-right-radius: 35rpx;
     border-radius: 35rpx;
     background: #fff;
     position: fixed;
     top: 285rpx;
     left: 20rpx;
     z-index: 2;
-    font-size: 22rpx;
+    font-size: 28rpx;
     color: #7a7a7a;
 }
 
 .ify-listNav .nav-text {
     text-align: center;
     display: inline-block;
-    padding: 20rpx 60rpx;
+    padding: 20rpx 55rpx;
 }
 
 .ify-listNav .nav-text.active {
@@ -412,11 +445,16 @@ radio {
 }
 
 .product-list-name {
+    width: 420rpx;
     font-size: 22rpx;
     color: #121212;
-    /* overflow: hidden;
+  overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  align-content: center;
+
 }
 
 .product-list-price {
@@ -424,7 +462,7 @@ radio {
 }
 
 .product-list-price text {
-    font-size: 15rpx;
+    font-size: 18rpx;
     color: #7a7a7a;
 }
 
@@ -434,13 +472,13 @@ radio {
 
 .roll-disc {
     display: inline-block;
-    width: 104rpx;
-    height: 24rpx;
-    line-height: 24rpx;
-    padding-left: 10rpx;
-    background-image: url(http://go.cnmo.com/static/newpi/images/api/hot-juan.png);
-    background-size: 114rpx 24rpx;
-    font-size: 16rpx;
+    width: 162rpx;
+    height: 41rpx;
+    line-height: 41rpx;
+    padding-left: 12rpx;
+    background-image: url(http://go.cnmo.com/static/newpi/images/api/icon-biao.png);
+    background-size: 174rpx 41rpx;
+    font-size: 20rpx;
     color: #fff;
     margin-right: 20rpx;
 }
@@ -472,13 +510,13 @@ radio {
 }
 
 .roll text {
-    font-size: 16rpx;
+    font-size: 20rpx;
     color: #fff;
-    line-height: 5;
+    line-height: 4;
 }
 
 .rank-list-main {
-    height: 104rpx;
+    /* height: 104rpx; */
     padding-top: 30rpx;
     width: 420rpx;
 }
@@ -501,4 +539,11 @@ radio {
     width: 60rpx;
     height: 60rpx;
     z-index: 123;
+}
+.product-list-des{
+     margin-top: 34rpx;  
+}
+button::after {
+    border-radius: 0;
+    border: 0;
 }
