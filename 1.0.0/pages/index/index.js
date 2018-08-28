@@ -59,6 +59,7 @@ Page({
 	  
 		wx.getSystemInfo({
 			success: function (res) {
+				console.log(res.windowHeight)
 				that.setData({
 					winWidth: res.windowWidth,
 					winHeight: res.windowHeight - 106

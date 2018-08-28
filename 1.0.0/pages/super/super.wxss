@@ -139,23 +139,27 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  font-size: 22rpx;
+  font-size: 28rpx;
   color: #121212;
 }
 .til-text{
-  font-size: 18rpx;
+  font-size: 24rpx;
   color: #eb2e2e;
 }
 .hotImg-juan{
-  width: 85rpx;
-  height: 24rpx;
-  padding-left: 10rpx;
-  background-image: url(http://go.cnmo.com/static/newpi/images/api/super-juan.png);
-  background-size: 95rpx 24rpx;
   position: absolute;
   left: 0;
   bottom: 85rpx;
   color: #fff;
+   width: 162rpx;
+    height: 41rpx;
+    line-height: 41rpx;
+    padding-left: 12rpx;
+    background-image: url(http://go.cnmo.com/static/newpi/images/api/icon-biao.png);
+    background-size: 174rpx 41rpx;
+    font-size: 20rpx;
+    color: #fff;
+    
 }
 
 .classify{

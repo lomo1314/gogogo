@@ -64,7 +64,6 @@ Page({
 				dataCols: arr.data.info, //产品数据
 				cateMore: arr.data.cate // 产品分类
 			})
-
 		})
 
 	},

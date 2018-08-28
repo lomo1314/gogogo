@@ -31,7 +31,7 @@ Page({
 		wx.getSystemInfo({
 			success: function (res) {
 				that.setData({
-					winHeight: res.windowHeight,
+					winHeight: res.windowHeight +50,
 					screenWidth: res.screenWidth
 				});
 			}

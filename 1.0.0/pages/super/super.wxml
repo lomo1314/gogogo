@@ -29,7 +29,7 @@
       <block wx:for="{{topicHot}}" wx:key="topicHot.index"> 
             <navigator url="../matter/matter?id={{item.id}}&num_iid={{item.num_iid}}" class="hotBoxs" hover-class="none">
               <image mode="scaleToFill" src="{{item.pic_url}}" />
-              <view class="hotImg-juan fz16" wx:if="{{item.quan}}" >券 ¥{{item.quan}}</view>
+              <view class="hotImg-juan fz16" wx:if="{{item.quan}}" >券<text class="red-mon">￥{{item.quan}}</text></view>
               <view class="til-h2">{{item.title}}</view>
               <view class="til-text">¥ {{item.coupon_price}}</view>
             </navigator>

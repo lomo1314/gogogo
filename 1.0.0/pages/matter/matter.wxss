@@ -261,7 +261,7 @@
     color: #bcbcbc;
 }
 .box_btn{
-    width: 100%;
+    width: 102%;
     height: 78rpx;
     line-height: 78rpx;
     background: #eb2e2e;
@@ -301,4 +301,7 @@
 }
 .Ckeep{
     background-image: url(http://go.cnmo.com/static/newpi/images/api/canvasKeep.png)
+}
+.go-top{
+    bottom: 120rpx;
 }

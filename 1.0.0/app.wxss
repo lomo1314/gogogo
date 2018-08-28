@@ -317,11 +317,9 @@ radio {
     padding: 2rpx 10rpx 2rpx 10rpx;
     border: 1px solid #ff0000;
     border-radius: 25rpx;
-   
     position: absolute;
     right: 0;
-    top: -3rpx;
-    
+    top: -3rpx; 
 }
 
 .list-text .list-yh image {

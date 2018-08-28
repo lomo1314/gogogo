@@ -33,8 +33,10 @@
 	</view>
 </view>
 <!-- 收藏内容 -->
-<scroll-view wx:if="{{nonet}}" scroll-y="true" style="height:{{winHeight}}px" upper-threshold="100" lower-threshold="100" scroll-top='{{topNum}}' scroll-with-animation="5s" bindscroll="scrolltoupper">
-<view  class="en-cont">
+<scroll-view class="swiper-box" wx:if="{{nonet}}" scroll-y="true" style="height:{{winHeight}}px" upper-threshold="100" lower-threshold="100" scroll-top='{{topNum}}' scroll-with-animation="5s" bindscroll="scrolltoupper">
+<!-- 返回顶部-->
+<!-- <image class="go-top" src="/image/go-top.png" hidden='{{!floorstatus}}' bindtap="goTop"></image> -->
+	<view  class="en-cont">
 	<block wx:if="{{hiddenTips}}">
 		<view class="en-item">
 			<view class="list rank-list touch-item {{item.isTouchMove ? 'touch-move-active' : ''}} " wx:for="{{dataCols}}" wx:key="dataCols.index"
@@ -77,5 +79,4 @@
 			</view>
 </scroll-view>
 <!-- 内容项end -->
-<!-- 返回顶部-->
-<image class="go-top" src="/image/go-top.png" hidden='{{!floorstatus}}' bindtap="goTop"></image>
+

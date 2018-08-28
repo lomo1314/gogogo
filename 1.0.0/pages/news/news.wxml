@@ -20,7 +20,7 @@
 <view>
 	<!-- 标题 -->
 	<view class="det-til">
-		<text class="fz24">{{newsTitle}}</text>
+		<text class="fz28">{{newsTitle}}</text>
 	</view>
 	<!-- 内容 -->
 	<view class="det-cont" scroll-y="true">
