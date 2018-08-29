@@ -354,8 +354,8 @@ Page({
                             y: 0,
                             width: unit * 375,
                             height: unit * 640,
-                            destWidth: unit * 375,
-                            destHeight: unit * 640,
+                            destWidth: unit * 750,
+                            destHeight: unit * 1280,
                             canvasId: 'share',
                             success: function (res) {
                                 that.setData({
@@ -478,8 +478,8 @@ Page({
                     y: 0,
                     width: unit * 375,
                     height: unit * 640,
-                    destWidth: unit * 375,
-                    destHeight: unit * 640,
+                    destWidth: unit * 750,
+                    destHeight: unit * 1280,
                     canvasId: 'share',
                     success: function (res) {
                         //console.log(res)
@@ -558,7 +558,7 @@ Page({
         var line = '';
         var lineCount = 0;
         var isThreeLine = false;
-        var lingth = arrText.slice(0, 50)
+        var lingth = arrText.slice(0, 40)
         //console.log(arrText,lingth)
         for (var n = 0; n < lingth.length; n++) {
             var testLine = line + arrText[n];

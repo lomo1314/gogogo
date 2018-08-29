@@ -24,13 +24,15 @@
 	display: block;
 	color: #fff;
 	width: 512rpx;
-    overflow: hidden;
+	font-size: 30rpx;
+    /* overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
-    align-content: center;
+    align-content: center; */
 }
+
 .det-cont{
 	width: 710rpx;
 	margin: 0 auto;
@@ -46,7 +48,7 @@
 }
 .WxEmojiView{
 	padding: 20rpx 25rpx 26rpx;
-	font-size: 26rpx;
+	font-size: 28rpx;
 }
 .det-cont .wxParse-p image{
 	width: 710rpx;

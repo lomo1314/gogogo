@@ -31,6 +31,9 @@ page {
 .fz28{
     font-size: 28rpx;
 }
+.fz30{
+    font-size: 30rpx;
+}
 
 .green {
     color: #44aeb1;
@@ -363,7 +366,7 @@ transform: translate(-50%, -50%);
 }
 .go-back {
     position: fixed;
-    top: 66rpx;
+    top: 72rpx;
     left: 20rpx;
     z-index: 22;
     width: 100rpx;
@@ -371,8 +374,8 @@ transform: translate(-50%, -50%);
 }
 
 .go-back image {
-    width: 24rpx;
-    height: 24rpx;
+    width: 32rpx;
+    height: 32rpx;
 }
 
 
@@ -391,7 +394,6 @@ transform: translate(-50%, -50%);
     height: 88rpx;
     border-top-left-radius: 35rpx;
     border-top-right-radius: 35rpx;
-    border-radius: 35rpx;
     background: #fff;
     position: fixed;
     top: 285rpx;

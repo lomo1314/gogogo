@@ -20,7 +20,7 @@
       <image src="/image/fenxiang.png"></image>
     </button>
     <!-- 制作二维码图 -->
-    <view class="zt-box" bindtap="saveImageToPhotosAlbum">
+    <view wx:if="{{commodityLis.is_show==1}}" class="zt-box" bindtap="saveImageToPhotosAlbum">
       <image src="/image/zhitu.png"></image>
     </view>
   </view>
