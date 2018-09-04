@@ -378,7 +378,6 @@ transform: translate(-50%, -50%);
     height: 32rpx;
 }
 
-
 /* 返回按钮 end */
 
 .flex-ver {
@@ -386,7 +385,6 @@ transform: translate(-50%, -50%);
     justify-content: flex-start;
     align-items: center;
 }
-
 /* 综合 四项  */
 
 .ify-listNav {

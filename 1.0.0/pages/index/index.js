@@ -83,11 +83,17 @@ Page({
 		//广告接口数据
 		util.advertising(function (res) {
 			var arr = res.data
-			console.log(res)
-			that.setData({
-				advertising:arr.data.info,
-				advTotal:arr.data.total
-			})
+			if(arr.code==200){
+				that.setData({
+					advertising:arr.data.info,
+					advTotal:arr.data.total
+				})
+			}else if(arr.code==400){
+				that.setData({
+					advertising:""
+				})
+			}
+			
 		})
 		//最热商品 接口 
 		var horData = {
