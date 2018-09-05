@@ -110,7 +110,7 @@
   <view class="tops_box">
     <view class="box_cont">
       <view class="box_h2">温馨提示</view>
-      <text>复制成功！打开手机淘宝下单即可</text>
+      <text>复制成功！</text>
       <view bindtap="closeMark" class="box_btn">我知道了</view>
     </view>
   </view>

@@ -254,9 +254,10 @@
     color: #393939;
     font-weight: 700;
     display: block;
-    width: 720rpx;
+    width: 710rpx;
     margin: 0 auto;
     background: #fff;
+    padding-left: 20rpx;
 }
 .h20{
     height: 20rpx;
