@@ -485,7 +485,7 @@ transform: translate(-50%, -50%);
     display: inline-block;
     width: 85rpx;
     height: 18rpx;
-    background-image: url(http://go.cnmo.com/static/newpi/images/api/icon-mao.png);
+    background-image: url(http://go.cnmo.com/static/newpi/images/api/icon-mao10.png);
     background-size: 85rpx 18rpx;
     vertical-align: middle;
     margin-top: 15rpx;
